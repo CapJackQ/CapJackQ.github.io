@@ -86,7 +86,7 @@
 <meta property="og:description" content="AngularJS应用的基本元素：模版(template)、指令(directive)、作用域(scope)、控制器(controller) 认识AngularJS依赖注入(dependency injection)系统 理解AngularJS与其它库和框架的区别  采用JavaScript编写的客户端(Client-Side)MVC框架，编写现代化的单页面应用。尤其适合大量的CRUD(增删改查">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1flwonpt54cj30o60fsn0k.jpg">
-<meta property="og:updated_time" content="2017-11-28T07:23:05.228Z">
+<meta property="og:updated_time" content="2017-11-28T07:27:44.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS 学习笔记（一）">
 <meta name="twitter:description" content="AngularJS应用的基本元素：模版(template)、指令(directive)、作用域(scope)、控制器(controller) 认识AngularJS依赖注入(dependency injection)系统 理解AngularJS与其它库和框架的区别  采用JavaScript编写的客户端(Client-Side)MVC框架，编写现代化的单页面应用。尤其适合大量的CRUD(增删改查">
@@ -407,8 +407,6 @@
 <p><code>ng-repeat</code>指令为国家集合中每个国家创建新的DOM元素。指令的语法很容易理解，对应每项创建新变量country，并暴露给<code>$scope</code>以在视图中渲染。</p>
 <p>但此处有个问题，对应每个country，都有个新变量要暴露给<code>$scope</code>，而又不能覆盖之前变量的值。为解决此问题，AngularJS给集合中每个元素创建新的作用域。</p>
 </li>
-</ol>
-<ol>
 <li><p>作用域层级和继承</p>
 <p>作用域中定义的属性对所有自作用域是可见的，只要子作用域没有定义同名的属性。</p>
 <p>在之前的示例基础上，想显示出居住在给定国家的人口占世界人口的百分比。为了满足此需求，在<code>WorlCtrl</code>管理的作用域中定义<code>worldsPercentage</code>函数</p>
@@ -417,8 +415,6 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"country in countries"</span>&gt;</span></span><br><span class="line">	&#123;&#123;country.name&#125;&#125; has population of &#123;&#123;country.population&#125;&#125;,</span><br><span class="line">	&#123;&#123;worldsPercentage(country.population)&#125;&#125; % of the World's population</span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>AngularJS中的作用域继承inheritance和JavaScript中的原型继承prototypical inheritance遵循同样的原则(沿继承树向上查找属性，直至找到为止)。</p>
 </li>
-</ol>
-<ol>
 <li><p>在作用域层级中继承的风险</p>
 <p>进行读操作read access时，作用域层级的继承关系直观易懂。然而，进行写操作write access时情况就有些复杂了。</p>
 <p>在父作用域中定义变量，而在子作用域中不管它会如何</p>
