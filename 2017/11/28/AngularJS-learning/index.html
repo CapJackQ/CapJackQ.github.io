@@ -66,6 +66,7 @@
 
 
 
+  <meta name="keywords" content="AngularJS," />
 
 
 
@@ -75,13 +76,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hello | Totoro">
-<meta property="og:url" content="http://yoursite.com/index.html">
+
+<meta name="description" content="AngularJS应用的基本元素：模版(template)、指令(directive)、作用域(scope)、控制器(controller) 认识AngularJS依赖注入(dependency injection)系统 理解AngularJS与其它库和框架的区别  采用JavaScript编写的客户端(Client-">
+<meta name="keywords" content="AngularJS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AngularJS 学习笔记">
+<meta property="og:url" content="http://yoursite.com/2017/11/28/AngularJS-learning/index.html">
 <meta property="og:site_name" content="Hello | Totoro">
+<meta property="og:description" content="AngularJS应用的基本元素：模版(template)、指令(directive)、作用域(scope)、控制器(controller) 认识AngularJS依赖注入(dependency injection)系统 理解AngularJS与其它库和框架的区别  采用JavaScript编写的客户端(Client-Side)MVC框架，编写现代化的单页面应用。尤其适合大量的CRUD(增删改查">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1flwonpt54cj30o60fsn0k.jpg">
+<meta property="og:updated_time" content="2017-11-28T07:05:27.945Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello | Totoro">
+<meta name="twitter:title" content="AngularJS 学习笔记">
+<meta name="twitter:description" content="AngularJS应用的基本元素：模版(template)、指令(directive)、作用域(scope)、控制器(controller) 认识AngularJS依赖注入(dependency injection)系统 理解AngularJS与其它库和框架的区别  采用JavaScript编写的客户端(Client-Side)MVC框架，编写现代化的单页面应用。尤其适合大量的CRUD(增删改查">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1flwonpt54cj30o60fsn0k.jpg">
 
 
 
@@ -111,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/28/AngularJS-learning/"/>
 
 
 
 
 
-  <title>Hello | Totoro</title>
+  <title>AngularJS 学习笔记 | Hello | Totoro</title>
   
 
 
@@ -136,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -230,9 +238,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -262,9 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/28/AngularJS-learning/" itemprop="url">AngularJS 学习笔记</a></h1>
+          <h1 class="post-title" itemprop="name headline">AngularJS 学习笔记</h1>
         
 
         <div class="post-meta">
@@ -336,9 +342,7 @@
       
 
       
-        
-          
-            <ul>
+        <ul>
 <li>AngularJS应用的基本元素：模版(template)、指令(directive)、作用域(scope)、控制器(controller)</li>
 <li>认识AngularJS依赖注入(dependency injection)系统</li>
 <li>理解AngularJS与其它库和框架的区别</li>
@@ -440,8 +444,6 @@
 <h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>AngularJS依靠浏览器去解析模板文本(就像浏览器对任何HTML文档所做的)。浏览器将文本转换成DOM树之后，AngularJS参与进来，开始遍历traverse解析好的DOM结构。当遇到指令时，AngularJS就执行相关逻辑，将指令转换成页面的动态部分。</p>
 <p>创建一个让用户可以输入短消息的表单，然后点击按钮发送。一些特别的用户体验user-experience，UX需求，短消息字数限制在100字以内，一旦超过此限制，Send发送按钮就被禁用掉。</p>
 
-          
-        
       
     </div>
     
@@ -456,298 +458,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/JavaScrip-DOM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Totorooo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello | Totoro">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/23/JavaScrip-DOM/" itemprop="url">JavaScrip-DOM</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-23T17:58:54+08:00">
-                2017-11-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/AngularJS/" rel="tag"># AngularJS</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="文档：DOM中的“D”"><a href="#文档：DOM中的“D”" class="headerlink" title="文档：DOM中的“D”"></a>文档：DOM中的“D”</h1><p>document，DOM将编写的网页文档转换为一个文档对象。</p>
-<h1 id="对象：DOM中的“O”"><a href="#对象：DOM中的“O”" class="headerlink" title="对象：DOM中的“O”"></a>对象：DOM中的“O”</h1>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Totorooo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello | Totoro">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/23/test/" itemprop="url">test</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-23T13:09:48+08:00">
-                2017-11-23
-              </time>
+              <a href="/2017/11/23/JavaScrip-DOM/" rel="next" title="JavaScrip-DOM">
+                <i class="fa fa-chevron-left"></i> JavaScrip-DOM
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="AngularJS"><a href="#AngularJS" class="headerlink" title="AngularJS"></a>AngularJS</h1><h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fls25b8s7xj30go0eh0w0.jpg" alt="Dream"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -757,10 +497,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -768,6 +509,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -788,8 +533,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -851,6 +605,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#框架熟悉"><span class="nav-number">1.</span> <span class="nav-text">框架熟悉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Angular-示例"><span class="nav-number">2.</span> <span class="nav-text">Angular 示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向数据绑定"><span class="nav-number">3.</span> <span class="nav-text">双向数据绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AngularJS中的MVC模式"><span class="nav-number">4.</span> <span class="nav-text">AngularJS中的MVC模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深入作用域"><span class="nav-number">5.</span> <span class="nav-text">深入作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图"><span class="nav-number">6.</span> <span class="nav-text">视图</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -991,6 +761,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
 
   
 
