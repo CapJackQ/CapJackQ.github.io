@@ -86,7 +86,7 @@
 <meta property="og:description" content="AngularJS应用的基本元素：模版(template)、指令(directive)、作用域(scope)、控制器(controller) 认识AngularJS依赖注入(dependency injection)系统 理解AngularJS与其它库和框架的区别  采用JavaScript编写的客户端(Client-Side)MVC框架，编写现代化的单页面应用。尤其适合大量的CRUD(增删改查">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1flwonpt54cj30o60fsn0k.jpg">
-<meta property="og:updated_time" content="2017-11-28T07:32:21.984Z">
+<meta property="og:updated_time" content="2017-11-28T08:21:06.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS 学习笔记（一）">
 <meta name="twitter:description" content="AngularJS应用的基本元素：模版(template)、指令(directive)、作用域(scope)、控制器(controller) 认识AngularJS依赖注入(dependency injection)系统 理解AngularJS与其它库和框架的区别  采用JavaScript编写的客户端(Client-Side)MVC框架，编写现代化的单页面应用。尤其适合大量的CRUD(增删改查">
@@ -440,6 +440,37 @@
 </ol>
 <h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>AngularJS依靠浏览器去解析模板文本(就像浏览器对任何HTML文档所做的)。浏览器将文本转换成DOM树之后，AngularJS参与进来，开始遍历traverse解析好的DOM结构。当遇到指令时，AngularJS就执行相关逻辑，将指令转换成页面的动态部分。</p>
 <p>创建一个让用户可以输入短消息的表单，然后点击按钮发送。一些特别的用户体验user-experience，UX需求，短消息字数限制在100字以内，一旦超过此限制，Send发送按钮就被禁用掉。</p>
+<h3 id="模块与依赖注入"><a href="#模块与依赖注入" class="headerlink" title="模块与依赖注入"></a>模块与依赖注入</h3><p>AngularJS不建议使用全局状态，相反，它拥有全套API，用来定义模块及在模块中注册的对象。</p>
+<ul>
+<li><p><strong>模块</strong></p>
+<p>如何将全局定义的控制器模块化，目前代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> HelloCtrl = <span class="function"><span class="keyword">function</span> (<span class="params">$scope</span>) </span>&#123;</span><br><span class="line">	$scope.name = <span class="string">'World'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>模块化后代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'hello'</span>, []).controller(<span class="string">'HelloCtrl'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$scope</span>) </span>&#123;</span><br><span class="line">	$scope.name = <span class="string">'World'</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>module</code>为AngularJS管理的对象(控制器、服务等)扮演容器的角色。定义新的模块，需要传入名字，作为调用<code>module</code>的第一个参数，第二个参数则表达次模块依赖哪些其他模块(上例中模块不依赖其他模块)。</p>
+<p><code>angular.module</code>的调用会返回新创建模块的实例，然后就开始定义新的控制器，这相当容易，只要用下面的参数调用<code>controller</code>函数即可</p>
+<ul>
+<li>控制器的名字(字符串类型)</li>
+<li>控制器的构造函数</li>
+</ul>
+<p>模块已经定义好，现在要告知AngularJS它的存在，只要为<code>ng-app</code>属性赋值即可</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"hello"</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>协作对象</strong></p>
+<p>AngularJS 用模块组织对象，在模块上可以注册的对象，不仅限于AngularJS对象(控制器、过滤器)，还包括自定义的任何对象。</p>
+<ol>
+<li><p>依赖注入</p>
+<p>​</p>
+</li>
+<li><p>依赖注入好处</p>
+<p>​</p>
+</li>
+</ol>
+</li>
+<li><p>ssss</p>
+<p>​</p>
+</li>
+</ul>
 
       
     </div>
@@ -596,7 +627,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#框架熟悉"><span class="nav-number">1.</span> <span class="nav-text">框架熟悉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Angular-示例"><span class="nav-number">2.</span> <span class="nav-text">Angular 示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向数据绑定"><span class="nav-number">3.</span> <span class="nav-text">双向数据绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AngularJS中的MVC模式"><span class="nav-number">4.</span> <span class="nav-text">AngularJS中的MVC模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深入作用域"><span class="nav-number">5.</span> <span class="nav-text">深入作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图"><span class="nav-number">6.</span> <span class="nav-text">视图</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#框架熟悉"><span class="nav-number">1.</span> <span class="nav-text">框架熟悉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Angular-示例"><span class="nav-number">2.</span> <span class="nav-text">Angular 示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向数据绑定"><span class="nav-number">3.</span> <span class="nav-text">双向数据绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AngularJS中的MVC模式"><span class="nav-number">4.</span> <span class="nav-text">AngularJS中的MVC模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深入作用域"><span class="nav-number">5.</span> <span class="nav-text">深入作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图"><span class="nav-number">6.</span> <span class="nav-text">视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块与依赖注入"><span class="nav-number">7.</span> <span class="nav-text">模块与依赖注入</span></a></li></ol></div>
             
 
           </div>
