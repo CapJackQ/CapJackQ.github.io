@@ -86,7 +86,7 @@
 <meta property="og:description" content="AngularJS应用的基本元素：模版(template)、指令(directive)、作用域(scope)、控制器(controller) 认识AngularJS依赖注入(dependency injection)系统 理解AngularJS与其它库和框架的区别  采用JavaScript编写的客户端(Client-Side)MVC框架，编写现代化的单页面应用。尤其适合大量的CRUD(增删改查">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1flwonpt54cj30o60fsn0k.jpg">
-<meta property="og:updated_time" content="2017-11-28T07:05:27.945Z">
+<meta property="og:updated_time" content="2017-11-28T07:08:11.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS 学习笔记">
 <meta name="twitter:description" content="AngularJS应用的基本元素：模版(template)、指令(directive)、作用域(scope)、控制器(controller) 认识AngularJS依赖注入(dependency injection)系统 理解AngularJS与其它库和框架的区别  采用JavaScript编写的客户端(Client-Side)MVC框架，编写现代化的单页面应用。尤其适合大量的CRUD(增删改查">
@@ -361,7 +361,7 @@
 </ul>
 <h3 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h3><p>AngularJS在创建动态web应用时相当便利</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body ng-app ng-init=<span class="string">"name='World'"</span>&gt;</span><br><span class="line">	Say hello to: &lt;input type="text" ng-model="name"&gt;</span><br><span class="line">	&lt;h1&gt;Hello, &#123;&#123;name&#125;&#125;!&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<p>当向<input>中输入文本时，每次输入后，页面都会被重绘，无须编写代码刷新模板，也无须调用框架的API去更新新模型。AngularJS智能地检测到了模型的改变，并随之更新了页面DOM元素。</p>
+<p>当向<code>&lt;input&gt;</code>中输入文本时，每次输入后，页面都会被重绘，无须编写代码刷新模板，也无须调用框架的API去更新新模型。AngularJS智能地检测到了模型的改变，并随之更新了页面DOM元素。</p>
 <h3 id="AngularJS中的MVC模式"><a href="#AngularJS中的MVC模式" class="headerlink" title="AngularJS中的MVC模式"></a>AngularJS中的MVC模式</h3><p>对示例代码修改</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ng-controller=<span class="string">"HelloCtrl"</span>&gt;</span><br><span class="line">	Say hello to: &lt;input type="text" ng-model="name"&gt;&lt;br&gt;</span><br><span class="line">	&lt;h1&gt;Hello, &#123;&#123;name&#125;&#125;!&lt;/h1&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p>移除<code>ng-init</code>属性后，取而代之的是新指令<code>ng-controller</code>及对应的JavaScript函数<code>HelloCtrl</code></p>
