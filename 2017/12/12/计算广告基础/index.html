@@ -364,12 +364,20 @@
 </ol>
 <h2 id="计算广告的核心问题"><a href="#计算广告的核心问题" class="headerlink" title="计算广告的核心问题"></a>计算广告的核心问题</h2><p>核心问题：为一系列用户与环境的组合找到最合适的广告投放策略以优化整体广告活动的利润。</p>
 <p>广告优化的是一组展示上的效果，而非孤立的某一次展示上的效果。优化结果是“投放策略”，不一定是具体的广告。</p>
-<p>计算广告核心挑战转化为数学上可以优化的目标：<br>$$<br>max \sum<em>{i=1}^{T}{\left( r</em>{i} - q<em>{i} \right)}<br>$$<br>此处的i代表从第一次到第T次之间的某一次广告展示。优化的目表就是在这T次展示上的总收入(r)与总成本(q)的差，即广告活动的利润。当某次广告活动预算一定即<br>$$<br>\sum</em>{i=1}^{T} q<em>{i}<br>$$<br>是一个常数时，很容易验证优化共识2.1与优化另一广告中更常见的目标投入产出比，即<br>$$<br>ROI = \sum</em>{i} r<em>{i}  / \sum</em>{i} q<em>{i}<br>$$<br>也是一致的。进一步考虑收入与成本具体依赖的因素，以上问题的优化可以写成<br>$$<br>\max</em>{a<em>{1}, …, T} \sum</em>{i=1}^{T} \left{ r \left( a<em>{i}, u</em>{i}, c_{i} \right)</p>
-<ul>
-<li>q \left( a<em>{i}, u</em>{i} , c_{i} \right) \right}<br>$$<br>表达式中的a、u、c、三个变量分别代表广告(advertising)、用户(user)和环境(context)，即广告活动的三个参与主体，显然，广告展示的收入或成本与这三个因素都有关系。实际上，除DSP(demand-side platform)以外的大多数广告产品来说，要么时自营或包断资源，要么按以收定支的方式与媒体分成。整体的收入或成本不能被分解到每次展示上，考虑到实际策略，必须对每次展示马上完成计算，所以从实用出发假设可以。</li>
-</ul>
+<p>计算广告核心挑战转化为数学上可以优化的目标：</p>
+<script type="math/tex; mode=display">
+max \sum_{i=1}^{T}{\left( r_{i} - q_{i} \right)}</script><p>此处的i代表从第一次到第T次之间的某一次广告展示。优化的目表就是在这T次展示上的总收入(r)与总成本(q)的差，即广告活动的利润。当某次广告活动预算一定即</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^{T} q_{i}</script><p>是一个常数时，很容易验证优化共识2.1与优化另一广告中更常见的目标投入产出比，即</p>
+<script type="math/tex; mode=display">
+ROI = \sum_{i} r_{i}  / \sum_{i} q_{i}</script><p>也是一致的。进一步考虑收入与成本具体依赖的因素，以上问题的优化可以写成</p>
+<script type="math/tex; mode=display">
+\max_{a_{1}, ..., T} \sum_{i=1}^{T} \left\{ r \left( a_{i}, u_{i}, c_{i} \right)
+- q \left( a_{i}, u_{i} , c_{i} \right) \right\}</script><p>表达式中的a、u、c、三个变量分别代表广告(advertising)、用户(user)和环境(context)，即广告活动的三个参与主体，显然，广告展示的收入或成本与这三个因素都有关系。实际上，除DSP(demand-side platform)以外的大多数广告产品来说，要么时自营或包断资源，要么按以收定支的方式与媒体分成。整体的收入或成本不能被分解到每次展示上，考虑到实际策略，必须对每次展示马上完成计算，所以从实用出发假设可以。</p>
 <h3 id="广告收入的分解"><a href="#广告收入的分解" class="headerlink" title="广告收入的分解"></a>广告收入的分解</h3><p>对一个广告市场中具体的产品形态，往往能够主动优化的是收入而非成本。广告点击与广告展现的比率称为点击率(Click Through Rate，CTR)；点击行为成功后，将会打开广告主的落地页(landing page)，落地页成功打开次数与点击次数的比率称为到达率；如果用户从落地页开始，进一步完成下单等操作，则称为转化，转化次数与到达次数的比例称为转化率(Conversion Rate，CVR)。</p>
-<p>按照媒体网站和广告主网站上的行为段对回报r进行分解，是实践中比较合理且容易操作的<br>$$<br>eCPM - r \left ( a, u, c \right) - 𝜇 \left( a, u, c \right) \cdot 𝜈 \left( a,u,c \right)<br>$$<br>𝜇代表点击率，𝜈代表点击价值，即单次点击为广告产品带来的收益。这两部分的乘积定量地表示了某次或若干次展示的期望CPM值，就是eCPM。eCPM一般只的是估计的千次展示收益，两个相近的概念，如果讨论的是千次展示收入，往往用RPM(revenue per mille)，如果讨论的是千次展示成本，往往用CPM。</p>
+<p>按照媒体网站和广告主网站上的行为段对回报r进行分解，是实践中比较合理且容易操作的</p>
+<script type="math/tex; mode=display">
+eCPM - r \left ( a, u, c \right) - 𝜇 \left( a, u, c \right) \cdot 𝜈 \left( a,u,c \right)</script><p>𝜇代表点击率，𝜈代表点击价值，即单次点击为广告产品带来的收益。这两部分的乘积定量地表示了某次或若干次展示的期望CPM值，就是eCPM。eCPM一般只的是估计的千次展示收益，两个相近的概念，如果讨论的是千次展示收入，往往用RPM(revenue per mille)，如果讨论的是千次展示成本，往往用CPM。</p>
 <h3 id="结算方式与eCPM估计的关系"><a href="#结算方式与eCPM估计的关系" class="headerlink" title="结算方式与eCPM估计的关系"></a>结算方式与eCPM估计的关系</h3><p>大多数广告需要计算给定(a，u，c)三元组的eCPM的可以进行决策。</p>
 <ol>
 <li>CPM结算，即按照千次展示结算。这种方式由供给方和需求方预定好千次展示的计费标准，至于能否带来相应收益，由需求方估计和控制，</li>
