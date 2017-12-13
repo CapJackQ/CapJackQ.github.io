@@ -86,7 +86,7 @@
 <meta property="og:description" content="出发点：在互联网广告中，计算之所以可以发挥巨大的作用，与它的根本技术特点有关。可衡量的效果以及相应的计算优化是在线广告的主要特点。千次展示期望收入(expected Cost Per Mille，eCPM)正是计算广告中最为核心的量化指标之一。与广告的信息传达过程相关，eCPM可以分解为点击率和点击价值的乘积。 广告的有效性原理广告的信息接收过程分为选择(selection)、解释(interpr">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79gy1fmdvdacyqnj316s0600to.jpg">
-<meta property="og:updated_time" content="2017-12-13T02:29:39.473Z">
+<meta property="og:updated_time" content="2017-12-13T02:37:03.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算广告基础">
 <meta name="twitter:description" content="出发点：在互联网广告中，计算之所以可以发挥巨大的作用，与它的根本技术特点有关。可衡量的效果以及相应的计算优化是在线广告的主要特点。千次展示期望收入(expected Cost Per Mille，eCPM)正是计算广告中最为核心的量化指标之一。与广告的信息传达过程相关，eCPM可以分解为点击率和点击价值的乘积。 广告的有效性原理广告的信息接收过程分为选择(selection)、解释(interpr">
@@ -366,9 +366,7 @@
 <p>广告优化的是一组展示上的效果，而非孤立的某一次展示上的效果。优化结果是“投放策略”，不一定是具体的广告。</p>
 <p>计算广告核心挑战转化为数学上可以优化的目标：</p>
 <script type="math/tex; mode=display">
-max \sum_{i=1}^{T}{\left( r_{i} - q_{i} \right)}</script><p>此处的i代表从第一次到第T次之间的某一次广告展示。优化的目表就是在这T次展示上的总收入(r)与总成本(q)的差，即广告活动的利润。当某次广告活动预算一定即</p>
-<script type="math/tex; mode=display">
-\sum_{i=1}^{T} q_{i}</script><p>是一个常数时，很容易验证优化共识2.1与优化另一广告中更常见的目标投入产出比，即</p>
+max \sum_{i=1}^{T}{\left( r_{i} - q_{i} \right)} \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;A</script><p>此处的i代表从第一次到第T次之间的某一次广告展示。优化的目表就是在这T次展示上的总收入(r)与总成本(q)的差，即广告活动的利润。当某次广告活动预算一定即$\sum_{i=1}^{T} q_{i}$是一个常数时，很容易验证优化公式A与优化另一广告中更常见的目标投入产出比，即</p>
 <script type="math/tex; mode=display">
 ROI = \sum_{i} r_{i}  / \sum_{i} q_{i}</script><p>也是一致的。进一步考虑收入与成本具体依赖的因素，以上问题的优化可以写成</p>
 <script type="math/tex; mode=display">
