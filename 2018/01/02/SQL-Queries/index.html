@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="statements manipulation," />
+  <meta name="keywords" content="queries," />
 
 
 
@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="Resource from codecademy. Statements12345CREATE TABLE table_nam(	column_1, data_type,	column_2, data_type,	column_3, data_type); Create12345CREATE TABLE celebs ">
-<meta name="keywords" content="statements manipulation">
+<meta name="description" content="Select1SELECT column1, column2 FROM table_name; AsAS is a keyword in SQL that allows to rename a column or table using an alias. The new name can be anything. 1">
+<meta name="keywords" content="queries">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Learning SQL—Manipulation">
-<meta property="og:url" content="http://yoursite.com/2017/12/29/SQL/index.html">
+<meta property="og:title" content="Learning SQL-Queries">
+<meta property="og:url" content="http://yoursite.com/2018/01/02/SQL-Queries/index.html">
 <meta property="og:site_name" content="Hello | Totoro">
-<meta property="og:description" content="Resource from codecademy. Statements12345CREATE TABLE table_nam(	column_1, data_type,	column_2, data_type,	column_3, data_type); Create12345CREATE TABLE celebs (	id INTEGER,	name TEXT,	age, INTEGER);">
+<meta property="og:description" content="Select1SELECT column1, column2 FROM table_name; AsAS is a keyword in SQL that allows to rename a column or table using an alias. The new name can be anything. 1SELECT column_name AS alias_name FROM ta">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-02T06:15:46.715Z">
+<meta property="og:updated_time" content="2018-01-02T08:17:09.545Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Learning SQL—Manipulation">
-<meta name="twitter:description" content="Resource from codecademy. Statements12345CREATE TABLE table_nam(	column_1, data_type,	column_2, data_type,	column_3, data_type); Create12345CREATE TABLE celebs (	id INTEGER,	name TEXT,	age, INTEGER);">
+<meta name="twitter:title" content="Learning SQL-Queries">
+<meta name="twitter:description" content="Select1SELECT column1, column2 FROM table_name; AsAS is a keyword in SQL that allows to rename a column or table using an alias. The new name can be anything. 1SELECT column_name AS alias_name FROM ta">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/29/SQL/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/02/SQL-Queries/"/>
 
 
 
 
 
-  <title>Learning SQL—Manipulation | Hello | Totoro</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Learning SQL-Queries | Hello | Totoro</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -251,7 +251,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/29/SQL/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/02/SQL-Queries/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Totorooo">
@@ -268,7 +268,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Learning SQL—Manipulation</h1>
+          <h1 class="post-title" itemprop="name headline">Learning SQL-Queries</h1>
         
 
         <div class="post-meta">
@@ -280,8 +280,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-29T16:27:25+08:00">
-                2017-12-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-02T14:35:51+08:00">
+                2018-01-02
               </time>
             
 
@@ -340,72 +340,76 @@
       
 
       
-        <p>Resource from <strong><a href="https://www.codecademy.com" target="_blank" rel="noopener">codecademy</a></strong>.</p>
-<h1 id="Statements"><a href="#Statements" class="headerlink" title="Statements"></a>Statements</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_nam(</span><br><span class="line">	column_1, data_type,</span><br><span class="line">	column_2, data_type,</span><br><span class="line">	column_3, data_type</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h2 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> celebs (</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">INTEGER</span>,</span><br><span class="line">	<span class="keyword">name</span> <span class="built_in">TEXT</span>,</span><br><span class="line">	age, <span class="built_in">INTEGER</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<ol>
-<li><code>CREATE TABLE</code> clause tells SQL that you want to create a new table</li>
-<li><code>celebs</code> name of the table</li>
-<li><code>(id INTEGER, name TEXT, age INTEGER)</code> a list of parameters defining each column in the table and its data type</li>
-</ol>
-<ul>
-<li><code>id</code> is the first column in the table.It stores values of data type <code>INTEGER</code></li>
-<li><code>name</code> stores values of data type <code>TEXT</code></li>
-<li><code>age</code> stores values of data type <code>INTEGER</code></li>
-</ul>
+        <h2 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2 <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<h2 id="As"><a href="#As" class="headerlink" title="As"></a>As</h2><p><code>AS</code> is a keyword in SQL that allows to <em>rename</em> a column or table using an alias. The new name can be anything.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name <span class="keyword">AS</span> alias_name <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="INSERT"><a href="#INSERT" class="headerlink" title="INSERT"></a>INSERT</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> celebs (<span class="keyword">id</span>, <span class="keyword">name</span>, age) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">'William Turner'</span>);</span><br></pre></td></tr></table></figure>
-<p>This statement inserts new rows into a table. You can use the <code>INSERT</code> statement when you want to add new records.</p>
+<h2 id="Distinct"><a href="#Distinct" class="headerlink" title="Distinct"></a>Distinct</h2><p><code>DISTINCT</code> is used to return unique values in the output. It filters out all duplicate values in the specified columns(s).</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> tools <span class="keyword">FROM</span> inventory;</span><br></pre></td></tr></table></figure>
+<p>might produce:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>tools</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hammer</td>
+</tr>
+<tr>
+<td>Nails</td>
+</tr>
+<tr>
+<td>Nails</td>
+</tr>
+<tr>
+<td>Nails</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>By adding <code>DISTINCT</code> before the column name,</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> tools <span class="keyword">FROM</span> inventory;</span><br></pre></td></tr></table></figure>
+<p>the result would now be:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>tools</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hammer</td>
+</tr>
+<tr>
+<td>Nails</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="Like-I"><a href="#Like-I" class="headerlink" title="Like I"></a>Like I</h2><p><code>Like</code> can be useful operator when you want to compare similar values.</p>
+<p>The <code>movies</code> table contains two films with similar titles, ‘Se7en’ and ‘Seven’.</p>
+<p>How could we select all movies that start with ‘Se’ and with ‘en’ and have exactly on character in the middle?</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> movies <span class="keyword">WHERE</span> <span class="keyword">name</span> <span class="keyword">LIKE</span> <span class="string">'Se_en'</span>;</span><br></pre></td></tr></table></figure>
 <ol>
-<li><code>INSERT INTO</code> clause  adds the specified row/rows</li>
-<li><code>celebs</code> name of the table the row is added to</li>
-<li><code>(id, name, age)</code> is a parameter identifying the columns that data will be inserted into</li>
-<li><code>VALUES</code> indicates the data being inserted</li>
-<li><code>(1, &#39;William Turner, 21&#39;)</code> is a parameter identifying the values being inserted</li>
+<li><code>LIKE</code> is a special operator used with the <code>WHERE</code> clause to search for a specific pattern in a column</li>
+<li><code>name LIKE &#39;Se_en&#39;</code> is a condition evaluating the <code>name</code> column for specific pattern</li>
+<li><code>Se_en</code> represents a pattern with a <em>wildcard</em> character. The <code>_</code> means you can substitute any individual character here without breaking the pattern. The names <code>Seven</code> and <code>Se7en</code> both match this pattern</li>
 </ol>
+<h2 id="Like-II"><a href="#Like-II" class="headerlink" title="Like II"></a>Like II</h2><p>The percentage sign <code>%</code> is another wildcard character that can be used with <code>LIKE</code>.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> movies <span class="keyword">WHERE</span> <span class="keyword">name</span> <span class="keyword">LIKE</span> <span class="string">'A%'</span>;</span><br></pre></td></tr></table></figure>
+<p><code>%</code> is a wildcard character that matches zero or more missing letters in the pattern:</p>
 <ul>
-<li><code>1</code> insert into <code>id</code> column</li>
-<li><code>William Turner</code> inserted into <code>name</code> column</li>
-<li><code>21</code> inserted into <code>age</code> column</li>
+<li><code>A%</code> matches all movies with names that begin with letter ‘A’</li>
+<li><code>%a</code> matches all movies that end with ‘a’</li>
 </ul>
-<h2 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span> <span class="keyword">FROM</span> celebs;</span><br></pre></td></tr></table></figure>
-<p><code>SELECT</code> statements are used to fetch data from a database. Here, <code>SELECT</code> returns all data in the <code>name</code> column of the <code>celebs</code> table.</p>
-<ol>
-<li><code>SELECT</code> clause indicates that the statement is a query</li>
-<li><code>name</code> specifies the column to query data form</li>
-<li><code>FROM celebs</code> specifies the name of the table to query data from</li>
-</ol>
-<p>Query data from all columns in a table with <code>SELECT</code>.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> celebs;</span><br></pre></td></tr></table></figure>
-<p><code>*</code> allows to select every column in a table without having to name each one individually.</p>
-<p><code>SELECT</code> statements always return a new table called the <em>result set</em>.</p>
-<h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> celebs <span class="keyword">SET</span> age = <span class="number">22</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<p><code>UPDATE</code> statement edits a row in the table. To change existing records.</p>
-<ol>
-<li><code>UPDATE</code> edits a row in the table</li>
-<li><code>celebs</code> table name</li>
-<li><code>SET</code> indicates the column to edit</li>
-<li><code>WHERE</code> indicates which row(s) to update with the new column value.</li>
-</ol>
-<h2 id="ALTER"><a href="#ALTER" class="headerlink" title="ALTER"></a>ALTER</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> celebs <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> twitter_handle <span class="built_in">TEXT</span>;</span><br></pre></td></tr></table></figure>
-<p>The <code>ALTER TABLE</code> statement added a new column to the table.</p>
-<ol>
-<li><code>ALTER TABLE</code> lets you make the specified changes</li>
-<li><code>celebs</code> name of table</li>
-<li><code>ADD COLUMN</code> lets you add a new column to a table<ol>
-<li><code>twitter_handle</code> name of new column being added</li>
-<li><code>TEXT</code> data type</li>
-</ol>
-</li>
-<li><code>NULL</code> is a special value in SQL that represents missing or unknown data.</li>
-</ol>
-<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> celebs <span class="keyword">WHERE</span> twitter_handle <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
-<p><code>DELETE FROM</code> statement deletes one or more rows from a table.</p>
-<ol>
-<li><code>DELETE FROM</code> lets you delete rows from a table</li>
-<li><code>WHERE</code> lets you select which rows you want to delete.</li>
-<li><code>IS NULL</code> a condition in SQL that returns true when the value is <code>NULL</code> and false otherwise</li>
-</ol>
+<p>Also use <code>%</code> both before and after a pattern:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> movies <span class="keyword">WHERE</span> <span class="keyword">name</span> <span class="keyword">LIKE</span> <span class="string">'%man%'</span>;</span><br></pre></td></tr></table></figure>
+<p>Here, any movies that <em>contains</em> the word ‘man’ in its name will be returned in the result.</p>
+<p><code>LIKE</code> is not case sensitive.</p>
 
       
     </div>
@@ -423,7 +427,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/statements-manipulation/" rel="tag"># statements manipulation</a>
+            <a href="/tags/queries/" rel="tag"># queries</a>
           
         </div>
       
@@ -436,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/12/计算广告基础/" rel="next" title="计算广告基础">
-                <i class="fa fa-chevron-left"></i> 计算广告基础
+              <a href="/2018/01/02/Mac计划任务/" rel="next" title="Linux/Mac计划任务">
+                <i class="fa fa-chevron-left"></i> Linux/Mac计划任务
               </a>
             
           </div>
@@ -445,10 +449,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/02/Mac计划任务/" rel="prev" title="Linux/Mac计划任务">
-                Linux/Mac计划任务 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -582,7 +582,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Statements"><span class="nav-number">1.</span> <span class="nav-text">Statements</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Create"><span class="nav-number">1.1.</span> <span class="nav-text">Create</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INSERT"><span class="nav-number">1.2.</span> <span class="nav-text">INSERT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SELECT"><span class="nav-number">1.3.</span> <span class="nav-text">SELECT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UPDATE"><span class="nav-number">1.4.</span> <span class="nav-text">UPDATE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ALTER"><span class="nav-number">1.5.</span> <span class="nav-text">ALTER</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DELETE"><span class="nav-number">1.6.</span> <span class="nav-text">DELETE</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Select"><span class="nav-number">1.</span> <span class="nav-text">Select</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#As"><span class="nav-number">2.</span> <span class="nav-text">As</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Distinct"><span class="nav-number">3.</span> <span class="nav-text">Distinct</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Like-I"><span class="nav-number">4.</span> <span class="nav-text">Like I</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Like-II"><span class="nav-number">5.</span> <span class="nav-text">Like II</span></a></li></ol></div>
             
 
           </div>
