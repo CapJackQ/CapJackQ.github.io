@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="Hello | Totoro">
 <meta property="og:description" content="Resource from codecademy. Statements12345CREATE TABLE table_nam(	column_1, data_type,	column_2, data_type,	column_3, data_type); Create12345CREATE TABLE celebs (	id INTEGER,	name TEXT,	age, INTEGER);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-29T08:36:58.519Z">
+<meta property="og:updated_time" content="2018-01-02T06:15:46.715Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learning SQL—Manipulation">
 <meta name="twitter:description" content="Resource from codecademy. Statements12345CREATE TABLE table_nam(	column_1, data_type,	column_2, data_type,	column_3, data_type); Create12345CREATE TABLE celebs (	id INTEGER,	name TEXT,	age, INTEGER);">
@@ -387,6 +387,25 @@
 <li><code>SET</code> indicates the column to edit</li>
 <li><code>WHERE</code> indicates which row(s) to update with the new column value.</li>
 </ol>
+<h2 id="ALTER"><a href="#ALTER" class="headerlink" title="ALTER"></a>ALTER</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> celebs <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> twitter_handle <span class="built_in">TEXT</span>;</span><br></pre></td></tr></table></figure>
+<p>The <code>ALTER TABLE</code> statement added a new column to the table.</p>
+<ol>
+<li><code>ALTER TABLE</code> lets you make the specified changes</li>
+<li><code>celebs</code> name of table</li>
+<li><code>ADD COLUMN</code> lets you add a new column to a table<ol>
+<li><code>twitter_handle</code> name of new column being added</li>
+<li><code>TEXT</code> data type</li>
+</ol>
+</li>
+<li><code>NULL</code> is a special value in SQL that represents missing or unknown data.</li>
+</ol>
+<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> celebs <span class="keyword">WHERE</span> twitter_handle <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+<p><code>DELETE FROM</code> statement deletes one or more rows from a table.</p>
+<ol>
+<li><code>DELETE FROM</code> lets you delete rows from a table</li>
+<li><code>WHERE</code> lets you select which rows you want to delete.</li>
+<li><code>IS NULL</code> a condition in SQL that returns true when the value is <code>NULL</code> and false otherwise</li>
+</ol>
 
       
     </div>
@@ -563,7 +582,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Statements"><span class="nav-number">1.</span> <span class="nav-text">Statements</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Create"><span class="nav-number">1.1.</span> <span class="nav-text">Create</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INSERT"><span class="nav-number">1.2.</span> <span class="nav-text">INSERT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SELECT"><span class="nav-number">1.3.</span> <span class="nav-text">SELECT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UPDATE"><span class="nav-number">1.4.</span> <span class="nav-text">UPDATE</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Statements"><span class="nav-number">1.</span> <span class="nav-text">Statements</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Create"><span class="nav-number">1.1.</span> <span class="nav-text">Create</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INSERT"><span class="nav-number">1.2.</span> <span class="nav-text">INSERT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SELECT"><span class="nav-number">1.3.</span> <span class="nav-text">SELECT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UPDATE"><span class="nav-number">1.4.</span> <span class="nav-text">UPDATE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ALTER"><span class="nav-number">1.5.</span> <span class="nav-text">ALTER</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DELETE"><span class="nav-number">1.6.</span> <span class="nav-text">DELETE</span></a></li></ol></li></ol></div>
             
 
           </div>
