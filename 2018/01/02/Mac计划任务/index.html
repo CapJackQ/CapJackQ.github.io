@@ -66,6 +66,7 @@
 
 
 
+  <meta name="keywords" content="cron shell linux," />
 
 
 
@@ -75,13 +76,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hello | Totoro">
-<meta property="og:url" content="http://yoursite.com/index.html">
+
+<meta name="description" content="Linux crontab是用来定期执行程序的命令。crond命令每分锺会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作。 而linux任务调度的工作主要分为以下两类：  系统执行的工作：系统周期性所要执行的工作，如备份系统数据、清理缓存 个人执行的工作：某个用户定期要做的工作，例如每隔10分钟检查邮">
+<meta name="keywords" content="cron shell linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux&#x2F;Mac计划任务">
+<meta property="og:url" content="http://yoursite.com/2018/01/02/Mac计划任务/index.html">
 <meta property="og:site_name" content="Hello | Totoro">
+<meta property="og:description" content="Linux crontab是用来定期执行程序的命令。crond命令每分锺会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作。 而linux任务调度的工作主要分为以下两类：  系统执行的工作：系统周期性所要执行的工作，如备份系统数据、清理缓存 个人执行的工作：某个用户定期要做的工作，例如每隔10分钟检查邮件服务器是否有新信，这些工作可由每个用户自行设置  语法1crontab [ -">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-02T03:38:00.922Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello | Totoro">
+<meta name="twitter:title" content="Linux&#x2F;Mac计划任务">
+<meta name="twitter:description" content="Linux crontab是用来定期执行程序的命令。crond命令每分锺会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作。 而linux任务调度的工作主要分为以下两类：  系统执行的工作：系统周期性所要执行的工作，如备份系统数据、清理缓存 个人执行的工作：某个用户定期要做的工作，例如每隔10分钟检查邮件服务器是否有新信，这些工作可由每个用户自行设置  语法1crontab [ -">
 
 
 
@@ -111,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/02/Mac计划任务/"/>
 
 
 
 
 
-  <title>Hello | Totoro</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Linux/Mac计划任务 | Hello | Totoro</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -136,8 +143,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
-  page-home">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -230,9 +236,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -262,9 +268,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/02/Mac计划任务/" itemprop="url">Linux/Mac计划任务</a></h1>
+          <h1 class="post-title" itemprop="name headline">Linux/Mac计划任务</h1>
         
 
         <div class="post-meta">
@@ -336,9 +340,7 @@
       
 
       
-        
-          
-            <p>Linux crontab是用来定期执行程序的命令。crond命令每分锺会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作。</p>
+        <p>Linux crontab是用来定期执行程序的命令。crond命令每分锺会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作。</p>
 <p>而linux任务调度的工作主要分为以下两类：</p>
 <ul>
 <li>系统执行的工作：系统周期性所要执行的工作，如备份系统数据、清理缓存</li>
@@ -364,8 +366,6 @@
 <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">0 */2 * * * /sbin/service httpd restart  意思是每两个小时重启一次apache </span><br><span class="line"></span><br><span class="line">50 7 * * * /sbin/service sshd start  意思是每天7：50开启ssh服务 </span><br><span class="line"></span><br><span class="line">50 22 * * * /sbin/service sshd stop  意思是每天22：50关闭ssh服务 </span><br><span class="line"></span><br><span class="line">0 0 1,15 * * fsck /home  每月1号和15号检查/home 磁盘 </span><br><span class="line"></span><br><span class="line">1 * * * * /home/bruce/backup  每小时的第一分执行 /home/bruce/backup这个文件 </span><br><span class="line"></span><br><span class="line">00 03 * * 1-5 find /home &quot;*.xxx&quot; -mtime +4 -exec rm &#123;&#125; \;  每周一至周五3点钟，在目录/home中，查找文件名为*.xxx的文件，并删除4天前的文件。</span><br><span class="line"></span><br><span class="line">30 6 */10 * * ls  意思是每月的1、11、21、31日是的6：30执行一次ls命令</span><br></pre></td></tr></table></figure>
 <h2 id="cron-表达式"><a href="#cron-表达式" class="headerlink" title="cron 表达式"></a>cron 表达式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* * * * * command to be executed </span><br><span class="line">- - - - - - </span><br><span class="line">| | | | | | </span><br><span class="line">| | | | | --- 预执行的命令 </span><br><span class="line">| | | | ----- 表示星期0～7（其中星期天可以用0或7表示） </span><br><span class="line">| | | ------- 表示月份1～12 </span><br><span class="line">| | --------- 表示日期1～31 </span><br><span class="line">| ----------- 表示小时1～23（0表示0点） </span><br><span class="line">------------- 表示分钟1～59 每分钟用*或者 */1表示</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
     
@@ -380,320 +380,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/29/SQL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Totorooo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello | Totoro">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/29/SQL/" itemprop="url">Learning SQL—Manipulation</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-29T16:27:25+08:00">
-                2017-12-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SQL/" itemprop="url" rel="index">
-                    <span itemprop="name">SQL</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/cron-shell-linux/" rel="tag"># cron shell linux</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>Resource from <strong><a href="https://www.codecademy.com" target="_blank" rel="noopener">codecademy</a></strong>.</p>
-<h1 id="Statements"><a href="#Statements" class="headerlink" title="Statements"></a>Statements</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_nam(</span><br><span class="line">	column_1, data_type,</span><br><span class="line">	column_2, data_type,</span><br><span class="line">	column_3, data_type</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h2 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> celebs (</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">INTEGER</span>,</span><br><span class="line">	<span class="keyword">name</span> <span class="built_in">TEXT</span>,</span><br><span class="line">	age, <span class="built_in">INTEGER</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<ol>
-<li><code>CREATE TABLE</code> clause tells SQL that you want to create a new table</li>
-<li><code>celebs</code> name of the table</li>
-<li><code>(id INTEGER, name TEXT, age INTEGER)</code> a list of parameters defining each column in the table and its data type</li>
-</ol>
-<ul>
-<li><code>id</code> is the first column in the table.It stores values of data type <code>INTEGER</code></li>
-<li><code>name</code> stores values of data type <code>TEXT</code></li>
-<li><code>age</code> stores values of data type <code>INTEGER</code></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/29/SQL/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/29/SQL/" rel="next" title="Learning SQL—Manipulation">
+                <i class="fa fa-chevron-left"></i> Learning SQL—Manipulation
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/12/计算广告基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Totorooo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello | Totoro">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/12/计算广告基础/" itemprop="url">计算广告基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-12T12:23:37+08:00">
-                2017-12-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/互联网广告-计算广告/" itemprop="url" rel="index">
-                    <span itemprop="name">互联网广告 计算广告</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>出发点：在互联网广告中，计算之所以可以发挥巨大的作用，与它的根本技术特点有关。可衡量的效果以及相应的计算优化是在线广告的主要特点。<strong>千次展示期望收入(expected Cost Per Mille，eCPM)</strong>正是计算广告中最为核心的量化指标之一。与广告的信息传达过程相关，eCPM可以分解为点击率和点击价值的乘积。</p>
-<h2 id="广告的有效性原理"><a href="#广告的有效性原理" class="headerlink" title="广告的有效性原理"></a>广告的有效性原理</h2><p>广告的信息接收过程分为选择(selection)、解释(interpretation)与态度(attitude)三个大阶段，或者进一步分解为曝光(exposure)、关注(attention)、理解(comprehension)、接受(acceptance)、保持(retention)与决策(decision)6个子阶段。</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fmdvdacyqnj316s0600to.jpg" alt="有效性模型"></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/12/计算广告基础/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -703,161 +419,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/AngularJS-learning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Totorooo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello | Totoro">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/28/AngularJS-learning/" itemprop="url">AngularJS 学习笔记（一）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T15:03:32+08:00">
-                2017-11-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/front-end/" itemprop="url" rel="index">
-                    <span itemprop="name">front-end</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ul>
-<li>AngularJS应用的基本元素：模版(template)、指令(directive)、作用域(scope)、控制器(controller)</li>
-<li>认识AngularJS依赖注入(dependency injection)系统</li>
-<li>理解AngularJS与其它库和框架的区别</li>
-</ul>
-<p>采用JavaScript编写的客户端(Client-Side)MVC框架，编写现代化的单页面应用。尤其适合大量的CRUD(增删改查)操作，具有Ajax风格的富客户端应用。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/28/AngularJS-learning/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -865,6 +431,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -885,8 +455,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -948,6 +527,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cron-表达式"><span class="nav-number">3.</span> <span class="nav-text">cron 表达式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1088,11 +683,15 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -1145,26 +744,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
