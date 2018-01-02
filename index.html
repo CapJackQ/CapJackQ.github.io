@@ -337,8 +337,7 @@
 
       
         
-          
-            <p>Linux crontab是用来定期执行程序的命令。crond命令每分锺会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作。</p>
+          <p>Linux crontab是用来定期执行程序的命令。crond命令每分锺会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作。</p>
 <p>而linux任务调度的工作主要分为以下两类：</p>
 <ul>
 <li>系统执行的工作：系统周期性所要执行的工作，如备份系统数据、清理缓存</li>
@@ -353,18 +352,13 @@
 <li>-l : 列出目前的时程表</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ crontab –l #列出当前用户的任务列表</span><br><span class="line">$ crontab –l –u username #列出指定用户的任务列表</span><br><span class="line">$ crontab -e  #编辑任务列表</span><br><span class="line">$ crontab -ri #提示性删除当前用户的任务列表</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p1 p2 p3 p4 p5 conmand to be executed</span><br></pre></td></tr></table></figure>
-<ul>
-<li>其中 p1 是表示分钟，p2 表示小时，p3 表示一个月份中的第几日，p4 表示月份，p5 表示一个星期中的第几天。program 表示要执行的程序。</li>
-<li>当 p1 为 <em> 时表示每分钟都要执行 program，p2 为 </em> 时表示每小时都要执行程序，其余类推</li>
-<li>当 p1 为 a-b 时表示从第 a 分钟到第 b 分钟这段时间内要执行，p2 为 a-b 时表示从第 a 到第 b 小时都要执行，其余类推</li>
-<li>当 p1 为 <em>/n 时表示每 n 分钟个时间间隔执行一次，p2 为 </em>/n 表示每 n 小时个时间间隔执行一次，其余类推</li>
-<li>当 p1 为 a, b, c,… 时表示第 a, b, c,… 分钟要执行，p2 为 a, b, c,… 时表示第 a, b, c…个小时要执行，其余类推</li>
-</ul>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">0 */2 * * * /sbin/service httpd restart  意思是每两个小时重启一次apache </span><br><span class="line"></span><br><span class="line">50 7 * * * /sbin/service sshd start  意思是每天7：50开启ssh服务 </span><br><span class="line"></span><br><span class="line">50 22 * * * /sbin/service sshd stop  意思是每天22：50关闭ssh服务 </span><br><span class="line"></span><br><span class="line">0 0 1,15 * * fsck /home  每月1号和15号检查/home 磁盘 </span><br><span class="line"></span><br><span class="line">1 * * * * /home/bruce/backup  每小时的第一分执行 /home/bruce/backup这个文件 </span><br><span class="line"></span><br><span class="line">00 03 * * 1-5 find /home &quot;*.xxx&quot; -mtime +4 -exec rm &#123;&#125; \;  每周一至周五3点钟，在目录/home中，查找文件名为*.xxx的文件，并删除4天前的文件。</span><br><span class="line"></span><br><span class="line">30 6 */10 * * ls  意思是每月的1、11、21、31日是的6：30执行一次ls命令</span><br></pre></td></tr></table></figure>
-<h2 id="cron-表达式"><a href="#cron-表达式" class="headerlink" title="cron 表达式"></a>cron 表达式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* * * * * command to be executed </span><br><span class="line">- - - - - - </span><br><span class="line">| | | | | | </span><br><span class="line">| | | | | --- 预执行的命令 </span><br><span class="line">| | | | ----- 表示星期0～7（其中星期天可以用0或7表示） </span><br><span class="line">| | | ------- 表示月份1～12 </span><br><span class="line">| | --------- 表示日期1～31 </span><br><span class="line">| ----------- 表示小时1～23（0表示0点） </span><br><span class="line">------------- 表示分钟1～59 每分钟用*或者 */1表示</span><br></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/02/Mac计划任务/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

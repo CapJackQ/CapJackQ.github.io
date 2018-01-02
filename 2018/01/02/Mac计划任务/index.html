@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="Hello | Totoro">
 <meta property="og:description" content="Linux crontab是用来定期执行程序的命令。crond命令每分锺会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作。 而linux任务调度的工作主要分为以下两类：  系统执行的工作：系统周期性所要执行的工作，如备份系统数据、清理缓存 个人执行的工作：某个用户定期要做的工作，例如每隔10分钟检查邮件服务器是否有新信，这些工作可由每个用户自行设置  语法1crontab [ -">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-02T03:38:00.922Z">
+<meta property="og:updated_time" content="2018-01-02T03:41:37.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux&#x2F;Mac计划任务">
 <meta name="twitter:description" content="Linux crontab是用来定期执行程序的命令。crond命令每分锺会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作。 而linux任务调度的工作主要分为以下两类：  系统执行的工作：系统周期性所要执行的工作，如备份系统数据、清理缓存 个人执行的工作：某个用户定期要做的工作，例如每隔10分钟检查邮件服务器是否有新信，这些工作可由每个用户自行设置  语法1crontab [ -">
@@ -355,6 +355,7 @@
 <li>-l : 列出目前的时程表</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ crontab –l #列出当前用户的任务列表</span><br><span class="line">$ crontab –l –u username #列出指定用户的任务列表</span><br><span class="line">$ crontab -e  #编辑任务列表</span><br><span class="line">$ crontab -ri #提示性删除当前用户的任务列表</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p1 p2 p3 p4 p5 conmand to be executed</span><br></pre></td></tr></table></figure>
 <ul>
 <li>其中 p1 是表示分钟，p2 表示小时，p3 表示一个月份中的第几日，p4 表示月份，p5 表示一个星期中的第几天。program 表示要执行的程序。</li>
