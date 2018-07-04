@@ -86,7 +86,8 @@
 <meta property="og:description" content="使用PHP上传文件 使用directory函数 服务器上与文件交互 服务器上执行程序 使用服务器环境变量  上传文件与使用HTTP协议将文件从服务器加载到浏览器相反，PHP则是将文件从浏览器上传至服务器。通常使用HTML表格交互来实现这一结构。 使用一个简单的界面  File Upload Configuration Setting in php.ini     指令 描述 缺省值     fi">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79gy1fspy8viqt2j30mq094t98.jpg">
-<meta property="og:updated_time" content="2018-06-27T11:14:08.833Z">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79gy1fsxsr6wr5ij30h807eq43.jpg">
+<meta property="og:updated_time" content="2018-07-04T06:09:08.756Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Interacting with the File System and the Server.md">
 <meta name="twitter:description" content="使用PHP上传文件 使用directory函数 服务器上与文件交互 服务器上执行程序 使用服务器环境变量  上传文件与使用HTTP协议将文件从服务器加载到浏览器相反，PHP则是将文件从浏览器上传至服务器。通常使用HTML表格交互来实现这一结构。 使用一个简单的界面  File Upload Configuration Setting in php.ini     指令 描述 缺省值     fi">
@@ -415,6 +416,91 @@
 <blockquote>
 <p>PHP脚本中可以使用下标来引用，比如<code>$_FILES[&#39;the_files&#39;][&#39;name][0]</code>。</p>
 </blockquote>
+<h2 id="Session-Upload-Progress"><a href="#Session-Upload-Progress" class="headerlink" title="Session Upload Progress"></a>Session Upload Progress</h2><p>在5.4版本，PHP包含一个选项可以追踪上传文件的过程。该选项对使用AJAX为用户返回实时信息的网页应用特别有用。在以前上传文件的模式中，无法通知用户关于其上传过程的信息，直到上传过程结束。但若使用PHPsession upload progress功能，就可以收到正在上传时的信息并将其展示给用户。</p>
+<p>在使用session upload progress之前确保以下指令是可用的。指令可在php.ini中找到。(<code>/usr/local/etc/php/7.0</code>)</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Description</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>session.upload_progress.enabled</td>
+<td>可以使用$_SESSION全局变量来跟踪上传</td>
+<td>On</td>
+</tr>
+<tr>
+<td>session.upload_progress.cleanup</td>
+<td>在POST数据完全上传之后清理信息</td>
+<td>On</td>
+</tr>
+<tr>
+<td>session.upload_progress.prefix</td>
+<td>前缀作为$_SESSION中的一部分上传用于唯一标识</td>
+<td>upload_progress</td>
+</tr>
+<tr>
+<td>session.upload_progress.name</td>
+<td>$_SESSION中的key</td>
+<td>PHP_SESSION_UPLOAD_PROGRESS</td>
+</tr>
+<tr>
+<td>session.upload_progress.freq</td>
+<td>定义session upload progress信息更新频率</td>
+<td>1%</td>
+</tr>
+<tr>
+<td>session.upload_progress.min_freq</td>
+<td>定义信息更新的最小延迟，单位是s</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>当这些配置完成后，<code>$_SESSION</code>全局变量会包含将要上传文件的信息。如果打印所有的变量，它们会包含在<code>$_SESSION</code>中。</p>
+<h2 id="使用目录函数"><a href="#使用目录函数" class="headerlink" title="使用目录函数"></a>使用目录函数</h2><p>在用户上传完毕之后，能看到上传了什么文件是非常有用的。PHP内置的一个目录和文件系统函数集合。</p>
+<h3 id="从目录读取"><a href="#从目录读取" class="headerlink" title="从目录读取"></a>从目录读取</h3><p>首先写一个脚本允许目录浏览所上传的文件。脚本如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;title&gt;Browse Directory&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;h1&gt;Browsing&lt;/h1&gt;</span><br><span class="line">	<span class="meta">&lt;?php</span></span><br><span class="line">		$currentDir = <span class="string">"/Users/LeeQY/Desktop/filesystem/"</span>;</span><br><span class="line">		$dir = opendir($currentDir);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">echo</span> <span class="string">"&lt;p&gt;Upload directory is "</span>.$currentDir.<span class="string">"&lt;/p&gt;"</span>;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">"&lt;p&gt;Directory Listing:&lt;/p&gt;&lt;u&gt;"</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span> (<span class="keyword">false</span> !== ($file = readdir($dir))) &#123;</span><br><span class="line">			<span class="keyword">if</span> ($file !== <span class="string">'.'</span> &amp;&amp; $file !== <span class="string">'..'</span> &amp;&amp; $file !== <span class="string">'.DS_Store'</span>) &#123;</span><br><span class="line">				<span class="keyword">echo</span> <span class="string">"&lt;li&gt;"</span>.$file.<span class="string">"&lt;/li&gt;"</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">"&lt;/ul&gt;"</span>;</span><br><span class="line">		closedir($dir);</span><br><span class="line">	<span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>上面代码中使用了<code>opendir()</code>，<code>closedir()</code>，<code>readdir()</code>函数。</p>
+<p><code>opendir()</code>函数打开一个路径来读取，其用法和<code>fopen()</code>函数读取文件类似。而<code>opendir()</code>中需要传入路径：<code>$dir = opendir($dir_name);</code>。函数返回一个目录句柄，类似的<code>fopen()</code>返回一个文件句柄。</p>
+<p>当路径打开，就可以调用<code>readdir($dir)</code>从其中读取文件名。该函数会在读取不到文件时返回<code>false</code>。注意，如果它读到文件名为<code>&quot;0&quot;</code>的文件，同样会返回<code>false</code>；为了保证不会出现这种情况，会明确检查返回值不等于<code>false</code>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="keyword">false</span> !== ($file = $readdir($dir)))</span><br></pre></td></tr></table></figure>
+<p>当完成读取路径后，调用<code>closed($dir)</code>。类似于<code>fclose()</code>。</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fsxsr6wr5ij30h807eq43.jpg" alt=""></p>
+<p>由于添加了<code>if ($file !== &#39;.&#39; &amp;&amp; $file !== &#39;..&#39; &amp;&amp; $file !== &#39;.DS_Store&#39;)</code>这行代码，所以不会显示<code>.</code>，<code>..</code>和<code>.DS_Store</code>这仨个目录。</p>
+<p>也可以使用PHP提供的<code>dir</code>类方法。其包含了<code>handle</code>和<code>path</code>属性，以及方法<code>read()</code>，<code>close()</code>，<code>rewind()</code>，和上面非类方法一样。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;title&gt;Browse Directory&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;h1&gt;Browsing&lt;/h1&gt;</span><br><span class="line">	<span class="meta">&lt;?php</span></span><br><span class="line">		</span><br><span class="line">		$dir = dir(<span class="string">"/Users/LeeQY/Desktop/filesystem/"</span>);</span><br><span class="line">		<span class="comment">// 也可以使用scandir($path_to_uploads)</span></span><br><span class="line">		<span class="comment">// $file_asc = scandir($path_to_uploads);</span></span><br><span class="line">		<span class="comment">// $file_desc = scandir($path_to_uploads, 1);</span></span><br><span class="line">	</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">"&lt;p&gt;Handle is "</span>.$dir-&gt;handle.<span class="string">"&lt;/p&gt;"</span>;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">"&lt;p&gt;Upload directory is "</span>.$dir-&gt;path.<span class="string">"&lt;/p&gt;"</span>;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">"&lt;p&gt;Directory listing "</span>.$dir-&gt;handle.<span class="string">"&lt;/p&gt;&lt;ul&gt;"</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span> (<span class="keyword">false</span> !== ($file = $dir-&gt;read())) &#123;</span><br><span class="line">			<span class="keyword">if</span> ($file != <span class="string">"."</span> &amp;&amp; $file != <span class="string">".."</span> &amp;&amp; $file != <span class="string">'.DS_Store'</span>)</span><br><span class="line">				<span class="keyword">echo</span> <span class="string">"&lt;li&gt;"</span>.$file.<span class="string">"&lt;/li&gt;"</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">echo</span> <span class="string">"&lt;/ul&gt;"</span>;</span><br><span class="line">		$dir-&gt;close();</span><br><span class="line">	<span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="获取当前路径的信息"><a href="#获取当前路径的信息" class="headerlink" title="获取当前路径的信息"></a>获取当前路径的信息</h3><p>在给定文件路径时，可以获取文件系统的一些其他信息。比如，<code>dirname($path)</code>和<code>basename($path)</code>函数分别返回路径的目录部分和路径的文件名部分。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$path = <span class="string">"/Users/user/Desktop/filesystem/Screen Shot 2018-06-29 at 09.32.22.png"</span></span><br><span class="line">$dir = dirname($path); <span class="comment">// /Users/user/Desktop/filesystem/</span></span><br><span class="line">$base = basename($path); <span class="comment">// Screen Shot 2018-06-29 at 09.32.22.png</span></span><br></pre></td></tr></table></figure>
+<p>也可以添加<code>disk_free_spae($path)[diskfreespace()]</code>函数来列出上传剩余空间。</p>
+<h3 id="创建、删除目录"><a href="#创建、删除目录" class="headerlink" title="创建、删除目录"></a>创建、删除目录</h3><p>除被动读取有关目录的信息外，还可以使用<code>mkdir()</code>和<code>rmdir()</code>创建、删除目录。</p>
+<p><code>mkdir()</code>携带两个参数：想要创建目录的路径(包含新目录名)以及想让其拥有的权限。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir(<span class="string">"/tmp/tesing"</span>, <span class="number">0777</span>);</span><br></pre></td></tr></table></figure>
+<p>但是，列出的权限不一定是获得的权限。当前<code>umask</code>的相反值和该值<code>AND</code>一次便得到真实的权限。比如，如果<code>umask</code>是022，那么将得到0755的权限。</p>
+<p>你可能希望在创建目录之前用以下的代码来重置<code>umask</code>以抵消此影响：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$oldumask = umask(<span class="number">0</span>);</span><br><span class="line">mkdir(<span class="string">"/tmp/testing/"</span>, <span class="number">0777</span>);</span><br><span class="line">umask($oldumask);</span><br></pre></td></tr></table></figure>
+<p><code>umask()</code>可以用于检查并修改当前<code>umask</code>。它会将当前<code>umask</code>值修改为传递给它的值并返回以前的<code>umask</code>值，或者，如果没有携带参数，只返回当前<code>umask</code>。</p>
+<p><code>umask()</code>函数在Windows系统没影响。</p>
+<p><code>rmdir()</code>函数删除路径：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rmdir(<span class="string">"/tmp/testing"</span>);</span><br><span class="line">rmdir(<span class="string">"c:\\tmp\\testing"</span>);</span><br></pre></td></tr></table></figure>
+<p>尝试删除的路径必须是空的。</p>
+<h2 id="与文件系统交互"><a href="#与文件系统交互" class="headerlink" title="与文件系统交互"></a>与文件系统交互</h2><h3 id="获取文件信息"><a href="#获取文件信息" class="headerlink" title="获取文件信息"></a>获取文件信息</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fileatime(); <span class="comment">// timestamp of the time the file was last accessed</span></span><br><span class="line">filemtime(); <span class="comment">// timestamp of the time the file was last modified</span></span><br><span class="line">date(); <span class="comment">// reformatted timestamp</span></span><br><span class="line">fileowner(); <span class="comment">// return user ID(uid)</span></span><br><span class="line">filegroup(); <span class="comment">// return group ID(gid)</span></span><br><span class="line">posix_getpwuid(); <span class="comment">// uid was converted to user name</span></span><br><span class="line">posix_getgrgid(); <span class="comment">// gid was converted to group name</span></span><br><span class="line">fileperms(); <span class="comment">// returns the permissions on the file</span></span><br><span class="line">decoct(); <span class="comment">// </span></span><br><span class="line">filetype(); <span class="comment">//</span></span><br></pre></td></tr></table></figure>
+<h3 id="改变文件属性"><a href="#改变文件属性" class="headerlink" title="改变文件属性"></a>改变文件属性</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chgrp(file, group);</span><br><span class="line">chmod(file, permissions);</span><br><span class="line">chown(file, user);</span><br></pre></td></tr></table></figure>
+<h3 id="新建，删除移动文件"><a href="#新建，删除移动文件" class="headerlink" title="新建，删除移动文件"></a>新建，删除移动文件</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bool touch(string file, [int time [, int atime]])</span><br><span class="line">copy($source_path, $destination_path);</span><br><span class="line">rename($oldfile, $newfile);</span><br></pre></td></tr></table></figure>
+<h2 id="使用程序执行函数"><a href="#使用程序执行函数" class="headerlink" title="使用程序执行函数"></a>使用程序执行函数</h2><ul>
+<li><p><code>exec()</code>：<code>string exec(string command [, array &amp;result [, int &amp;return_value]])</code>，传入在终端输入的指令，比如<code>exec(&quot;ls -la&quot;)</code>；<code>exec()</code>没有直接输出，返回结果的最后一行。</p>
+<p>如果传入一个变量作为<code>result</code>，就会得到一个关于该条命令的数组结果。如果传入变量作为<code>result_value</code>，就会得到返回代码。</p>
+</li>
+<li><p><code>passthru()</code>：<code>void passthru(string command [, int return_value])</code>。该函数直接将结果输出到浏览器。参数同上</p>
+</li>
+<li><p><code>system()</code>：<code>string system(string command [, int return_value])</code>。该函数输出结果到浏览器。</p>
+</li>
+</ul>
+<h3 id="使用环境函数：getenv-，puenv"><a href="#使用环境函数：getenv-，puenv" class="headerlink" title="使用环境函数：getenv()，puenv()"></a>使用环境函数：<code>getenv()</code>，<code>puenv()</code></h3><p>使用之前，看看如何使用环境变量。<code>getenv()</code>可以获取环境变量，<code>putenv()</code>设置环境变量。</p>
 
       
     </div>
@@ -587,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#上传文件"><span class="nav-number">1.</span> <span class="nav-text">上传文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理文件"><span class="nav-number">2.</span> <span class="nav-text">处理文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#上传文件"><span class="nav-number">1.</span> <span class="nav-text">上传文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理文件"><span class="nav-number">2.</span> <span class="nav-text">处理文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session-Upload-Progress"><span class="nav-number">3.</span> <span class="nav-text">Session Upload Progress</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用目录函数"><span class="nav-number">4.</span> <span class="nav-text">使用目录函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从目录读取"><span class="nav-number">4.1.</span> <span class="nav-text">从目录读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取当前路径的信息"><span class="nav-number">4.2.</span> <span class="nav-text">获取当前路径的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建、删除目录"><span class="nav-number">4.3.</span> <span class="nav-text">创建、删除目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与文件系统交互"><span class="nav-number">5.</span> <span class="nav-text">与文件系统交互</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取文件信息"><span class="nav-number">5.1.</span> <span class="nav-text">获取文件信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变文件属性"><span class="nav-number">5.2.</span> <span class="nav-text">改变文件属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建，删除移动文件"><span class="nav-number">5.3.</span> <span class="nav-text">新建，删除移动文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用程序执行函数"><span class="nav-number">6.</span> <span class="nav-text">使用程序执行函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用环境函数：getenv-，puenv"><span class="nav-number">6.1.</span> <span class="nav-text">使用环境函数：getenv()，puenv()</span></a></li></ol></li></ol></div>
             
 
           </div>
