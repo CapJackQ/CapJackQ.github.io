@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=" color="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="PHPPHP脚本在服务器上执行，然后将纯HTML结果发送会浏览器。 基本的PHP语法 PHP可以放在文档中的任何位置，以&amp;lt;?php开始，以?&amp;gt;结束：  123&amp;lt;?php// php 代码?&amp;gt;  PHP的每个代码行必须以分号结束，用于把指令集区分开来。PHP中有两种">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP基本语法学习">
+<meta property="og:url" content="http://yoursite.com/2017/10/16/PHP基本语法学习/index.html">
+<meta property="og:site_name" content="Hello | Totoro">
+<meta property="og:description" content="PHPPHP脚本在服务器上执行，然后将纯HTML结果发送会浏览器。 基本的PHP语法 PHP可以放在文档中的任何位置，以&amp;lt;?php开始，以?&amp;gt;结束：  123&amp;lt;?php// php 代码?&amp;gt;  PHP的每个代码行必须以分号结束，用于把指令集区分开来。PHP中有两种在浏览器输出文本的基础指令：echo和print。 注释：单行，//；多行/  /  PHP变量变量是用于存储信">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-14T13:13:48.565Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP基本语法学习">
+<meta name="twitter:description" content="PHPPHP脚本在服务器上执行，然后将纯HTML结果发送会浏览器。 基本的PHP语法 PHP可以放在文档中的任何位置，以&amp;lt;?php开始，以?&amp;gt;结束：  123&amp;lt;?php// php 代码?&amp;gt;  PHP的每个代码行必须以分号结束，用于把指令集区分开来。PHP中有两种在浏览器输出文本的基础指令：echo和print。 注释：单行，//；多行/  /  PHP变量变量是用于存储信">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/16/PHP基本语法学习/"/>
+
+
+
+
+
+  <title>PHP基本语法学习 | Hello | Totoro</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello | Totoro</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/16/PHP基本语法学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Totorooo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello | Totoro">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PHP基本语法学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-16T13:52:16+08:00">
+                2017-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP-basic/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP basic</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h1><p>PHP脚本在服务器上执行，然后将纯HTML结果发送会浏览器。</p>
+<h2 id="基本的PHP语法"><a href="#基本的PHP语法" class="headerlink" title="基本的PHP语法"></a>基本的PHP语法</h2><ul>
+<li>PHP可以放在文档中的任何位置，以<strong>&lt;?php</strong>开始，以<strong>?&gt;</strong>结束：</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// php 代码</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>PHP的每个代码行必须以分号结束，用于把指令集区分开来。PHP中有两种在浏览器输出文本的基础指令：<strong>echo</strong>和<strong>print</strong>。</li>
+<li>注释：单行，//；多行/<em>  </em>/</li>
+</ul>
+<h1 id="PHP变量"><a href="#PHP变量" class="headerlink" title="PHP变量"></a>PHP变量</h1><p>变量是用于存储信息的“容器”：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">$x = <span class="number">5</span>;</span><br><span class="line">$y = <span class="number">6</span>;</span><br><span class="line">$z = $x + $y;</span><br><span class="line"><span class="keyword">echo</span> $z;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="与代数类似"><a href="#与代数类似" class="headerlink" title="与代数类似"></a>与代数类似</h2><p>变量用于存储数据。</p>
+<h2 id="PHP变量-1"><a href="#PHP变量-1" class="headerlink" title="PHP变量"></a>PHP变量</h2><ul>
+<li>变量以<strong>$</strong>开始，后面跟着变量名称</li>
+<li>必须以字母或者下划线开始</li>
+<li>只能包含字母、数字、字符以及下划线(A-z，0-9，_)</li>
+<li>不能包含空格</li>
+<li>变量名区分大小写($y—-$Y不同)</li>
+</ul>
+<a id="more"></a>
+<h2 id="创建声明变量"><a href="#创建声明变量" class="headerlink" title="创建声明变量"></a>创建声明变量</h2><p>PHP没有声明变量的命令。变量在第一次赋值时被创建：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$text = <span class="string">"Hello World!"</span>;</span><br><span class="line">$x = <span class="number">5</span>;</span><br><span class="line">$y = <span class="number">10.2</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="PHP是门若类型语言"><a href="#PHP是门若类型语言" class="headerlink" title="PHP是门若类型语言"></a>PHP是门若类型语言</h2><p>声明变量不必声明变量的数据类型，PHP会根据变量的值，自动把变量转换为正确的数据类型(type inference，类似swift)。</p>
+<h2 id="PHP变量作用域"><a href="#PHP变量作用域" class="headerlink" title="PHP变量作用域"></a>PHP变量作用域</h2><p>四种不同的变量作用域：</p>
+<ul>
+<li>local</li>
+<li>global</li>
+<li>static</li>
+<li>parameter</li>
+</ul>
+<h2 id="局部和全部作用域"><a href="#局部和全部作用域" class="headerlink" title="局部和全部作用域"></a>局部和全部作用域</h2><p>在所有函数外部定义的变量，拥有全局作用域。除了函数外，<strong>全局变量可以被脚本中的任何部分访问，要在一个函数中访问一个全局变量，需要使用global关键字</strong>。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">$x = <span class="number">5</span>; <span class="comment">// 全局变量</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	$y = <span class="number">10</span>; <span class="comment">// 局部变量</span></span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"&lt;p&gt;测试函数内部变量：&lt;p&gt;"</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"变量 x 为：$x"</span>; <span class="comment">// 若要使用，需要添加 global</span></span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"变量 y 为：$y"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myTest();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;p&gt;测试函数外变量：&lt;p&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"变量 x 为：$x"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"变量 y 为：$y"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="PHP-global关键字"><a href="#PHP-global关键字" class="headerlink" title="PHP global关键字"></a>PHP global关键字</h2><p>global关键字用于函数内访问全局变量，在函数内调用函数外定义的全局变量，需要添加<strong>global</strong>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$x = <span class="number">5</span>;</span><br><span class="line">$y = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">global</span> $x, $y;</span><br><span class="line">	$y += $x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myTest();</span><br><span class="line"><span class="keyword">echo</span> $y; <span class="comment">// 输出15</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>PHP将所有全局变量存储在一个名为<strong>$GLOBALS[<em>index</em>]</strong>的数组中。<em>index</em>保存变量的名称。该数组在函数内部可以访问，也可以直接用俩更新全局变量。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$x = <span class="number">5</span>;</span><br><span class="line">$y = <span class="number">11</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	$GLOBALS[<span class="string">'y'</span>] = $GLOBALS[<span class="string">'x'</span>] + $GLOBALS[<span class="string">'y'</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myTest();</span><br><span class="line"><span class="keyword">echo</span> $y;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Static-作用域"><a href="#Static-作用域" class="headerlink" title="Static 作用域"></a>Static 作用域</h2><p>当一个函数完成时，他的所有变量通常会被删除。如果希望某个局部变量不要被删除，在第一次声明变量时使用<strong>static</strong>关键字：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> $x = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">echo</span> $x;</span><br><span class="line">	$x++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myTest();</span><br><span class="line">myTest();</span><br><span class="line">myTest();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>每次调用该函数时，该变量会保留着函数前一次调用时的值，但其仍然是函数的局部变量。</p>
+<h2 id="参数作用域"><a href="#参数作用域" class="headerlink" title="参数作用域"></a>参数作用域</h2><p>参数是调用代码将值传递给函数的局部变量。参数是在参数列表中声明的，作为函数声明的一部分：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">echo</span> $x;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myTest(<span class="number">5</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="PHP-5-echo和print语句"><a href="#PHP-5-echo和print语句" class="headerlink" title="PHP 5 echo和print语句"></a>PHP 5 echo和print语句</h1><p>两个基本的输出方式：echo和print。</p>
+<ul>
+<li>echo：可以输出一个或多个字符串</li>
+<li>print：只允许输出一个字符串，返回值总为1</li>
+</ul>
+<blockquote>
+<p>echo 输出速度比print快，echo没有返回值，print返回值为1</p>
+</blockquote>
+<h2 id="PHP-echo语句"><a href="#PHP-echo语句" class="headerlink" title="PHP echo语句"></a>PHP echo语句</h2><ul>
+<li><p>echo是一个语言结构，使用的时候可以加括号或者不加，echo，echo()</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h2&gt;PHP&lt;/h2&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"Hello World!"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"这是一个"</span>, <span class="string">"字符串，"</span>, <span class="string">"使用了，"</span>, <span class="string">"多个，"</span>, <span class="string">"参数。"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示变量</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$txt1 = <span class="string">"Learning PHP"</span>;</span><br><span class="line">$txt2 = <span class="string">"google.com"</span>;</span><br><span class="line">$cars = <span class="keyword">array</span>(<span class="string">"Volvo"</span>, <span class="string">"BMW"</span>, <span class="string">"Toyota"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $txt1;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"在 $txt2 学习 翻墙"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"My car's brand is &#123;$cars[0]&#125;"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="PHP-print-print-r语句"><a href="#PHP-print-print-r语句" class="headerlink" title="PHP print/print_r语句"></a>PHP print/print_r语句</h2><ul>
+<li><p>print语句处理纯量数据，类似于echo</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span>(<span class="string">"this is an scalar"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>print_r语句处理非纯量数据，如array/object</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print_r($array);</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h1 id="PHP-5-数据类型"><a href="#PHP-5-数据类型" class="headerlink" title="PHP 5 数据类型"></a>PHP 5 数据类型</h1><h2 id="PHP对象"><a href="#PHP对象" class="headerlink" title="PHP对象"></a>PHP对象</h2><p>使用<strong>class</strong>来声明类对象。类可以包含属性和方法的结构。在类中定义数据类型，在实例化的类中使用数据类型：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> $color;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">Car</span><span class="params">($color = <span class="string">"green"</span>)</span> </span>&#123;</span><br><span class="line">  		<span class="keyword">$this</span>-&gt;color = $color;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">what_color</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">$this</span>-&gt;color;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="PHP常量"><a href="#PHP常量" class="headerlink" title="PHP常量"></a>PHP常量</h2><p>常量是一个简单值的标识符，在脚本中不能改变。一个常量由英文字母、下划线、和数字组成,但数字不能作为首字母出现。 (常量名不需要加 $ 修饰符)。 </p>
+<h2 id="设置-PHP-常量"><a href="#设置-PHP-常量" class="headerlink" title="设置 PHP 常量"></a>设置 PHP 常量</h2><p>使用<code>define()</code>函数设置常量：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool define(string $name, mixed $value [, bool $case_insensitive = <span class="keyword">false</span>])</span><br></pre></td></tr></table></figure>
+<p>该函数有三个参数:</p>
+<ul>
+<li><strong>name：</strong>必选参数，常量名称，即标志符</li>
+<li><strong>value：</strong>必选参数，常量的值</li>
+<li><strong>case_insensitive </strong>：可选参数，如果设置为 TRUE，该常量则大小写不敏感。默认是大小写敏感的</li>
+<li>常量在定义后，默认是全局变量，可以在整个运行的脚本的任何地方使用</li>
+</ul>
+<h2 id="PHP关联数组"><a href="#PHP关联数组" class="headerlink" title="PHP关联数组"></a>PHP关联数组</h2><p>关联数组是使用分配给数组的指定的键的数组。</p>
+<p>这里有两种创建关联数组的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$age = array(&quot;Peter&quot; =&gt; &quot;35&quot;, &quot;Ben&quot; =&gt; &quot;37&quot;, &quot;Joe&quot; =&gt; &quot;43&quot;);</span><br><span class="line">$array_without_sign = [&quot;VM&quot; =&gt; &quot;Vermont&quot;, &quot;NH&quot; =&gt; &quot;New Hamsphire&quot;];</span><br></pre></td></tr></table></figure>
+<h2 id="PHP数组排序"><a href="#PHP数组排序" class="headerlink" title="PHP数组排序"></a>PHP数组排序</h2><ul>
+<li>sort() - 对数组进行升序排列</li>
+<li>rsort() - 对数组进行降序排列</li>
+<li>asort() - 根据关联数组的值，对数组进行升序排列</li>
+<li>ksort() - 根据关联数组的键，对数组进行升序排列</li>
+<li>arsort() - 根据关联数组的值，对数组进行降序排列</li>
+<li>krsort() - 根据关联数组的键，对数组进行降序排列</li>
+</ul>
+<h2 id="PHP超级全局变量"><a href="#PHP超级全局变量" class="headerlink" title="PHP超级全局变量"></a>PHP超级全局变量</h2><p>PHP中预定义了几个超级全局变量（superglobals） ，这意味着它们在一个脚本的全部作用域中都可用。 </p>
+<ul>
+<li>$GLOBALS</li>
+<li>$_SERVER</li>
+<li>$_REQUEST</li>
+<li>$_POST</li>
+<li>$_GET</li>
+<li>$_FILES</li>
+<li>$_ENV</li>
+<li>$_COOKIE</li>
+<li>$_SESSION不需要特别说明，就可以在函数及类中使用。</li>
+</ul>
+<h3 id="PHP-SERVER"><a href="#PHP-SERVER" class="headerlink" title="PHP $_SERVER"></a>PHP $_SERVER</h3><p>$_SERVER 是一个包含了诸如头信息(header)、路径(path)、以及脚本位置(script locations)等等信息的数组。这个数组中的项目由 Web 服务器创建。不能保证每个服务器都提供全部项目；服务器可能会忽略一些，或者提供一些没有在这里列举出来的项目。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">'PHP_SELF'</span>];</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">'SERVER_NAME'</span>];</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">'HTTP_HOST'</span>];</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">'HTTP_REFERER'</span>];</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">'HTTP_USER_AGENT'</span>];</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">'SCRIPT_NAME'</span>];</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>下表列出了所有 $_SERVER 变量中的重要元素:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>元素/代码</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$_SERVER[‘PHP_SELF’]</td>
+<td>当前执行脚本的文件名，与 document root 有关。例如，在地址为 <a href="http://example.com/test.php/foo.bar" target="_blank" rel="noopener">http://example.com/test.php/foo.bar</a> 的脚本中使用 $_SERVER[‘PHP_SELF’] 将得到 /test.php/foo.bar。<code>__FILE__</code>常量包含当前(例如包含)文件的完整路径和文件名。 从 PHP 4.3.0 版本开始，如果 PHP 以命令行模式运行，这个变量将包含脚本名。之前的版本该变量不可用。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘GATEWAY_INTERFACE’]</td>
+<td>服务器使用的 CGI 规范的版本；例如，”CGI/1.1”。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘SERVER_ADDR’]</td>
+<td>当前运行脚本所在的服务器的 IP 地址。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘SERVER_NAME’]</td>
+<td>当前运行脚本所在的服务器的主机名。如果脚本运行于虚拟主机中，该名称是由那个虚拟主机所设置的值决定。(如: www.runoob.com)</td>
+</tr>
+<tr>
+<td>$_SERVER[‘SERVER_SOFTWARE’]</td>
+<td>服务器标识字符串，在响应请求时的头信息中给出。 (如：Apache/2.2.24)</td>
+</tr>
+<tr>
+<td>$_SERVER[‘SERVER_PROTOCOL’]</td>
+<td>请求页面时通信协议的名称和版本。例如，”HTTP/1.0”。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘REQUEST_METHOD’]</td>
+<td>访问页面使用的请求方法；例如，”GET”, “HEAD”，”POST”，”PUT”。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘REQUEST_TIME’]</td>
+<td>请求开始时的时间戳。从 PHP 5.1.0 起可用。 (如：1377687496)</td>
+</tr>
+<tr>
+<td>$_SERVER[‘QUERY_STRING’]</td>
+<td>query string（查询字符串），如果有的话，通过它进行页面访问。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘HTTP_ACCEPT’]</td>
+<td>当前请求头中 Accept: 项的内容，如果存在的话。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘HTTP_ACCEPT_CHARSET’]</td>
+<td>当前请求头中 Accept-Charset: 项的内容，如果存在的话。例如：”iso-8859-1,*,utf-8”。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘HTTP_HOST’]</td>
+<td>当前请求头中 Host: 项的内容，如果存在的话。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘HTTP_REFERER’]</td>
+<td>引导用户代理到当前页的前一页的地址（如果存在）。由 user agent 设置决定。并不是所有的用户代理都会设置该项，有的还提供了修改 HTTP_REFERER 的功能。简言之，该值并不可信。)</td>
+</tr>
+<tr>
+<td>$_SERVER[‘HTTPS’]</td>
+<td>如果脚本是通过 HTTPS 协议被访问，则被设为一个非空的值。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘REMOTE_ADDR’]</td>
+<td>浏览当前页面的用户的 IP 地址。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘REMOTE_HOST’]</td>
+<td>浏览当前页面的用户的主机名。DNS 反向解析不依赖于用户的 REMOTE_ADDR。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘REMOTE_PORT’]</td>
+<td>用户机器上连接到 Web 服务器所使用的端口号。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘SCRIPT_FILENAME’]</td>
+<td>当前执行脚本的绝对路径。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘SERVER_ADMIN’]</td>
+<td>该值指明了 Apache 服务器配置文件中的 SERVER_ADMIN 参数。如果脚本运行在一个虚拟主机上，则该值是那个虚拟主机的值。(如：someone@runoob.com)</td>
+</tr>
+<tr>
+<td>$_SERVER[‘SERVER_PORT’]</td>
+<td>Web 服务器使用的端口。默认值为 “80”。如果使用 SSL 安全连接，则这个值为用户设置的 HTTP 端口。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘SERVER_SIGNATURE’]</td>
+<td>包含了服务器版本和虚拟主机名的字符串。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘PATH_TRANSLATED’]</td>
+<td>当前脚本所在文件系统（非文档根目录）的基本路径。这是在服务器进行虚拟到真实路径的映像后的结果。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘SCRIPT_NAME’]</td>
+<td>包含当前脚本的路径。这在页面需要指向自己时非常有用。<strong>FILE</strong> 常量包含当前脚本(例如包含文件)的完整路径和文件名。</td>
+</tr>
+<tr>
+<td>$_SERVER[‘SCRIPT_URI’]</td>
+<td>URI 用来指定要访问的页面。例如 “/index.html”。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="PHP-REQUEST"><a href="#PHP-REQUEST" class="headerlink" title="PHP $_REQUEST"></a>PHP $_REQUEST</h3><p>PHP $_REQUEST 用于收集HTML表单提交的数据。</p>
+<h1 id="PHP魔术变量"><a href="#PHP魔术变量" class="headerlink" title="PHP魔术变量"></a>PHP魔术变量</h1><h2 id="TRAIT"><a href="#TRAIT" class="headerlink" title="__TRAIT__"></a><code>__TRAIT__</code></h2><p>PHP实现了代码复用的一个方法，称为traits。Trait名包括其被声明的作用域(例如Foo\Bar)。</p>
+<p>从基类即成的成员被插入的SayWorld Trait中的MyHelloWorld方法所覆盖。其行为与MyHelloWorld类中定义的方法一致。优先顺序是当前类中的方法会覆盖trait方法，而trait方法又覆盖了基类中的方法。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"Hello "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">trait</span> MyHelloWorld extends Base &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">parent</span>::sayHello();</span><br><span class="line">      	<span class="keyword">echo</span> <span class="string">"World!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyHelloWorld</span> <span class="keyword">extends</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">    <span class="keyword">use</span> <span class="title">SayWorld</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$o = <span class="keyword">new</span> MyHelloWorld();</span><br><span class="line">$o-&gt;sayHello();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="PHP命名空间-namespace"><a href="#PHP命名空间-namespace" class="headerlink" title="PHP命名空间(namespace)"></a>PHP命名空间(namespace)</h1><p>PHP命名空间解决两类问题</p>
+<ol>
+<li>用户编写的代码与PHP内部的类/函数/常量或第三方类/函数/常量之间的名字冲突</li>
+<li>为很长的标识符名称(通常是未来缓解第一类为题而定义的)创建一个别名(或简短)的名称，提高代码可读性</li>
+</ol>
+<h2 id="定义命名空间"><a href="#定义命名空间" class="headerlink" title="定义命名空间"></a>定义命名空间</h2><p>默认情况下，所有常量、类和函数名都放在全局空间下。命名空间通过关键词<strong>namespace</strong>来声明，如果一个文件中包含命名空间，它必须在其他所有代码之前声明命名空间：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 定义代码在‘MyProject’命名空间中</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">MyProject</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// coding...</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>也可以在统一文件中定义不同的命名空间代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">MyProject1</span>;</span><br><span class="line"><span class="comment">// MyProject1 命名空间内的PHP代码</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">MyProject2</span>;</span><br><span class="line"><span class="comment">// MyProject2 命名空间内的PHP代码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 另外一种语法</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">MyProject3</span> &#123;</span><br><span class="line">	// <span class="title">MyProject3</span> 命名空间中的<span class="title">PHP</span>代码</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>在声明命名空间之前唯一合法的代码是用于定义源文件编码方式的 declare 语句。所有非 PHP 代码包括空白符都不能出现在命名空间的声明之前。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">declare</span>(encoding = <span class="string">'UTF-8'</span>); <span class="comment">// 定义多个命名空间和不包含在命名空间中的代码</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">MYProject</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="title">const</span> <span class="title">CONNECT_OK</span> = 1;</span><br><span class="line">clsas Connection &#123;<span class="comment">/* ... */</span>&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Connect</span><span class="params">()</span> </span>&#123;<span class="comment">/* ... */</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> &#123; // 全局代码</span><br><span class="line">	<span class="title">session_start</span>();</span><br><span class="line">	$a = MYProject\Connect();</span><br><span class="line">	<span class="keyword">echo</span> MYProject\Connection::start();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="子命名空间"><a href="#子命名空间" class="headerlink" title="子命名空间"></a>子命名空间</h2><p>与目录和文件的关系很象，PHP 命名空间也允许指定层次化的命名空间的名称。因此，命名空间的名字可以使用分层次的方式定义：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">MYProject</span>\<span class="title">Sub</span>\<span class="title">Level</span>; <span class="comment">// 声明分层次的单个命名空间</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> CONNECT_OK = <span class="number">1</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Connection</span> </span>&#123;<span class="comment">/* ... */</span>&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Connect</span><span class="params">()</span> </span>&#123;<span class="comment">/* ... */</span>&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面创建了常量MYProject\Sub\Level\CONNECT_OK, 类MYProject\Sub\Level\Connection和函数MYProject\Sub\Level\Connect。</p>
+<h2 id="命名空间使用"><a href="#命名空间使用" class="headerlink" title="命名空间使用"></a>命名空间使用</h2><p>PHP 命名空间中的类名可以通过三种方式引用：</p>
+<ol>
+<li><strong>非限定名称，或不包含前缀的类名称，</strong>例如 $a=new foo(); 或 foo::staticmethod();。如果当前命名空间是 currentnamespace，foo 将被解析为 currentnamespace\foo。如果使用 foo 的代码是全局的，不包含在任何命名空间中的代码，则 foo 会被解析为foo。 警告：如果命名空间中的函数或常量未定义，则该非限定的函数名称或常量名称会被解析为全局函数名称或常量名称。</li>
+<li><strong>限定名称,或包含前缀的名称，</strong>例如 $a = new subnamespace\foo(); 或 subnamespace\foo::staticmethod();。如果当前的命名空间是 currentnamespace，则 foo 会被解析为 currentnamespace\subnamespace\foo。如果使用 foo 的代码是全局的，不包含在任何命名空间中的代码，foo 会被解析为subnamespace\foo。</li>
+<li><strong>完全限定名称，或包含了全局前缀操作符的名称，</strong>例如， $a = new \currentnamespace\foo(); 或 \currentnamespace\foo::staticmethod();。在这种情况下，foo 总是被解析为代码中的文字名(literal name)currentnamespace\foo。</li>
+</ol>
+<p>使用实例：</p>
+<p>file1.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Foo</span>\<span class="title">Bar</span>\<span class="title">subnamespace</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> FOO = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">staticmethod</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>file2.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Foo</span>\<span class="title">Bar</span>;</span><br><span class="line"><span class="keyword">include</span> <span class="string">'file1.php'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> FOO = <span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">staticmethod</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 非限定名称 */</span></span><br><span class="line">foo(); <span class="comment">// 解析为 Foo\Bar\foo resolves to function Foo\Bar\foo</span></span><br><span class="line">foo::staticmethod(); <span class="comment">// 解析为类 Foo\Bar\foo的静态方法staticmethod。resolves to class Foo\Bar\foo, method staticmethod</span></span><br><span class="line"><span class="keyword">echo</span> FOO; <span class="comment">// resolves to constant Foo\Bar\FOO</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 限定名称 */</span></span><br><span class="line">subnamespace\foo(); <span class="comment">// 解析为函数 Foo\Bar\subnamespace\foo</span></span><br><span class="line">subnamespace\foo::staticmethod(); <span class="comment">// 解析为类 Foo\Bar\subnamespace\foo,</span></span><br><span class="line">                                  <span class="comment">// 以及类的方法 staticmethod</span></span><br><span class="line"><span class="keyword">echo</span> subnamespace\FOO; <span class="comment">// 解析为常量 Foo\Bar\subnamespace\FOO</span></span><br><span class="line">                                  </span><br><span class="line"><span class="comment">/* 完全限定名称 */</span></span><br><span class="line">\Foo\Bar\foo(); <span class="comment">// 解析为函数 Foo\Bar\foo</span></span><br><span class="line">\Foo\Bar\foo::staticmethod(); <span class="comment">// 解析为类 Foo\Bar\foo, 以及类的方法 staticmethod</span></span><br><span class="line"><span class="keyword">echo</span> \Foo\Bar\FOO; <span class="comment">// 解析为常量 Foo\Bar\FOO</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在访问任意全局类、函数或常量，都可以使用完全限定名称，例如\strlen()或\Exception 或\INI_ALL。</p>
+</blockquote>
+<p>在命名空间内部访问全局类、函数和常量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">namespace Foo;</span><br><span class="line"></span><br><span class="line">function strlen() &#123;&#125;</span><br><span class="line">const INI_ALL = 3;</span><br><span class="line">class Exception &#123;&#125;</span><br><span class="line"></span><br><span class="line">$a = \strlen(&apos;hi&apos;); 			// 调用全局函数strlen</span><br><span class="line">$b = \INI_ALL; 					// 访问全局常量 INI_ALL</span><br><span class="line">$c = new \Exception(&apos;error&apos;); 	// 实例化全局类 Exception</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="命名空间和动态语言特征"><a href="#命名空间和动态语言特征" class="headerlink" title="命名空间和动态语言特征"></a>命名空间和动态语言特征</h2><p>PHP命名空间的实现受到其语言自身的动态特征的影响。因此，如果要将下面的代码转换到命名空间中，动态访问元素。</p>
+<p>example.1php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">classname</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">echo</span> <span class="keyword">__METHOD__</span>, <span class="string">"\n"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">funcname</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="keyword">__FUNCTION__</span>, <span class="string">"\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> constname = <span class="string">"global"</span>;</span><br><span class="line"></span><br><span class="line">$a = <span class="string">"classname"</span>;</span><br><span class="line">$obj = <span class="keyword">new</span> $a; <span class="comment">// prints classname::__construct</span></span><br><span class="line">$b = <span class="string">"funcname"</span>;</span><br><span class="line">$b(); <span class="comment">// prints funcname</span></span><br><span class="line"><span class="keyword">echo</span> constant(<span class="string">"constname"</span>), <span class="string">"\n"</span>; <span class="comment">// prints global</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Heredoc结构"><a href="#Heredoc结构" class="headerlink" title="Heredoc结构"></a>Heredoc结构</h2><p>表达字符串的方法用heredoc句法结构：&lt;&lt;&lt;。在运算符之后要提供一个标识符，然后换行。接下来是字符串，最后要用前面定义的标识符作为结束标志。</p>
+<p>结束时所引用的标识符必须在该行的第一列，而且，标识符的命名也要像其它标签一样遵守PHP规则：只能包含字母、数字和下划线，并且以字母和下划线作为开头。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$str = <span class="string">&lt;&lt;&lt;EOD</span></span><br><span class="line"><span class="string">Example of string spanning multiple</span></span><br><span class="line"><span class="string">lines using heredoc syntax.</span></span><br><span class="line"><span class="string">EOD;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">含有变量的更复杂示例</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> $foo;</span><br><span class="line">    <span class="keyword">var</span> $bar;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">$this</span>-&gt;foo = <span class="string">"Foo"</span>;</span><br><span class="line">      <span class="keyword">$this</span>-&gt;bar = <span class="keyword">array</span>(<span class="string">"Bar1"</span>, <span class="string">"Bar2"</span>, <span class="string">"Bare3"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$foo = <span class="keyword">new</span> Foo();</span><br><span class="line">$name = <span class="string">'MyName'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&lt;&lt;&lt;EOT</span></span><br><span class="line"><span class="string">My name is "<span class="subst">$name</span>". I am printing some <span class="subst">$foo</span>-&gt;foo.</span></span><br><span class="line"><span class="string">Now, I am printing some <span class="subst">&#123;$foo-&gt;bar[1]&#125;</span>.</span></span><br><span class="line"><span class="string">This should print a capital 'A': \x41</span></span><br><span class="line"><span class="string">EOT;</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>也可以把Heredoc结构用在函数参数中来传递数据：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">var_dump(<span class="keyword">array</span>(<span class="string">&lt;&lt;&lt;EOD</span></span><br><span class="line"><span class="string">foobar!</span></span><br><span class="line"><span class="string">EOD</span></span><br><span class="line">));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>也可以用Heredoc结构来初始化静态变量和类的属性和常量：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 静态变量</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> $bar = <span class="string">&lt;&lt;&lt;LABEL</span></span><br><span class="line"><span class="string">Nothing in here...</span></span><br><span class="line"><span class="string">LABEL;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 类的常量、属性</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">foo</span> </span>&#123;</span><br><span class="line">	<span class="keyword">const</span> BAR = <span class="string">&lt;&lt;&lt;FOOBAR</span></span><br><span class="line"><span class="string">Constant Example</span></span><br><span class="line"><span class="string">FOOBAR;</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> $baz = <span class="string">&lt;&lt;&lt;FOOBAR</span></span><br><span class="line"><span class="string">Property Example</span></span><br><span class="line"><span class="string">FOOBAR;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>也可以在Heredoc中用双引号来声明标识符：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span><span class="string">&lt;&lt;&lt;"FOOBAR"</span></span><br><span class="line"><span class="string">Hello World!</span></span><br><span class="line"><span class="string">FOOBAR;</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Nowdoc结构"><a href="#Nowdoc结构" class="headerlink" title="Nowdoc结构"></a>Nowdoc结构</h2><p>一个nowdoc结构也用标记&lt;&lt;&lt;，但是跟在后面的标识符要用单引号括起来，即&lt;&lt;&lt;’EOT’。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$str = <span class="string">&lt;&lt;&lt;'EOD'</span></span><br><span class="line"><span class="string">Example of string</span></span><br><span class="line"><span class="string">spanning multiple lines</span></span><br><span class="line"><span class="string">using nowdoc syntax.</span></span><br><span class="line"><span class="string">EOD;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">含有变量的更复杂的示例 </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $foo;</span><br><span class="line">    <span class="keyword">public</span> $bar;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;foo = <span class="string">'Foo'</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;bar = <span class="keyword">array</span>(<span class="string">'Bar1'</span>, <span class="string">'Bar2'</span>, <span class="string">'Bar3'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$foo = <span class="keyword">new</span> foo();</span><br><span class="line">$name = <span class="string">'MyName'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&lt;&lt;&lt;'EOT'</span></span><br><span class="line"><span class="string">My name is "<span class="subst">$name</span>". I am printing some <span class="subst">$foo</span>-&gt;foo.</span></span><br><span class="line"><span class="string">Now, I am printing some <span class="subst">&#123;$foo-&gt;bar[1]&#125;</span>.</span></span><br><span class="line"><span class="string">This should not print a capital 'A': \x41</span></span><br><span class="line"><span class="string">EOT;</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>nowdoc结构可以用在任意的静态数据环境中，最典型的实例是用来初始化类的属性或常量：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="meta">&lt;?php</span></span><br><span class="line">&gt; <span class="class"><span class="keyword">class</span> <span class="title">foo</span> </span>&#123;</span><br><span class="line">&gt;     <span class="keyword">public</span> $bar = <span class="string">&lt;&lt;&lt;'EOT'</span></span><br><span class="line"><span class="string">&gt; bar</span></span><br><span class="line"><span class="string">&gt; EOT;</span></span><br><span class="line"><span class="string">&gt; &#125;</span></span><br><span class="line"><span class="string">&gt; ?&gt;</span></span><br><span class="line"><span class="string">&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h1 id="PHP面向对象"><a href="#PHP面向对象" class="headerlink" title="PHP面向对象"></a>PHP面向对象</h1><p>面向对象设计(Object-oreinted programming OOP)中，对象是一个由信息及对信息进行处理的描述所组成的整体，是实现现实世界的抽象。</p>
+<p>对象的三个特征：</p>
+<ul>
+<li>对象的行为：可以对 对象施加那些操作，开灯，关灯就是行为</li>
+<li>对象的形态：当施加那些方法是对象如何响应，颜色，尺寸，外型</li>
+<li>对象的表示：对象的表示就相当于身份证，具体区分在相同的行为与状态下有什么不同</li>
+</ul>
+<h2 id="面向对象内容"><a href="#面向对象内容" class="headerlink" title="面向对象内容"></a>面向对象内容</h2><ul>
+<li><strong>类</strong> − 定义了一件事物的抽象特点。类的定义包含了数据的形式以及对数据的操作</li>
+<li><strong>对象</strong> − 是类的实例</li>
+<li><strong>成员变量</strong> − 定义在类内部的变量。该变量的值对外是不可见的，但是可以通过成员函数访问，在类被实例化为对象后，该变量即可称为对象的属性</li>
+<li><strong>成员函数</strong> − 定义在类的内部，可用于访问对象的数据</li>
+<li><strong>继承</strong> − 继承性是子类自动共享父类数据结构和方法的机制，这是类之间的一种关系。在定义和实现一个类的时候，可以在一个已经存在的类的基础之上来进行，把这个已经存在的类所定义的内容作为自己的内容，并加入若干新的内容</li>
+<li><strong>父类</strong> − 一个类被其他类继承，可将该类称为父类，或基类，或超类</li>
+<li><strong>子类</strong> − 一个类继承其他类称为子类，也可称为派生类</li>
+<li><strong>多态</strong> − 多态性是指相同的函数或方法可作用于多种类型的对象上并获得不同的结果。不同的对象，收到同一消息可以产生不同的结果，这种现象称为多态性</li>
+<li><strong>重载</strong> − 简单说，就是函数或者方法有同样的名称，但是参数列表不相同的情形，这样的同名不同参数的函数或者方法之间，互相称之为重载函数或者方法</li>
+<li><strong>抽象性</strong> − 抽象性是指将具有一致的数据结构（属性）和行为（操作）的对象抽象成类。一个类就是这样一种抽象，它反映了与应用有关的重要性质，而忽略其他一些无关内容。任何类的划分都是主观的，但必须与具体的应用有关</li>
+<li><strong>封装</strong> − 封装是指将现实世界中存在的某个客体的属性与行为绑定在一起，并放置在一个逻辑单元内</li>
+<li><strong>构造函数</strong> − 主要用来在创建对象时初始化对象， 即为对象成员变量赋初始值，总与new运算符一起使用在创建对象的语句中</li>
+<li><strong>析构函数</strong> − 析构函数(destructor) 与构造函数相反，当对象结束其生命周期时（例如对象所在的函数已调用完毕），系统自动执行析构函数。析构函数往往用来做”清理善后” 的工作（例如在建立对象时用new开辟了一片内存空间，应在退出前在析构函数中用delete释放）</li>
+</ul>
+<h2 id="PHP构造函数"><a href="#PHP构造函数" class="headerlink" title="PHP构造函数"></a>PHP构造函数</h2><p>主要用来在创建对象时初始化对象，即为对象成员变量赋初始值，总与<code>new</code>运算符一起使用在创建对象的语句中。</p>
+<p>构造函数：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void __construct([mixed $args[, $...]])</span><br></pre></td></tr></table></figure>
+<p>初始化<code>$url</code>和<code>$title</code>变量：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Site</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($para1, $para2)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;url = $para1;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;title = $para2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化</span></span><br><span class="line">$google = <span class="keyword">new</span> Site(<span class="string">"www.google.com"</span>, <span class="string">"Google"</span>);</span><br><span class="line">$bing	= <span class="keyword">new</span> Site(<span class="string">"www.bing.com"</span>, <span class="string">"Bing"</span>);</span><br><span class="line">$yahoo	= <span class="keyword">new</span> Site(<span class="string">"www.yahoo.com"</span>, <span class="string">"Yahoo"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line">$google-&gt;title;</span><br><span class="line">$google-&gt;url;</span><br><span class="line"></span><br><span class="line">$bing-&gt;title;</span><br><span class="line">$bing-&gt;url;</span><br><span class="line"></span><br><span class="line">$yahoo-&gt;title;</span><br><span class="line">$yahoo-&gt;url;</span><br></pre></td></tr></table></figure>
+<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p><strong>任何一个类，如果它里面至少有一个方法是被声明为抽象的，那么这个类就必须被声明为抽象的</strong>。</p>
+<p><strong>定义为抽象的类不能被实例化。</strong></p>
+<p><strong>被定义为抽象的方法只是声明了其调用方式（参数），不能定义其具体的功能实现。</strong></p>
+<p><strong>继承一个抽象类的时候，子类必须定义父类中的所有抽象方法</strong>；另外，<strong>这些方法的访问控制必须和父类中一样（或者更为宽松）</strong>。例如某个抽象方法被声明为受保护的，那么子类中实现的方法就应该声明为受保护的或者公有的，而不能定义为私有的。</p>
+<p><strong>此外方法的调用方式必须匹配，即类型和所需参数数量必须一致。</strong>例如，子类定义了一个可选参数，而父类抽象方法的声明里没有，则两者的声明并无冲突。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractClass</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"> <span class="comment">// 强制要求子类定义这些方法</span></span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">getValue</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">prefixValue</span><span class="params">($prefix)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 普通方法（非抽象方法）</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">printOut</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">print</span> <span class="keyword">$this</span>-&gt;getValue() . PHP_EOL;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteClass1</span> <span class="keyword">extends</span> <span class="title">AbstractClass</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"ConcreteClass1"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">prefixValue</span><span class="params">($prefix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&#123;$prefix&#125;ConcreteClass1"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteClass2</span> <span class="keyword">extends</span> <span class="title">AbstractClass</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"ConcreteClass2"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">prefixValue</span><span class="params">($prefix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&#123;$prefix&#125;ConcreteClass2"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$class1 = <span class="keyword">new</span> ConcreteClass1;</span><br><span class="line">$class1-&gt;printOut();</span><br><span class="line"><span class="keyword">echo</span> $class1-&gt;prefixValue(<span class="string">'FOO_'</span>) . PHP_EOL;</span><br><span class="line"></span><br><span class="line">$class2 = <span class="keyword">new</span> ConcreteClass2;</span><br><span class="line">$class2-&gt;printOut();</span><br><span class="line"><span class="keyword">echo</span> $class2-&gt;prefixValue(<span class="string">'FOO_'</span>) . PHP_EOL;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line">ConcreteClass1</span><br><span class="line">FOO_ConcreteClass1</span><br><span class="line">ConcreteClass2</span><br><span class="line">FOO_ConcreteClass2</span><br></pre></td></tr></table></figure>
+<h1 id="PHP错误"><a href="#PHP错误" class="headerlink" title="PHP错误"></a>PHP错误</h1><h2 id="display-errors"><a href="#display-errors" class="headerlink" title="display_errors"></a>display_errors</h2><p>在调试时可以在<code>&lt;?php</code>后添加<code>ini_set(display_errors, 0/1)</code>，来展示错误，其中<code>0</code>表示关闭，<code>1</code>表示开启。</p>
+<h2 id="Error-Reporting"><a href="#Error-Reporting" class="headerlink" title="Error Reporting"></a>Error Reporting</h2><p>PHP有不同级别的错误，可以自定义错误级别。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>description</th>
+<th>example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Notice</td>
+<td>可能或可能不表示问题的非致命错误</td>
+<td>引用没有值的变量</td>
+</tr>
+<tr>
+<td>Warning</td>
+<td>nonfatal error that is most likely problematic</td>
+<td>misusing a function</td>
+</tr>
+<tr>
+<td>Parse error</td>
+<td>语法错误引起的致命性错误</td>
+<td>省略分号或者引号，括号不配对</td>
+</tr>
+<tr>
+<td>Error</td>
+<td>一般致命错误</td>
+<td>内存分配错误</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>可以利用<code>error_reporting()</code>函数来显示错误到browser。</p>
+<p>error_reporting(E_ALL);</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(E_WARNINGS); <span class="comment">// warning 及以下会被报告</span></span><br><span class="line">error_reporting(E_ALL);	<span class="comment">// 所有的错误</span></span><br><span class="line">error_reporting(E_ALL &amp; ~E_STRICT); <span class="comment">// 除了strict以外所有的错误 &amp;～表示and not</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>E_STRICT</code>会通知在某些环境或将来版本的PHP中可能有问题的代码。</p>
+<h1 id="项目中常见函数"><a href="#项目中常见函数" class="headerlink" title="项目中常见函数"></a>项目中常见函数</h1><ul>
+<li>isset()</li>
+</ul>
+<p>格式：bool isset ( mixed var [, mixed var [, …]] ) </p>
+<p>功能：检测变量是否设置 </p>
+<p>返回值： </p>
+<p>若变量不存在则返回 FALSE<br>若变量存在且其值为NULL，也返回 FALSE<br>若变量存在且值不为NULL，则返回 TURE<br>同时检查多个变量时，每个单项都符合上一条要求时才返回 TRUE，否则结果为 FALSE </p>
+<p>使用 unset() 释放变量之后，它将不再是 isset()。<br>PHP函数isset()只能用于变量，传递任何其它参数都将造成解析错误。<br>检测常量是否已设置可使用 defined() 函数。 </p>
+<ul>
+<li>empty()</li>
+</ul>
+<p>格式：bool empty ( mixed var ) </p>
+<p>功能：检查一个变量是否为空 </p>
+<p>返回值： </p>
+<p>若变量不存在则返回 TRUE </p>
+<p>若变量存在且其值为””、0、”0”、NULL、、FALSE、array()、var $var; 以及没有任何属性的对象，则返回 TURE </p>
+<p>若变量存在且值不为””、0、”0”、NULL、、FALSE、array()、var $var; 以及没有任何属性的对象，则返回 FALSE empty()的返回值=!(boolean) var，但不会因为变量未定义而产生警告信息。参见转换为布尔值获取更多信息。 empty() 只能用于变量，传递任何其它参数都将造成Paser error而终止运行。 </p>
+<p>检测常量是否已设置可使用 defined() 函数。 </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/31/深入理解-Objecive-C-Runtime/" rel="next" title="深入理解Objecive-C Runtime">
+                <i class="fa fa-chevron-left"></i> 深入理解Objecive-C Runtime
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/09/AngularJS基础学习/" rel="prev" title="AngularJS基础学习">
+                AngularJS基础学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Totorooo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP"><span class="nav-number">1.</span> <span class="nav-text">PHP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本的PHP语法"><span class="nav-number">1.1.</span> <span class="nav-text">基本的PHP语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP变量"><span class="nav-number">2.</span> <span class="nav-text">PHP变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#与代数类似"><span class="nav-number">2.1.</span> <span class="nav-text">与代数类似</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP变量-1"><span class="nav-number">2.2.</span> <span class="nav-text">PHP变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建声明变量"><span class="nav-number">2.3.</span> <span class="nav-text">创建声明变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP是门若类型语言"><span class="nav-number">2.4.</span> <span class="nav-text">PHP是门若类型语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP变量作用域"><span class="nav-number">2.5.</span> <span class="nav-text">PHP变量作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部和全部作用域"><span class="nav-number">2.6.</span> <span class="nav-text">局部和全部作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-global关键字"><span class="nav-number">2.7.</span> <span class="nav-text">PHP global关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Static-作用域"><span class="nav-number">2.8.</span> <span class="nav-text">Static 作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数作用域"><span class="nav-number">2.9.</span> <span class="nav-text">参数作用域</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP-5-echo和print语句"><span class="nav-number">3.</span> <span class="nav-text">PHP 5 echo和print语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-echo语句"><span class="nav-number">3.1.</span> <span class="nav-text">PHP echo语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-print-print-r语句"><span class="nav-number">3.2.</span> <span class="nav-text">PHP print/print_r语句</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP-5-数据类型"><span class="nav-number">4.</span> <span class="nav-text">PHP 5 数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP对象"><span class="nav-number">4.1.</span> <span class="nav-text">PHP对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP常量"><span class="nav-number">4.2.</span> <span class="nav-text">PHP常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置-PHP-常量"><span class="nav-number">4.3.</span> <span class="nav-text">设置 PHP 常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP关联数组"><span class="nav-number">4.4.</span> <span class="nav-text">PHP关联数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP数组排序"><span class="nav-number">4.5.</span> <span class="nav-text">PHP数组排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP超级全局变量"><span class="nav-number">4.6.</span> <span class="nav-text">PHP超级全局变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP-SERVER"><span class="nav-number">4.6.1.</span> <span class="nav-text">PHP $_SERVER</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP-REQUEST"><span class="nav-number">4.6.2.</span> <span class="nav-text">PHP $_REQUEST</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP魔术变量"><span class="nav-number">5.</span> <span class="nav-text">PHP魔术变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TRAIT"><span class="nav-number">5.1.</span> <span class="nav-text">__TRAIT__</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP命名空间-namespace"><span class="nav-number">6.</span> <span class="nav-text">PHP命名空间(namespace)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义命名空间"><span class="nav-number">6.1.</span> <span class="nav-text">定义命名空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子命名空间"><span class="nav-number">6.2.</span> <span class="nav-text">子命名空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名空间使用"><span class="nav-number">6.3.</span> <span class="nav-text">命名空间使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名空间和动态语言特征"><span class="nav-number">6.4.</span> <span class="nav-text">命名空间和动态语言特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Heredoc结构"><span class="nav-number">6.5.</span> <span class="nav-text">Heredoc结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nowdoc结构"><span class="nav-number">6.6.</span> <span class="nav-text">Nowdoc结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP面向对象"><span class="nav-number">7.</span> <span class="nav-text">PHP面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象内容"><span class="nav-number">7.1.</span> <span class="nav-text">面向对象内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP构造函数"><span class="nav-number">7.2.</span> <span class="nav-text">PHP构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象类"><span class="nav-number">7.3.</span> <span class="nav-text">抽象类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP错误"><span class="nav-number">8.</span> <span class="nav-text">PHP错误</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#display-errors"><span class="nav-number">8.1.</span> <span class="nav-text">display_errors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-Reporting"><span class="nav-number">8.2.</span> <span class="nav-text">Error Reporting</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目中常见函数"><span class="nav-number">9.</span> <span class="nav-text">项目中常见函数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Totorooo</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

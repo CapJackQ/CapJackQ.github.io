@@ -361,10 +361,10 @@
 <li>使用双花括号作为输出模型值的表达式的分隔符()</li>
 </ul>
 <h3 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h3><p>AngularJS在创建动态web应用时相当便利</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body ng-app ng-init=<span class="string">"name='World'"</span>&gt;</span><br><span class="line">	Say hello to: &lt;input type="text" ng-model="name"&gt;</span><br><span class="line">	&lt;h1&gt;Hello, &#123;&#123;name&#125;&#125;!&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body ng-app ng-init=<span class="string">"name='World'"</span>&gt;</span><br><span class="line">	Say hello to: <span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"name"</span>&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;&#123;name&#125;&#125;!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p>当向<code>input</code>中输入文本时，每次输入后，页面都会被重绘，无须编写代码刷新模板，也无须调用框架的API去更新新模型。AngularJS智能地检测到了模型的改变，并随之更新了页面DOM元素。</p>
 <h3 id="AngularJS中的MVC模式"><a href="#AngularJS中的MVC模式" class="headerlink" title="AngularJS中的MVC模式"></a>AngularJS中的MVC模式</h3><p>对示例代码修改</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ng-controller=<span class="string">"HelloCtrl"</span>&gt;</span><br><span class="line">	Say hello to: &lt;input type="text" ng-model="name"&gt;&lt;br&gt;</span><br><span class="line">	&lt;h1&gt;Hello, &#123;&#123;name&#125;&#125;!&lt;/h1&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ng-controller=<span class="string">"HelloCtrl"</span>&gt;</span><br><span class="line">	Say hello to: &lt;input type="text" ng-model="name"&gt;&lt;br&gt;</span><br><span class="line">	&lt;h1&gt;Hello, &#123;&#123;name&#125;&#125;!&lt;/h1&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p>移除<code>ng-init</code>属性后，取而代之的是新指令<code>ng-controller</code>及对应的JavaScript函数<code>HelloCtrl</code></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> HelloCtrl = <span class="function"><span class="keyword">function</span> (<span class="params">$scope</span>) </span>&#123;</span><br><span class="line">	$scope.name = <span class="string">'World'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -492,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/20/Objective-C-Protocols/" rel="next" title="Objective-C Protocols">
-                <i class="fa fa-chevron-left"></i> Objective-C Protocols
+              <a href="/2017/11/09/AngularJS基础学习/" rel="next" title="AngularJS基础学习">
+                <i class="fa fa-chevron-left"></i> AngularJS基础学习
               </a>
             
           </div>
@@ -581,7 +581,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -592,7 +592,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
