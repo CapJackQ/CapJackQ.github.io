@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=" color="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本文翻译自Ry’s Objective-C Tutorial Functions同变量(variables), 条件语句(conditionals)和循环(loops), 函数(functions)一起构成了现代编程语言的基础. 它们允许你重用apps中的任意代码块(arbitrary block of code), ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective-C学习Functions">
+<meta property="og:url" content="http://yoursite.com/2016/05/11/Objective-C-Functions/index.html">
+<meta property="og:site_name" content="Hello | Totoro">
+<meta property="og:description" content="本文翻译自Ry’s Objective-C Tutorial Functions同变量(variables), 条件语句(conditionals)和循环(loops), 函数(functions)一起构成了现代编程语言的基础. 它们允许你重用apps中的任意代码块(arbitrary block of code), 而这些代码块是必须用来组织和维护所有最琐碎的代码库. 在iOS和OS X框架中会">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://cdn.sinacloud.net/objc-pictures/objc_pictures/函数的定义和实现.png?KID=sina,17lmxe4gLptQMbFjKFZv&Expires=1462974470&ssig=kxSL8vsC7S">
+<meta property="og:image" content="http://cdn.sinacloud.net/objc-pictures/objc_pictures/函数作用范围比较.png?KID=sina,17lmxe4gLptQMbFjKFZv&Expires=1462974313&ssig=g%2Fq4j%2FPCOs">
+<meta property="og:image" content="http://cdn.sinacloud.net/objc-pictures/objc_pictures/独立自动变量vs.共享静态变量.png?KID=sina,17lmxe4gLptQMbFjKFZv&Expires=1462976041&ssig=7yzKBh6GQp">
+<meta property="og:updated_time" content="2018-08-14T13:00:19.708Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Objective-C学习Functions">
+<meta name="twitter:description" content="本文翻译自Ry’s Objective-C Tutorial Functions同变量(variables), 条件语句(conditionals)和循环(loops), 函数(functions)一起构成了现代编程语言的基础. 它们允许你重用apps中的任意代码块(arbitrary block of code), 而这些代码块是必须用来组织和维护所有最琐碎的代码库. 在iOS和OS X框架中会">
+<meta name="twitter:image" content="http://cdn.sinacloud.net/objc-pictures/objc_pictures/函数的定义和实现.png?KID=sina,17lmxe4gLptQMbFjKFZv&Expires=1462974470&ssig=kxSL8vsC7S">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/05/11/Objective-C-Functions/"/>
+
+
+
+
+
+  <title>Objective-C学习Functions | Hello | Totoro</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello | Totoro</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/11/Objective-C-Functions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Totorooo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello | Totoro">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Objective-C学习Functions</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-11T11:03:07+08:00">
+                2016-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文翻译自<a href="http://rypress.com/tutorials/objective-c/functions" target="_blank" rel="noopener">Ry’s Objective-C Tutorial</a></p>
+<h2 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h2><p>同变量(variables), 条件语句(conditionals)和循环(loops), 函数(functions)一起构成了现代编程语言的基础. 它们允许你重用apps中的任意代码块(arbitrary block of code), 而这些代码块是必须用来组织和维护所有最琐碎的代码库. 在iOS和OS X框架中会发现很多这样的<a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Miscellaneous/Foundation_Functions/index.html#//apple_ref/doc/uid/TP40003774" target="_blank" rel="noopener">例子</a><br>和它的其他结构, Objective-C的函数完全依赖于C编程语言. 本部分介绍C函数最重要的方面, 包括语法, 独立的定义和实现, 普通的作用域问题以及函数库.<br><a id="more"></a></p>
+<h3 id="Basic-Syntax"><a href="#Basic-Syntax" class="headerlink" title="Basic Syntax"></a>Basic Syntax</h3><p>C语言中函数有四个组成: <strong>返回值(return value)</strong>, <strong>函数名(name)</strong>, <strong>参数(parameters)</strong>和<strong>功能代码部分(code block)</strong>.<br>以下代码块定义了一个名为<code>getRandomInteger()</code>的函数, 包括2个<code>int</code>型的参数和返回<code>int</code>类型的值. 该函数通过传入最小值<code>minimum</code>和最大值<code>maximum</code>, 并且通过<code>return</code>关键词返回一个计算好的值. 然后在主函数<code>main()</code>中调用该函数, 并且传入参数-10和10.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// main.m</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">int getRandomInteger(int minimum, int maximum) &#123;</span><br><span class="line">	return arc4random_uniform((maximum - minimum) + 1) + minimum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">	@autoreleasepool &#123;</span><br><span class="line">		int randomNumber = getRandomInteger(-10, 10);</span><br><span class="line">		NSLog(@&quot;Selected a random number between -10 and 10: %d&quot;, randomNumber);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数<code>arc4random_uniform()</code>在0和传入的数字之间返回一个随机数. 该法优于以前的<code>rand()</code>和<code>random()</code>算法.    </p>
+<p>函数可以使用指针作为返回值或参数, 这意味着函数可以和Objective-C中的对象(记住所有的对象都是表示为指针的)无缝衔接. 例如, 尝试改变函数<code>main()</code>如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// main.n</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">NSString *getRandomMake(NSArray *makes) &#123;</span><br><span class="line">	int maximum = (int)[makes count];</span><br><span class="line">	int randomIndex = arc4random_uniform(maximum);</span><br><span class="line">	return makes[randomIndex];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">	@autoreleasepool &#123;</span><br><span class="line">		NSArray *makes = @[@&quot;Honda&quot;, @&quot;Ford&quot;, @&quot;Nissan&quot;, @&quot;Porsche&quot;];</span><br><span class="line">		NSLog(@&quot;Selected a %@&quot;, getRandomMake(makes));</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>getRandomMake()</code>函数接收了一个NSArray的对象作为参数返回一个NSString对象. 注意它同指针变量声明类似, 使用了星语法(*).</p>
+<h3 id="Declarations-vs-Implementations"><a href="#Declarations-vs-Implementations" class="headerlink" title="Declarations vs. Implementations"></a>Declarations vs. Implementations</h3><p>函数须在其调用之前定义好. 如果将上例中<code>getRandomMake()</code>函数在<code>main()</code>函数之后定义, 那么在主函数中调用该函数的时候编译器将无法找到函数. 这种对开发者而言是相当精确的结构使得组织大的apps变得困难. 为了解决这一问题, C语言允许将函数定义从其实现中分离出来.</p>
+<p><img src="http://cdn.sinacloud.net/objc-pictures/objc_pictures/函数的定义和实现.png?KID=sina,17lmxe4gLptQMbFjKFZv&Expires=1462974470&ssig=kxSL8vsC7S" width="400"> <div align="center"> 函数的定义和实现 </div>    </p>
+<p>函数的定义告诉编译器该函数的输入(intputs)和输出(outputs)是怎样的. 通过所提供的函数返回值和参数类型, 编译器可以确认你在正确的使用函数而不用知晓它实际上在做什么. 函数的具体实现则是添加其功能代码块. 两者一起就完整定义了一个函数.<br>以下例子声明了<code>getRandomMake()</code>函数, 所以可以实现之前在<code>main()</code>函数中调用. 注意, 声明函数只需要参数的数据类型-他们的参数名字可以省略(如果可以).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// main.m</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">// Declaration</span><br><span class="line">NSString *getRandomMake(NSArray *);</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">	@autoreleasepool &#123;</span><br><span class="line">		NSArray *makes = @[@&quot;Honda&quot;, @&quot;Ford&quot;, @&quot;Nissan&quot;, @&quot;Porsche&quot;];</span><br><span class="line">		NSLog(@&quot;Selected a %@&quot;, getRandomMake(makes));</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Implementation</span><br><span class="line">NSString *getRandomMake(NSArray *makes) &#123;</span><br><span class="line">	int maximum = (int)[makes count];</span><br><span class="line">	int randomIndex = arc4random_uniform(maximum);</span><br><span class="line">	return makes[randomIndex];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在<a href="http://rypress.com/tutorials/objective-c/functions#function-libraries" target="_blank" rel="noopener">Function Libraries</a>中我们会看到, 将函数声明从其实现中剥离出来对组织大的框架是非常的有利. </p>
+<h2 id="The-Static-Keyword"><a href="#The-Static-Keyword" class="headerlink" title="The Static Keyword"></a>The Static Keyword</h2><p>静态(<strong>static</strong>)关键词能够改变函数或者变量的可用性(availability). 不幸地是, 这种影响取决于你在哪使用它(static keyword). </p>
+<h3 id="Static-Functions"><a href="#Static-Functions" class="headerlink" title="Static Functions"></a>Static Functions</h3><p>一般来说, 所有的函数都有全局作用域. 这意味着当你在一个文件中定义了一个函数时, 它在任其他何一处都可以使用. static 关键词将函数的作用范围限制在了当前文件内, 这非常有利于创建私有(“private”)函数以及避免命名冲突的问题.<br><img src="http://cdn.sinacloud.net/objc-pictures/objc_pictures/函数作用范围比较.png?KID=sina,17lmxe4gLptQMbFjKFZv&Expires=1462974313&ssig=g%2Fq4j%2FPCOs" width="400"> <div align="center"> 函数作用范围比较 </div><br>以下的例子展现了如何创建一个静态的函数. 如果将这块代码添加到其他文件内(比如, 一个专门的函数库), 那么就无法从<code>main.m</code>函数访问<code>getRandomInteger()</code>函数. 注意<strong>static</strong>关键词必须在函数声明和函数实现时同时使用.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// Static function declaration</span><br><span class="line">static int getRandomInteger(int, int);</span><br><span class="line"></span><br><span class="line">// Static function implementation</span><br><span class="line">static int getRandomInteger(int minimum, int maximum) &#123;</span><br><span class="line">	return arc4random_uniform((maximum - minimum) + 1) + minimum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Static-Local-Variable"><a href="#Static-Local-Variable" class="headerlink" title="Static Local Variable"></a>Static Local Variable</h3><p>声明在函数内部的变量(也称为自动局部变量(automatic local variables))会在函数被调用时重新设置. 这是一种直观地默认行为(intuitive default behavior), 作为函数的一贯表现不论调用多少次都是如此. 但是如果使用<strong>static</strong>修饰局部变量, 那么函数就会通过声明而察觉到. </p>
+<p><img src="http://cdn.sinacloud.net/objc-pictures/objc_pictures/独立自动变量vs.共享静态变量.png?KID=sina,17lmxe4gLptQMbFjKFZv&Expires=1462976041&ssig=7yzKBh6GQp" width="400"> <div align="center"> 独立自动变量vs.共享静态变量 </div></p>
+<p>比如, 在以下例子当中变量<code>currentCount()</code>永远不会被重置, 因此可以用<code>countByTwo()</code>函数来记录变量的值而代替<code>main()</code>函数内使用存储变量的值.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// main.m</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">int countByTwo() &#123;</span><br><span class="line">	static int currentCount = 0;</span><br><span class="line">	currentCount += 2;</span><br><span class="line">	return currentCount;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">	@autoreleasepool &#123;</span><br><span class="line">		NSLog(@&quot;%ld&quot;, countByTwo());  // 2</span><br><span class="line">		NSLog(@&quot;%ld&quot;, countByTwo());  // 4</span><br><span class="line">		NSLog(@&quot;%ld&quot;, countByTwo());  // 6</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是与之前所讨论的静态函数所不同的是, 使用<strong>static</strong>关键词并没有影响到局部变量的作用范围. 就是说, 局部变量仍然只能在函数内部访问.</p>
+<h2 id="Function-Libraries"><a href="#Function-Libraries" class="headerlink" title="Function Libraries"></a>Function Libraries</h2><p>Objective-C不支持命名空间, 因此为了不引起与其他全局函数命名冲突, 大的框架需要函数(和类)的前缀来做唯一标识符. 这就是为什么创建函数时会看到是<strong><code>NSMakeRange()</code></strong>和<strong><code>CGImageCreate()</code></strong>来代替<code>makeRange()</code>和<code>imageCreate()</code>.<br>当创建自己的函数库时, 最好是在专用头文件中声明函数, 在另外一个文件中实现(类似Objective-C的类). 这样, 只管引入其头文件而不必担心函数是如何实现的. 比如, 一个<code>CarUtilities</code>库的头文件如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// CarUtilities.h</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">NSString *CUGetRandomMake(NSArray *makes);</span><br><span class="line">NSString *CUGetRandomModel(NSArray *models);</span><br><span class="line">NSString *CUGetRandomMakeAndModel(NSDictionary *makesAndModels);</span><br></pre></td></tr></table></figure>
+<p>相应的实现文件定义了这些函数真正的实现过程. 由于其他文件不会引入实现文件, 因此可以使用<code>static</code>关键词来创建一个私有的函数以供该库内部使用.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// CarUtilities.m</span><br><span class="line">#import &quot;CarUtilies.h&quot;</span><br><span class="line"></span><br><span class="line">// Private function declaration</span><br><span class="line">static id getRandomItemFromArray(NSArray *anArray);</span><br><span class="line"></span><br><span class="line">// Public function implementations</span><br><span class="line">NSString *GUGetRandomMake(NSArray *makes) &#123;</span><br><span class="line">	return getRandomItemFromArray(makes);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">NSString *GUGetRandomModel(NSArray *models) &#123;</span><br><span class="line">	return getRandomItemFromArray(models);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">NSString *GUGetRandomMakeAndModel(NSDictionary *makesAndModels) &#123;</span><br><span class="line">	NSArray *makes = [makesAndModels allKeys];</span><br><span class="line">	NSString *randomMake = CUGetRandomMake(Makes);</span><br><span class="line">	NSArray *models = makesAndModels[randomMake];</span><br><span class="line">	NSString *randomModel = CUGetRandomModel(models);</span><br><span class="line">	return [randomMake stringByAppendingFormat:@&quot; %@&quot;, randomModel];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Private function implementation</span><br><span class="line">static id getRandomItemFromArray(NSArray *anArray) &#123;</span><br><span class="line">	int maximum = (int)[anArray count];</span><br><span class="line">	int randomIndex = arc4random_uniform(maximum);</span><br><span class="line">	return anArray[randomIndex];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时可以在<code>main.m()</code>函数中引入如同在同一文件中定义好的函数. 同时注意, 如果尝试在<code>main.m()</code>函数中调用静态函数<code>getRandomItemFromArray()</code>时会发生编译错误. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// main.m</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">#import &quot;CarUtilities.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line">        NSDictionary *makesAndModels = @&#123;</span><br><span class="line">            @&quot;Ford&quot;: @[@&quot;Explorer&quot;, @&quot;F-150&quot;],</span><br><span class="line">            @&quot;Honda&quot;: @[@&quot;Accord&quot;, @&quot;Civic&quot;, @&quot;Pilot&quot;],</span><br><span class="line">            @&quot;Nissan&quot;: @[@&quot;370Z&quot;, @&quot;Altima&quot;, @&quot;Versa&quot;],</span><br><span class="line">            @&quot;Porsche&quot;: @[@&quot;911 Turbo&quot;, @&quot;Boxster&quot;, @&quot;Cayman S&quot;]</span><br><span class="line">        &#125;;</span><br><span class="line">        NSString *randomCar = CUGetRandomMakeAndModel(makesAndModels);</span><br><span class="line">        NSLog(@&quot;Selected a %@&quot;, randomCar);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>这部分深入了解了C编程语言中函数部分. 学习了如何声明和定义函数, 改变其作用域, 局部变量以及组织大型函数库.<br>尽管Cocoa和Cocoa Touch框架中大部分功能封装为Objective-C的类, 常用到的使用函数像<code>NSLog()</code>以及非常方便的函数像<code>NSMakeRect()</code>. 使用API来配置复杂的对象.    </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/17/Objective-C-Classes/" rel="prev" title="Objective-C Classes">
+                Objective-C Classes <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Totorooo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Functions"><span class="nav-number">1.</span> <span class="nav-text">Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-Syntax"><span class="nav-number">1.1.</span> <span class="nav-text">Basic Syntax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Declarations-vs-Implementations"><span class="nav-number">1.2.</span> <span class="nav-text">Declarations vs. Implementations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Static-Keyword"><span class="nav-number">2.</span> <span class="nav-text">The Static Keyword</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Static-Functions"><span class="nav-number">2.1.</span> <span class="nav-text">Static Functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Static-Local-Variable"><span class="nav-number">2.2.</span> <span class="nav-text">Static Local Variable</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function-Libraries"><span class="nav-number">3.</span> <span class="nav-text">Function Libraries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">4.</span> <span class="nav-text">Summary</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Totorooo</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
