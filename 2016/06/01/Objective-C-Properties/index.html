@@ -75,22 +75,22 @@
 
 
 
-<meta name="description" content="Properties一个对象的属性可以使其他对象检查或改变其状态. 但是, 对于一个好的面向对象程序设计而言, 外部不可能直接访问对象内部的状态. 相反, 存取方法(accessor methods(getters &amp;amp; setters))被用作与对象底层数据交互的抽象概念.  通过存取方器同属性交互 @">
+<meta name="description" content="Properties一个对象的属性可以使其他对象检查或改变其状态. 但是, 对于一个好的面向对象程序设计而言, 外部不可能直接访问对象内部的状态. 相反, 存取方法(accessor methods(getters &amp;amp; setters))被用作与对象底层数据交互的抽象概念.  @property指令的目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Objective-C Properties">
 <meta property="og:url" content="http://yoursite.com/2016/06/01/Objective-C-Properties/index.html">
 <meta property="og:site_name" content="Hello | Totoro">
-<meta property="og:description" content="Properties一个对象的属性可以使其他对象检查或改变其状态. 但是, 对于一个好的面向对象程序设计而言, 外部不可能直接访问对象内部的状态. 相反, 存取方法(accessor methods(getters &amp;amp; setters))被用作与对象底层数据交互的抽象概念.  通过存取方器同属性交互 @property指令的目的是使通过自动生成这些存取器方法来创建及配置属性变得容易. 它">
+<meta property="og:description" content="Properties一个对象的属性可以使其他对象检查或改变其状态. 但是, 对于一个好的面向对象程序设计而言, 外部不可能直接访问对象内部的状态. 相反, 存取方法(accessor methods(getters &amp;amp; setters))被用作与对象底层数据交互的抽象概念.  @property指令的目的是使通过自动生成这些存取器方法来创建及配置属性变得容易. 它允许你在语义层面指定公共">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://n0xzpw-bn1306.files.1drv.com/y3mOLl38t8lPMrqMtq-kW51F4oQ3J_RxcCC0l4MUVKnsQLpBY78LJFVOBuBZVr8SUZo29Tdt-WkVPEi2YuDouYHKEs97d1lnLLVPArrej8mr5BgzzIwz47G82OypToWTreoetLhRmWWZU1KtL0PbPf2Ck6UFXvBtEyl03-yx-bwkNU?width=656&height=434&cropmode=none">
-<meta property="og:image" content="https://n0xsta-bn1306.files.1drv.com/y3m-cIW_k0uchiiD43NzOWMLgI8-pi2lXeA7f83YroXfsQbv9R6uesWpbwxPDActZb4CMpPPo7GiQxeSuXhmmxV7ddyU0NZe-84ii48bmsqLIH6rH2uA8OaOmcSnCZZYUCmpcKUq39_HEYl7ezOd2nULnUPQo9hSh87EMc6C-aydHE?width=820&height=378&cropmode=none">
-<meta property="og:image" content="https://btvwbg-bn1306.files.1drv.com/y3mNc0SZVMMWepl-pDGj869KYq3tV0aHciIJC295Tx5BcWDA_VP7iCpDo72n577PJgyvEkNW5OoJtvZf6ADg9z_GuY0X2nOqulXSb8NX_vQsB7NzgHRhQ_xnNPIENXyxwsV4f0KfWbvzRBePSF-z7iCTmVvDT3tCAHW-4L6N4IxRbw?width=574&height=316&cropmode=none">
-<meta property="og:image" content="https://btxx4g-bn1306.files.1drv.com/y3mnorNGN4imnwsZ0U5RPE1EgBeg0IB6FfC8fKZ5C7NSsz0g97gvIb_cJmkKAFnrucWRhWa9rbFw-yoMkgeCalY6vjwgKqWw_5L4Q5RKyQO_EGcrnzIrebD0cCbj-jUFya0YC5I-ADmSa0Td2oQSs6OgG2R9krB6BVHXzmRrQZn734?width=578&height=318&cropmode=none">
-<meta property="og:updated_time" content="2018-08-14T12:57:06.677Z">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fu9jwdzfftj30i80c20tj.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/0069RVTdgy1fu9jwecllqj30ms0ai0tg.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/0069RVTdgy1fu9jwfapsjj30fy08swey.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fu9jweu53jj30g208u3yz.jpg">
+<meta property="og:updated_time" content="2018-08-14T13:30:06.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C Properties">
-<meta name="twitter:description" content="Properties一个对象的属性可以使其他对象检查或改变其状态. 但是, 对于一个好的面向对象程序设计而言, 外部不可能直接访问对象内部的状态. 相反, 存取方法(accessor methods(getters &amp;amp; setters))被用作与对象底层数据交互的抽象概念.  通过存取方器同属性交互 @property指令的目的是使通过自动生成这些存取器方法来创建及配置属性变得容易. 它">
-<meta name="twitter:image" content="https://n0xzpw-bn1306.files.1drv.com/y3mOLl38t8lPMrqMtq-kW51F4oQ3J_RxcCC0l4MUVKnsQLpBY78LJFVOBuBZVr8SUZo29Tdt-WkVPEi2YuDouYHKEs97d1lnLLVPArrej8mr5BgzzIwz47G82OypToWTreoetLhRmWWZU1KtL0PbPf2Ck6UFXvBtEyl03-yx-bwkNU?width=656&height=434&cropmode=none">
+<meta name="twitter:description" content="Properties一个对象的属性可以使其他对象检查或改变其状态. 但是, 对于一个好的面向对象程序设计而言, 外部不可能直接访问对象内部的状态. 相反, 存取方法(accessor methods(getters &amp;amp; setters))被用作与对象底层数据交互的抽象概念.  @property指令的目的是使通过自动生成这些存取器方法来创建及配置属性变得容易. 它允许你在语义层面指定公共">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fu9jwdzfftj30i80c20tj.jpg">
 
 
 
@@ -344,7 +344,7 @@
       
         <hr>
 <h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><p>一个对象的属性可以使其他对象检查或改变其状态. 但是, 对于一个好的面向对象程序设计而言, 外部不可能直接访问对象内部的状态. 相反, 存取方法(<strong>accessor methods</strong>(getters &amp; setters))被用作与对象底层数据交互的抽象概念.</p>
-<p><img src="https://n0xzpw-bn1306.files.1drv.com/y3mOLl38t8lPMrqMtq-kW51F4oQ3J_RxcCC0l4MUVKnsQLpBY78LJFVOBuBZVr8SUZo29Tdt-WkVPEi2YuDouYHKEs97d1lnLLVPArrej8mr5BgzzIwz47G82OypToWTreoetLhRmWWZU1KtL0PbPf2Ck6UFXvBtEyl03-yx-bwkNU?width=656&height=434&cropmode=none" width="600"> <div align="center">通过存取方器同属性交互</div></p>
+<p><img src="https://ws3.sinaimg.cn/large/0069RVTdgy1fu9jwdzfftj30i80c20tj.jpg" alt=""></p>
 <p><code>@property</code>指令的目的是使通过自动生成这些存取器方法来创建及配置属性变得容易. 它允许你在语义层面指定公共属性的行为, 同时顾及了实现部分的细节.<br><a id="more"></a></p>
 <h2 id="The-property-Directive"><a href="#The-property-Directive" class="headerlink" title="The @property Directive"></a>The @property Directive</h2><p>首先来看看在使用<code>@property</code>时候究竟发生了什么. 假设以下是一个简单<code>Car</code>类的接口和实现部分.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// Car.h</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface Car : NSObject</span><br><span class="line"></span><br><span class="line">@property BOOL running;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
@@ -373,7 +373,7 @@
 <p>原子性属性同样也有小而实用的警告. 原子性属性访问器必须同时具备合成或用户自定义性. </p>
 <h2 id="Memory-Management"><a href="#Memory-Management" class="headerlink" title="Memory Management"></a>Memory Management</h2><p>在任何一个面向对象编程(OOP)语言中, 对象都在计算机内存当中-特别是对于手机设备来说, 内存是相当稀缺的资源. 内存管理系统就是为了确保程序不会占有多余的空间, 它们必须以高效的方式来创建和销毁对象.</p>
 <p>大多语言通过垃圾回收(garbage collection)机制来完成该过程, 但是Objective-C使用了更有效地替代方案, 称之为<strong>object ownership</strong>. 当你和一个对象进行交互的时候, 你_拥有_了那个对象, 这意味着保证在你对象交互的期间它是一直存在的. 当你与其交互完毕, 你放弃持有该对象并且-假如该对象没有其他的持有者-操作系统销毁对象并释放底层内存.</p>
-<p><img src="https://n0xsta-bn1306.files.1drv.com/y3m-cIW_k0uchiiD43NzOWMLgI8-pi2lXeA7f83YroXfsQbv9R6uesWpbwxPDActZb4CMpPPo7GiQxeSuXhmmxV7ddyU0NZe-84ii48bmsqLIH6rH2uA8OaOmcSnCZZYUCmpcKUq39_HEYl7ezOd2nULnUPQo9hSh87EMc6C-aydHE?width=820&height=378&cropmode=none" width="600"> <div align="center">销毁没有拥有者的对象</div></p>
+<p><img src="https://ws4.sinaimg.cn/large/0069RVTdgy1fu9jwecllqj30ms0ai0tg.jpg" alt=""></p>
 <p>随着自动引用计数的到来, 编译器自动地管理了所有对象持有关系. 大部分来说, 这意味着你再也不必担心内存管理系统究竟是如何运行的, 但是你必须理解<code>@property</code>的<code>strong</code>, <code>weak</code>和<code>copy</code>语义, 因为他们告诉编译器对象所被持有的关系. </p>
 <h3 id="The-strong-Attribute"><a href="#The-strong-Attribute" class="headerlink" title="The strong Attribute"></a>The strong Attribute</h3><p><code>strong</code>语义创建了一种拥有关系, 对于不论哪个对象被分配给其属性. 这是一种对所有对象来说的隐式行为, 这是一种默认的安全行为, 由于它保证其值和属性的生命周期一样.</p>
 <p>让我们通过创建另外一个类<code>Person</code>看看是如何工作的. 该类接口仅声明了<code>name</code>:</p>
@@ -390,11 +390,11 @@
 <p><code>@class Car</code>一行是<code>Car</code>类的向前声明(forward declaration). 它告诉编译器, “相信我, <code>Car</code>类是存在的, 因此没必要此刻就去找到它.” 我们必须用此来代替通常使用的<code>#import</code>因为在<code>Person.m</code>中也要引入<code>Car</code>, 不然就会产生循环引入.</p>
 <p>接下来, 在<code>main.m</code>中, <code>honda.driver</code>后添加如下语句:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">honda.driver = john;</span><br><span class="line">john.car = honda; // add this line</span><br></pre></td></tr></table></figure>
-<p>现在, <code>honda</code>对<code>john</code>具有持有关系, 而且<code>john</code>对<code>honda</code>也有同样关系. 这意味着两个对象之间永远拥有对方, 那么内存管理系统将在其不使用的情况下也无法进行销毁.<br><img src="https://btvwbg-bn1306.files.1drv.com/y3mNc0SZVMMWepl-pDGj869KYq3tV0aHciIJC295Tx5BcWDA_VP7iCpDo72n577PJgyvEkNW5OoJtvZf6ADg9z_GuY0X2nOqulXSb8NX_vQsB7NzgHRhQ_xnNPIENXyxwsV4f0KfWbvzRBePSF-z7iCTmVvDT3tCAHW-4L6N4IxRbw?width=574&height=316&cropmode=none" width="574"> <div align="center">Car类和Person类之间循环引用</div></p>
+<p>现在, <code>honda</code>对<code>john</code>具有持有关系, 而且<code>john</code>对<code>honda</code>也有同样关系. 这意味着两个对象之间永远拥有对方, 那么内存管理系统将在其不使用的情况下也无法进行销毁.<br><img src="https://ws1.sinaimg.cn/large/0069RVTdgy1fu9jwfapsjj30fy08swey.jpg" alt=""></p>
 <p>这种现象被称为循环引用(<strong>retain cycle</strong>), 这是内存泄露的一种形式. 所幸的是, 修复这种问题非常简单, 只需要将一个对象对另一个对象保持若引用(<strong>weak reference</strong>)即可. <code>Person.h</code>中, 改变<code>car</code>的声明如下:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@property (nonatomic, weak) Car *car;</span><br></pre></td></tr></table></figure>
 <p><code>weak</code>语义对<code>car</code>创建的以非拥有的关系. 这允许<code>john</code>对<code>honda</code>有引用而避免了循环引用. 但同时, 这也意味着有可能<code>honda</code>在<code>john</code>对其还有引用存在时被销毁. 如果发生这种情况, <code>weak</code>语义会很方便的将<code>car</code>置为<code>nil</code>而避免野指针. </p>
-<p><img src="https://btxx4g-bn1306.files.1drv.com/y3mnorNGN4imnwsZ0U5RPE1EgBeg0IB6FfC8fKZ5C7NSsz0g97gvIb_cJmkKAFnrucWRhWa9rbFw-yoMkgeCalY6vjwgKqWw_5L4Q5RKyQO_EGcrnzIrebD0cCbj-jUFya0YC5I-ADmSa0Td2oQSs6OgG2R9krB6BVHXzmRrQZn734?width=578&height=318&cropmode=none" width="578"> <div align="center">Person对Car的弱引用</div></p>
+<p><img src="https://ws3.sinaimg.cn/large/0069RVTdgy1fu9jweu53jj30g208u3yz.jpg" alt=""></p>
 <p><code>weak</code>语义常用的用法是用于父-子数据结构. 习惯上, 父对象应该对子对象持有强引用, 而子对象则应该对父对象持有弱引用. 弱引用也是代理设计模式(delegate design pattern)固有的部分.</p>
 <p>解决的办法就是两个对象之间不要全是强引用. <code>weak</code>语义使得保持有周期性的关系(cyclical relationship)同时避免了循环引用成为了可能. </p>
 <h3 id="The-copy-Attribute"><a href="#The-copy-Attribute" class="headerlink" title="The copy Attribute"></a>The copy Attribute</h3><p><code>copy</code>语义是<code>strong</code>的替代品. 与获取存在对象的持有权不同, <code>copy</code>创建了一个属性的副本, 然后对副本持有. 仅有遵从<a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Protocols/NSCopying_Protocol/index.html#//apple_ref/occ/intf/NSCopying" target="_blank" rel="noopener">NSCopying protocol</a>的对象才能使用该语义.</p>

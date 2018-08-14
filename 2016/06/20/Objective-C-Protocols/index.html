@@ -75,20 +75,20 @@
 
 
 
-<meta name="description" content="本文翻译自Ry’s Objective-C Tutorial—Protocols  Protocols协议是能够被_任何_一个类所实现的一组相关的属性和方法. 它们能让你在完全不相干的类当中复用单一的API声明, 所以它们比任何一个类的接口更加灵活. 这种特性使它在现有的类层次结构之上表现水平关系成为可能. 非相关类使">
+<meta name="description" content="本文翻译自Ry’s Objective-C Tutorial—Protocols  Protocols协议是能够被_任何_一个类所实现的一组相关的属性和方法. 它们能让你在完全不相干的类当中复用单一的API声明, 所以它们比任何一个类的接口更加灵活. 这种特性使它在现有的类层次结构之上表现水平关系成为可能.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Objective-C Protocols">
 <meta property="og:url" content="http://yoursite.com/2016/06/20/Objective-C-Protocols/index.html">
 <meta property="og:site_name" content="Hello | Totoro">
-<meta property="og:description" content="本文翻译自Ry’s Objective-C Tutorial—Protocols  Protocols协议是能够被_任何_一个类所实现的一组相关的属性和方法. 它们能让你在完全不相干的类当中复用单一的API声明, 所以它们比任何一个类的接口更加灵活. 这种特性使它在现有的类层次结构之上表现水平关系成为可能. 非相关类使用`StreetLegal`协议">
+<meta property="og:description" content="本文翻译自Ry’s Objective-C Tutorial—Protocols  Protocols协议是能够被_任何_一个类所实现的一组相关的属性和方法. 它们能让你在完全不相干的类当中复用单一的API声明, 所以它们比任何一个类的接口更加灵活. 这种特性使它在现有的类层次结构之上表现水平关系成为可能.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://btxcqa-bn1306.files.1drv.com/y3m63u13kIlZpCOvvb5U6GUuZVdyxeXirpM47QLT3Vexjt_CMCj3AUB9txXvu_-Z4ymDUrPUQBHGFPZjgvMwjnMV6emQxsOhDPT5SqHuYd6iO0OnZSz7gQNXlhX9ZhVh2B91DL7b063_reJXnp1BJfOaQhWKrj7Ebos1ImSCbHRIF0?width=956&height=472&cropmode=none">
-<meta property="og:image" content="https://btvdtq-bn1306.files.1drv.com/y3maHeUmmIJDBGQGVsOx7DUBm-g4fUmQmwCNY_kvraIPZi8Gjke2aZxFuiY1NNCkw2LLGo7dt0folw4qMoQ08u-i_4ngDjrBDmHKuow7dHg75XkQMEAVgDNltd8_orz1b75VGWYD-YKYGYv_iXPEcg9U4uulcMk_rDuOLtdlwUnNjo?width=1464&height=1034&cropmode=none">
-<meta property="og:updated_time" content="2018-08-14T12:57:25.478Z">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fu9jy9thtwj30qk0d4wfq.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/0069RVTdgy1fu9jyab4vgj314o0sqgpq.jpg">
+<meta property="og:updated_time" content="2018-08-14T13:31:02.382Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C Protocols">
-<meta name="twitter:description" content="本文翻译自Ry’s Objective-C Tutorial—Protocols  Protocols协议是能够被_任何_一个类所实现的一组相关的属性和方法. 它们能让你在完全不相干的类当中复用单一的API声明, 所以它们比任何一个类的接口更加灵活. 这种特性使它在现有的类层次结构之上表现水平关系成为可能. 非相关类使用`StreetLegal`协议">
-<meta name="twitter:image" content="https://btxcqa-bn1306.files.1drv.com/y3m63u13kIlZpCOvvb5U6GUuZVdyxeXirpM47QLT3Vexjt_CMCj3AUB9txXvu_-Z4ymDUrPUQBHGFPZjgvMwjnMV6emQxsOhDPT5SqHuYd6iO0OnZSz7gQNXlhX9ZhVh2B91DL7b063_reJXnp1BJfOaQhWKrj7Ebos1ImSCbHRIF0?width=956&height=472&cropmode=none">
+<meta name="twitter:description" content="本文翻译自Ry’s Objective-C Tutorial—Protocols  Protocols协议是能够被_任何_一个类所实现的一组相关的属性和方法. 它们能让你在完全不相干的类当中复用单一的API声明, 所以它们比任何一个类的接口更加灵活. 这种特性使它在现有的类层次结构之上表现水平关系成为可能.">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/0069RVTdgy1fu9jy9thtwj30qk0d4wfq.jpg">
 
 
 
@@ -342,9 +342,9 @@
       
         <p><strong>本文翻译自<a href="http://rypress.com/tutorials/objective-c/protocols" target="_blank" rel="noopener">Ry’s Objective-C Tutorial—Protocols</a></strong></p>
 <hr>
-<h2 id="Protocols"><a href="#Protocols" class="headerlink" title="Protocols"></a>Protocols</h2><p>协议是能够被_任何_一个类所实现的一组相关的属性和方法. 它们能让你在完全不相干的类当中复用单一的API声明, 所以它们比任何一个类的接口更加灵活. 这种特性使它在现有的类层次结构之上表现水平关系成为可能.<br><img src="https://btxcqa-bn1306.files.1drv.com/y3m63u13kIlZpCOvvb5U6GUuZVdyxeXirpM47QLT3Vexjt_CMCj3AUB9txXvu_-Z4ymDUrPUQBHGFPZjgvMwjnMV6emQxsOhDPT5SqHuYd6iO0OnZSz7gQNXlhX9ZhVh2B91DL7b063_reJXnp1BJfOaQhWKrj7Ebos1ImSCbHRIF0?width=956&height=472&cropmode=none" width="600"> <div align="center">非相关类使用`StreetLegal`协议</div></p>
+<h2 id="Protocols"><a href="#Protocols" class="headerlink" title="Protocols"></a>Protocols</h2><p>协议是能够被_任何_一个类所实现的一组相关的属性和方法. 它们能让你在完全不相干的类当中复用单一的API声明, 所以它们比任何一个类的接口更加灵活. 这种特性使它在现有的类层次结构之上表现水平关系成为可能.<br><img src="https://ws3.sinaimg.cn/large/0069RVTdgy1fu9jy9thtwj30qk0d4wfq.jpg" alt=""></p>
 <a id="more"></a>
-<h2 id="Creating-Protocols"><a href="#Creating-Protocols" class="headerlink" title="Creating Protocols"></a>Creating Protocols</h2><p>和类接口一样, 协议同样是在<code>.h</code>文件当中. 在工程中添加协议, 使用_<code>Cmd+N</code>_组合键, 选择iOS下的Objective-C文件, 下一步, 第一栏填写文件名, 第二栏选择文件类型为Protocol.<br><img src="https://btvdtq-bn1306.files.1drv.com/y3maHeUmmIJDBGQGVsOx7DUBm-g4fUmQmwCNY_kvraIPZi8Gjke2aZxFuiY1NNCkw2LLGo7dt0folw4qMoQ08u-i_4ngDjrBDmHKuow7dHg75XkQMEAVgDNltd8_orz1b75VGWYD-YKYGYv_iXPEcg9U4uulcMk_rDuOLtdlwUnNjo?width=1464&height=1034&cropmode=none" width="600"><div align="center">创建一个协议</div></p>
+<h2 id="Creating-Protocols"><a href="#Creating-Protocols" class="headerlink" title="Creating Protocols"></a>Creating Protocols</h2><p>和类接口一样, 协议同样是在<code>.h</code>文件当中. 在工程中添加协议, 使用_<code>Cmd+N</code>_组合键, 选择iOS下的Objective-C文件, 下一步, 第一栏填写文件名, 第二栏选择文件类型为Protocol.<br><img src="https://ws2.sinaimg.cn/large/0069RVTdgy1fu9jyab4vgj314o0sqgpq.jpg" alt=""></p>
 <p>在本部分, 我们将以协议名为<code>StreetLegal</code>来进行说明. 输入文件名, 保存到根目录.</p>
 <p>我们的协议会获取street-legal机动车的必要行为. 把这些特性定义在一个协议中, 你就可以对任意对象使用它们, 而不是强制其继承自同一抽象的超类. 一个<code>StreetLegal</code>协议的简单版本如下:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// StreetLegal.h</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@protocol StreetLegal &lt;NSObject&gt;</span><br><span class="line"></span><br><span class="line">- (void)signalStop;</span><br><span class="line">- (void)signalLeftTurn;</span><br><span class="line">- (void)signalRightTurn;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
