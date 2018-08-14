@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=" color="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="生活壞到一定程度就會好起來，因為它無法更壞。努力過後，才知道許多事情，堅持堅持，就過來了   Methods方法代表了对象知道该如何去执行的行为. 方法与属性是逻辑对应的, 代表了一个对象的数据. 你可以认为方法就是函数, 它附属与对象; 但是它们之间却有着不同的语法.     在本部分, 我们将探究Objective">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective-C Methods">
+<meta property="og:url" content="http://yoursite.com/2016/06/17/Objective-C-Methods/index.html">
+<meta property="og:site_name" content="Hello | Totoro">
+<meta property="og:description" content="生活壞到一定程度就會好起來，因為它無法更壞。努力過後，才知道許多事情，堅持堅持，就過來了   Methods方法代表了对象知道该如何去执行的行为. 方法与属性是逻辑对应的, 代表了一个对象的数据. 你可以认为方法就是函数, 它附属与对象; 但是它们之间却有着不同的语法.     在本部分, 我们将探究Objective-C的方法命名习惯. 它的命名习惯会使来自C++, Java, Python和">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://btw7pq-bn1306.files.1drv.com/y3moBOVqQc0_QQ9vBSKAls4jjFDC157D7MBkgINYL2vtPKfuBdrbxETEs-ENVkev29shX6oTh90X5YZxUsRQblKL6hIkxK1HFppdRQZwoKgeYUnIvNuAT06C42pPswKf_79naWjVuXCSWA9-UkWeAg7uYLcSY91gNHHy2FXwVg9UAs?width=1280&height=800&cropmode=none">
+<meta property="og:updated_time" content="2016-06-17T12:50:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Objective-C Methods">
+<meta name="twitter:description" content="生活壞到一定程度就會好起來，因為它無法更壞。努力過後，才知道許多事情，堅持堅持，就過來了   Methods方法代表了对象知道该如何去执行的行为. 方法与属性是逻辑对应的, 代表了一个对象的数据. 你可以认为方法就是函数, 它附属与对象; 但是它们之间却有着不同的语法.     在本部分, 我们将探究Objective-C的方法命名习惯. 它的命名习惯会使来自C++, Java, Python和">
+<meta name="twitter:image" content="https://btw7pq-bn1306.files.1drv.com/y3moBOVqQc0_QQ9vBSKAls4jjFDC157D7MBkgINYL2vtPKfuBdrbxETEs-ENVkev29shX6oTh90X5YZxUsRQblKL6hIkxK1HFppdRQZwoKgeYUnIvNuAT06C42pPswKf_79naWjVuXCSWA9-UkWeAg7uYLcSY91gNHHy2FXwVg9UAs?width=1280&height=800&cropmode=none">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/17/Objective-C-Methods/"/>
+
+
+
+
+
+  <title>Objective-C Methods | Hello | Totoro</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello | Totoro</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/17/Objective-C-Methods/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Totorooo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello | Totoro">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Objective-C Methods</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-17T20:50:40+08:00">
+                2016-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://btw7pq-bn1306.files.1drv.com/y3moBOVqQc0_QQ9vBSKAls4jjFDC157D7MBkgINYL2vtPKfuBdrbxETEs-ENVkev29shX6oTh90X5YZxUsRQblKL6hIkxK1HFppdRQZwoKgeYUnIvNuAT06C42pPswKf_79naWjVuXCSWA9-UkWeAg7uYLcSY91gNHHy2FXwVg9UAs?width=1280&height=800&cropmode=none" width="1280" height="800" class="full-image"></p>
+<blockquote class="blockquote-center">生活壞到一定程度就會好起來，因為它無法更壞。努力過後，才知道許多事情，堅持堅持，就過來了</blockquote>
+
+<hr>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><p>方法代表了对象知道该如何去执行的行为. 方法与属性是逻辑对应的, 代表了一个对象的数据. 你可以认为方法就是函数, 它附属与对象; 但是它们之间却有着不同的语法.    </p>
+<p>在本部分, 我们将探究Objective-C的方法命名习惯. 它的命名习惯会使来自C++, Java, Python和类似语言的有经验的开发者们心烦. 同时会简短地讨论Objective-C的访问修饰符(或者lack thereof), 以及学习如何参考使用方法选择器.<br><a id="more"></a></p>
+<h2 id="Naming-Conventions"><a href="#Naming-Conventions" class="headerlink" title="Naming Conventions"></a>Naming Conventions</h2><p>Objective-C方法被设计用来去除API中所有模棱两可之处. 其结果是, 方法名极度的冗长,啰嗦的叙述性语句. 最终归纳起来Objective-C的方法命名有三个简单地规则:</p>
+<ol>
+<li>不要缩写任何东西</li>
+<li>明确规定方法本身的参数名</li>
+<li>明确描述方法的返回值    </li>
+</ol>
+<p>当你阅读以下<code>Car</code>类接口的例子时, 与这三条规则类比.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">// Car.h</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface Car : NSObject</span><br><span class="line"></span><br><span class="line">// Accessors</span><br><span class="line">- (BOOL)isRunning;</span><br><span class="line">- (void)setRunning:(BOOL)running;</span><br><span class="line">- (NSString *)model;</span><br><span class="line">- (void)setModel:(NSString *)model;</span><br><span class="line"></span><br><span class="line">// Calculated values</span><br><span class="line">- (double)maximumSpeed;</span><br><span class="line">- (double)maximumSpeedUsingLocale:(NSLocale *)locale;</span><br><span class="line"></span><br><span class="line">// Action methods</span><br><span class="line">- (void)startEngine;</span><br><span class="line">- (void)driveForDistance:(double)theDistance;</span><br><span class="line">- (void)driveFromOrigin:(id)theOrigin toDestination:(id)theDestination;</span><br><span class="line">- (void)turnByAngle:(double)theAngle;</span><br><span class="line">- (void)turnToAngle:(double)theAngle;</span><br><span class="line"></span><br><span class="line">// Error handling methods</span><br><span class="line">- (BOOL)loadPassenger:(id)aPassenger error:(NSError **)error;</span><br><span class="line"></span><br><span class="line">// Constructor methods</span><br><span class="line">- (id)initWithModel:(NSString *)aModel;</span><br><span class="line">- (id)initWithModel:(NSString *)aModel mileage:(double)theMileage;</span><br><span class="line"></span><br><span class="line">// Comparison methods</span><br><span class="line">- (BOOL)isEqualToCar:(Car *)anotherCar;</span><br><span class="line">- (Car *)fasterCar:(Car *)anotherCar;</span><br><span class="line">- (Car *)slowerCar:(Car *)anotherCar;</span><br><span class="line"></span><br><span class="line">// Factory methods</span><br><span class="line">+ (Car *)car;</span><br><span class="line">+ (Car *)carWithModel:(NSString *)aModel;</span><br><span class="line">+ (Car *)carWithModel:(NSString *)aModel mileage:(double)theMileage;</span><br><span class="line"></span><br><span class="line">// Singleton methods</span><br><span class="line">+ (Car *)sharedCar;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<h3 id="Abbreviations"><a href="#Abbreviations" class="headerlink" title="Abbreviations"></a>Abbreviations</h3><p>使方法最容易理解和可预计的途径是避免简单地缩写. 大部分Objective-C程序员_预计_方法要书写完整, 这也是所有从Foundation到UIKit标准框架的习惯. 这就是为什么上面接口中选择<code>maximumSpeed</code>而不是<code>maxSpeed</code>.</p>
+<h3 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h3><p>Objective-C的冗长设计理念最清晰的例子之一是为方法参数命名的习惯. 然而C++, Java和其他Simula-style语言将方法看做是与其参数独立开来的实体, 但是,  Objective-C方法命名实际上包含了其所有的参数名.</p>
+<p>比如, C++中要使汽车转弯90度, 你会调用像类似于<code>turn(90)</code>的方法. 然而, Objective-C中这样做是有歧义的. 因为方法<code>turn()</code>的参数的类型是不明确的-有可能是新的行驶方向, 或者是在当前行驶方向上增加的角度值. Objective-C中通过使用前置词描述参数来明确其含义. 由此产生的API确保方法永远不会错误的阐述: 是<code>turnByAngle:90</code>或者<code>turnToAngle:90</code>.</p>
+<p>当一个方法接受了多个参数时, 每个参数名也是包含在方法名中. 例如, 上面的<code>initWithModel:mileage:</code>方法明确地标明了<code>Model</code>和<code>mileage</code>. 等会我们会看到, 这种方法提供了详尽的方法调用信息.</p>
+<h3 id="Return-Values"><a href="#Return-Values" class="headerlink" title="Return Values"></a>Return Values</h3><p>同样你会注意到任何方法返回值都明确描述了其返回值是什么. 有时这样做同陈述返回类型的类同样简单, 但有时你必须为其添加可描述形容词前缀.</p>
+<p>比如, 以factory methods开始的<code>car</code>, 其明确描述了方法将返回一个<code>Car</code>类的实例. <code>fasterCar:</code>和<code>slowerCar:</code>两个类比方法, 返回接收器和参数的faster/lower, 而且这也同样在API中又明确表达. 值得注意的是, 单例方法也应该遵从这种模式(e.g., <code>shareCar</code>), 因为常规的<code>实例</code>方法名称不明确.</p>
+<p>更多的命名习惯请移步官方: <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html" target="_blank" rel="noopener"><strong>Cocoa Coding Guidlines</strong></a>.</p>
+<h2 id="Calling-Methods"><a href="#Calling-Methods" class="headerlink" title="Calling Methods"></a>Calling Methods</h2><p>正如在<a href="">实例化和用法</a>中所讨论的, 调用方法的方式是通过将对象和想要调用的方法放置在方括号中, 中间用空格隔开. 参数和方法名用冒号隔开:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[porsche initWithModel:@&quot;Porsche&quot;];</span><br></pre></td></tr></table></figure>
+<p>当方法中参数在一个以上时, 在第一个参数后重复相同的格式. 每个参数都配有一个标签, 用空格同其他参数分开:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[porsche initWithModel:@&quot;Porsche&quot; mileage:42000.0];</span><br></pre></td></tr></table></figure>
+<p>当从调用的角度来看, 这是非常容易得出上面命名规则背后的目的. 这使得方法调用读起来更像人类语言而非计算机语言. 比如, 比较以下Simula-style和Objective-C不同版本的方法调用:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// Python/Java/C++</span><br><span class="line">porsche.drive(&quot;Home&quot;, &quot;Airport&quot;);</span><br><span class="line"></span><br><span class="line">// Objective-C</span><br><span class="line">[porsche driveFromOrigin:@&quot;Home&quot; toDestination:@&quot;Airport&quot;];</span><br></pre></td></tr></table></figure>
+<p>可能需要键入更多的文字, 但是这就是为什么Xcode自带完美的自动补齐方法名的特性. 当你将你的代码放置数月之后再去修改bug的时候, 你会感激那些冗长的方法名. 这种明确性也让本身同三方库一起工作更方便, 以及维持大型代码库.</p>
+<h3 id="Nested-Method-Calls"><a href="#Nested-Method-Calls" class="headerlink" title="Nested Method Calls"></a>Nested Method Calls</h3><p>嵌套方法调用在Objective-C程序中是常用的模式. 这是一种将一个方法调用的结果传递给另一个方法自然的方式. 概念上, 它同chaining method(<a href="https://en.wikipedia.org/wiki/Method_chaining" target="_blank" rel="noopener">详见Wikipedia-Method chaining</a>)无异, 但是方括号语法使其变得有点不同: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// JavaScript</span><br><span class="line">Car.alloc().init()</span><br><span class="line"></span><br><span class="line">// Objective-C</span><br><span class="line">[[Car alloc] init];</span><br></pre></td></tr></table></figure>
+<p>首先调用[<code>Car alloc</code>]方法, 然后在其返回结果基础上调用<code>init</code>方法;</p>
+<h2 id="Protected-and-Private-Methods"><a href="#Protected-and-Private-Methods" class="headerlink" title="Protected and Private Methods"></a>Protected and Private Methods</h2><p>Objective-C中方法并没有protected或者private访问修饰词—方法都是公共的, public. 但是, Objective-C提供了可供选择的结构范例, 可以让你<code>模仿</code>这些特性.</p>
+<p>“private”方法可以在类的实现文件中创建, 同时在其接口文件中不用写出. 由于其他对象(包括子类)不会引入实现文件, 这些方法实际上对其他类来说是隐藏的. </p>
+<p>代替受保护的方法, Objective-C提供了<a href="">类目(categories)</a>来实现, 它是作为API隔离部分常用的解决办法. 完整的例子请移步<a href="">“Protected” Methods</a>.</p>
+<h2 id="Selectors"><a href="#Selectors" class="headerlink" title="Selectors"></a>Selectors</h2><p>方法选择器(selector)是Objective-C方法名的内部表示方法. selectors让你将方法看做是一个独立的实体, 能够将需要实现的行为和对象分开. 这是Target-Action模式的依据.</p>
+<p>有两种方法可以获取一个方法名的方法选择器. <code>@selector()</code>指令使你转换源代码方法名为一个方法选择器, <code>NSSelectorFromSting()</code>函数让你将字符串转换为一个方法选择器(后者效率低). 两者都返回一个特殊的返回值类型称为SEL. 你可以同<code>BOOL</code>, <code>int</code>或其他数据类型一样使用<code>SEL</code>.    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">// main.m</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">#import &quot;Car.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line">        Car *porsche = [[Car alloc] init];</span><br><span class="line">        porsche.model = @&quot;Porsche 911 Carrera&quot;;</span><br><span class="line">        </span><br><span class="line">        SEL stepOne = NSSelectorFromString(@&quot;startEngine&quot;);</span><br><span class="line">        SEL stepTwo = @selector(driveForDistance:);</span><br><span class="line">        SEL stepThree = @selector(turnByAngle:quickly:);</span><br><span class="line">        </span><br><span class="line">        // This is the same as:</span><br><span class="line">        // [porsche startEngine];</span><br><span class="line">        [porsche performSelector:stepOne];</span><br><span class="line"></span><br><span class="line">        // This is the same as:</span><br><span class="line">        // [porsche driveForDistance:[NSNumber numberWithDouble:5.7]];</span><br><span class="line">        [porsche performSelector:stepTwo</span><br><span class="line">                      withObject:[NSNumber numberWithDouble:5.7]];</span><br><span class="line">        </span><br><span class="line">        if ([porsche respondsToSelector:stepThree]) &#123;</span><br><span class="line">            // This is the same as:</span><br><span class="line">            // [porsche turnByAngle:[NSNumber numberWithDouble:90.0]</span><br><span class="line">            //              quickly:[NSNumber numberWithBool:YES]];</span><br><span class="line">            [porsche performSelector:stepThree</span><br><span class="line">                          withObject:[NSNumber numberWithDouble:90.0]</span><br><span class="line">                          withObject:[NSNumber numberWithBool:YES]];</span><br><span class="line">        &#125;</span><br><span class="line">        NSLog(@&quot;Step one: %@&quot;, NSStringFromSelector(stepOne));</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方法选择器能通过<code>performSelector:</code>和相关方法在任意对象上执行. <code>withObject:</code>为方法传递一个参数(或两个), 但要求这些参数全都是对象(objects). 如果这过于限制您的需求, 请移步官网查看<a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSInvocation_Class/index.html" target="_blank" rel="noopener">NSInvocation</a>高级用法. 如果你不确定目标对象是否定义了这个方法, 你应当在尝试执行方法选择器之前使用<code>respondsToSelector:</code>来检查以下. </p>
+<p>一个方法的专业名称是将主要方法名和所有参数标签结合起来, 用冒号隔开. 这样就会使冒号成为了方法名的一部分, 而容易让Objective-C的初学者搞混. 它们的用法可以总结如下: _无参方法不包含冒号, 带参方法总是以冒号结束_.</p>
+<p>以上<code>Car</code>类的接口部分和实现部分的例子如下. 注意由于<code>performSelector:withObject:</code>方法不允许传递原始C数据类型, 因此在参数类型得使用<code>NSNumber</code>来代替<code>double</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// Car.h</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface Car : NSObject</span><br><span class="line"></span><br><span class="line">@property (copy) NSString *model;</span><br><span class="line"></span><br><span class="line">- (void)startEngine;</span><br><span class="line">- (void)driveForDistance:(NSNumber *)theDistance;</span><br><span class="line">- (void)turnByAngle:(NSNumber *)theAngle</span><br><span class="line">            quickly:(NSNumber *)useParkingBrake;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// Car.m</span><br><span class="line">#import &quot;Car.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation Car</span><br><span class="line"></span><br><span class="line">@synthesize model = _model;</span><br><span class="line"></span><br><span class="line">- (void)startEngine &#123;</span><br><span class="line">    NSLog(@&quot;Starting the %@&apos;s engine&quot;, _model);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)driveForDistance:(NSNumber *)theDistance &#123;</span><br><span class="line">    NSLog(@&quot;The %@ just drove %0.1f miles&quot;,</span><br><span class="line">          _model, [theDistance doubleValue]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)turnByAngle:(NSNumber *)theAngle</span><br><span class="line">            quickly:(NSNumber *)useParkingBrake &#123;</span><br><span class="line">    if ([useParkingBrake boolValue]) &#123;</span><br><span class="line">        NSLog(@&quot;The %@ is drifting around the corner!&quot;, _model);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        NSLog(@&quot;The %@ is making a gentle %0.1f degree turn&quot;,</span><br><span class="line">              _model, [theAngle doubleValue]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>本部分解释了Objective-C方法命名习惯的原因. 同时学习了Objective-C方法没有访问修饰词, 以及如何使用<code>@selector</code>动态调用方法.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/01/Objective-C-Properties/" rel="next" title="Objective-C Properties">
+                <i class="fa fa-chevron-left"></i> Objective-C Properties
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/20/Objective-C-Protocols/" rel="prev" title="Objective-C Protocols">
+                Objective-C Protocols <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Totorooo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods"><span class="nav-number">1.</span> <span class="nav-text">Methods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Naming-Conventions"><span class="nav-number">2.</span> <span class="nav-text">Naming Conventions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abbreviations"><span class="nav-number">2.1.</span> <span class="nav-text">Abbreviations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parameters"><span class="nav-number">2.2.</span> <span class="nav-text">Parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Return-Values"><span class="nav-number">2.3.</span> <span class="nav-text">Return Values</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calling-Methods"><span class="nav-number">3.</span> <span class="nav-text">Calling Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nested-Method-Calls"><span class="nav-number">3.1.</span> <span class="nav-text">Nested Method Calls</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Protected-and-Private-Methods"><span class="nav-number">4.</span> <span class="nav-text">Protected and Private Methods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Selectors"><span class="nav-number">5.</span> <span class="nav-text">Selectors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">6.</span> <span class="nav-text">Summary</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Totorooo</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

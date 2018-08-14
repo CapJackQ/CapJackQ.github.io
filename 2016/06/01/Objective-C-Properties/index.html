@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=" color="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Properties一个对象的属性可以使其他对象检查或改变其状态. 但是, 对于一个好的面向对象程序设计而言, 外部不可能直接访问对象内部的状态. 相反, 存取方法(accessor methods(getters &amp;amp; setters))被用作与对象底层数据交互的抽象概念.  通过存取方器同属性交互 @">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective-C Properties">
+<meta property="og:url" content="http://yoursite.com/2016/06/01/Objective-C-Properties/index.html">
+<meta property="og:site_name" content="Hello | Totoro">
+<meta property="og:description" content="Properties一个对象的属性可以使其他对象检查或改变其状态. 但是, 对于一个好的面向对象程序设计而言, 外部不可能直接访问对象内部的状态. 相反, 存取方法(accessor methods(getters &amp;amp; setters))被用作与对象底层数据交互的抽象概念.  通过存取方器同属性交互 @property指令的目的是使通过自动生成这些存取器方法来创建及配置属性变得容易. 它">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://n0xzpw-bn1306.files.1drv.com/y3mOLl38t8lPMrqMtq-kW51F4oQ3J_RxcCC0l4MUVKnsQLpBY78LJFVOBuBZVr8SUZo29Tdt-WkVPEi2YuDouYHKEs97d1lnLLVPArrej8mr5BgzzIwz47G82OypToWTreoetLhRmWWZU1KtL0PbPf2Ck6UFXvBtEyl03-yx-bwkNU?width=656&height=434&cropmode=none">
+<meta property="og:image" content="https://n0xsta-bn1306.files.1drv.com/y3m-cIW_k0uchiiD43NzOWMLgI8-pi2lXeA7f83YroXfsQbv9R6uesWpbwxPDActZb4CMpPPo7GiQxeSuXhmmxV7ddyU0NZe-84ii48bmsqLIH6rH2uA8OaOmcSnCZZYUCmpcKUq39_HEYl7ezOd2nULnUPQo9hSh87EMc6C-aydHE?width=820&height=378&cropmode=none">
+<meta property="og:image" content="https://btvwbg-bn1306.files.1drv.com/y3mNc0SZVMMWepl-pDGj869KYq3tV0aHciIJC295Tx5BcWDA_VP7iCpDo72n577PJgyvEkNW5OoJtvZf6ADg9z_GuY0X2nOqulXSb8NX_vQsB7NzgHRhQ_xnNPIENXyxwsV4f0KfWbvzRBePSF-z7iCTmVvDT3tCAHW-4L6N4IxRbw?width=574&height=316&cropmode=none">
+<meta property="og:updated_time" content="2016-06-01T03:36:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Objective-C Properties">
+<meta name="twitter:description" content="Properties一个对象的属性可以使其他对象检查或改变其状态. 但是, 对于一个好的面向对象程序设计而言, 外部不可能直接访问对象内部的状态. 相反, 存取方法(accessor methods(getters &amp;amp; setters))被用作与对象底层数据交互的抽象概念.  通过存取方器同属性交互 @property指令的目的是使通过自动生成这些存取器方法来创建及配置属性变得容易. 它">
+<meta name="twitter:image" content="https://n0xzpw-bn1306.files.1drv.com/y3mOLl38t8lPMrqMtq-kW51F4oQ3J_RxcCC0l4MUVKnsQLpBY78LJFVOBuBZVr8SUZo29Tdt-WkVPEi2YuDouYHKEs97d1lnLLVPArrej8mr5BgzzIwz47G82OypToWTreoetLhRmWWZU1KtL0PbPf2Ck6UFXvBtEyl03-yx-bwkNU?width=656&height=434&cropmode=none">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/01/Objective-C-Properties/"/>
+
+
+
+
+
+  <title>Objective-C Properties | Hello | Totoro</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello | Totoro</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/01/Objective-C-Properties/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Totorooo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello | Totoro">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Objective-C Properties</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-01T11:36:30+08:00">
+                2016-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><p>一个对象的属性可以使其他对象检查或改变其状态. 但是, 对于一个好的面向对象程序设计而言, 外部不可能直接访问对象内部的状态. 相反, 存取方法(<strong>accessor methods</strong>(getters &amp; setters))被用作与对象底层数据交互的抽象概念.</p>
+<p><img src="https://n0xzpw-bn1306.files.1drv.com/y3mOLl38t8lPMrqMtq-kW51F4oQ3J_RxcCC0l4MUVKnsQLpBY78LJFVOBuBZVr8SUZo29Tdt-WkVPEi2YuDouYHKEs97d1lnLLVPArrej8mr5BgzzIwz47G82OypToWTreoetLhRmWWZU1KtL0PbPf2Ck6UFXvBtEyl03-yx-bwkNU?width=656&height=434&cropmode=none" width="600"> <div align="center">通过存取方器同属性交互</div></p>
+<p><code>@property</code>指令的目的是使通过自动生成这些存取器方法来创建及配置属性变得容易. 它允许你在语义层面指定公共属性的行为, 同时顾及了实现部分的细节.<br><a id="more"></a></p>
+<h2 id="The-property-Directive"><a href="#The-property-Directive" class="headerlink" title="The @property Directive"></a>The @property Directive</h2><p>首先来看看在使用<code>@property</code>时候究竟发生了什么. 假设以下是一个简单<code>Car</code>类的接口和实现部分.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// Car.h</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface Car : NSObject</span><br><span class="line"></span><br><span class="line">@property BOOL running;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// Car.m</span><br><span class="line">#import &quot;Car.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation Car</span><br><span class="line"></span><br><span class="line">@synthesize running = _running; </span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>编译器生成了为属性<code>running</code>生成了一个访问器和设置器, 默认的命名习惯是使用属性本身作为访问器, 加前缀<code>set</code>作为设置器, 在属性前加下划线作为实力变量:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)running&#123;</span><br><span class="line">	return _running;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)setRunning:(BOOL)newValue &#123;</span><br><span class="line">	_running = newValue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在使用<code>@property</code>声明属性之后, 就可以像在类的接口和实现文件中调用这些方法一样调用它们. 同时也可以在<code>Car.m</code>中重写它们以支持自定义的getter/setters, 但是这样做会使<code>@synthesize</code>成为强制性的. 然而, 很少的自定义存取器, 因为<code>@property</code>属性语义在抽象层面让你这样做.</p>
+<p>通过点语法访问属性时, 在幕后会转换到上述存取器方法, 因此, 当分配值给属性以及在<code>running</code>方法读取值的时候, 下面<code>honda.running</code>代码真正意义上是调用了<code>setRunning:</code>方法.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// main.m</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">#import &quot;Car.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">	@autoreleasepool &#123;</span><br><span class="line">		Car *honda = [[Car alloc] init];</span><br><span class="line">		honda.running = YES;				// [honda setRunning:YES]</span><br><span class="line">		NSLog(@&quot;%d&quot;, honda.running);		// [honda running]</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了改变生成的访问器的行为, 你可以在<code>@property</code>之后括号内指定属性语义.</p>
+<h2 id="The-getter-and-setter-Attributes"><a href="#The-getter-and-setter-Attributes" class="headerlink" title="The getter= and setter= Attributes"></a>The getter= and setter= Attributes</h2><p>如果你不喜欢<code>@property</code>默认的命名习惯, 可以使用<code>getter= 和 setter=</code>语义更改getter/setter方法名. 常用的是为Boolean属性更改名字, 按常规其getter前加前缀<code>is</code>. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@property (getter=isRunning) BOOL running;</span><br></pre></td></tr></table></figure>
+<p>现在, 合成的访问器称作<code>isRunning</code>和<code>setRunning</code>. 注意, 公共属性仍然为<code>running</code>, 而且必须使用点语法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Car *honda = [[Car alloc] init]</span><br><span class="line">honda.running = YES;				// [honda setRunning:YES]</span><br><span class="line">NSLog(@&quot;%d&quot;, honda.running);		// [honda isRunning]</span><br><span class="line">NSLog(@&quot;%d&quot;, [honda running]);		// Error: method no longer exists</span><br></pre></td></tr></table></figure>
+<h2 id="The-readonly-Attribute"><a href="#The-readonly-Attribute" class="headerlink" title="The readonly Attribute"></a>The readonly Attribute</h2><p><code>readonly</code>是仅使属性具有只读的语义. 它删掉了setter方法阻止通过点语法给属性赋值, 但是getter方法未受影响. 如下, 改变<code>Car</code>的接口部分. 注意如何通过逗号(,)分隔来说明多重语义.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface Car : NSObject</span><br><span class="line"></span><br><span class="line">@property (getter=isRunning, readonly) BOOL running;</span><br><span class="line"></span><br><span class="line">- (void)startEngine;</span><br><span class="line">- (void)stopEngine;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>为了不让其他对象改变<code>running</code>属性, 我们在内部通过<code>startEngine</code>和<code>stopEngine</code>方法来设置. 对应的实现如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// Car.m</span><br><span class="line">#import &quot;Car.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation Car</span><br><span class="line"></span><br><span class="line">- (void)startEngine &#123;</span><br><span class="line">	_running = YES;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)stopEngine &#123;</span><br><span class="line">	_running = NO;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p><code>@property</code>同时为我们合成了一个实例变量, 这就是为什么我们可以访问<code>_running</code>而不用在任何一处声明它(此处不能使用<code>self.running</code>, 由于属性是只读的). 在<code>main.m</code>函数中添加以下代码来测试这个新的<code>Car</code>类:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Car *honda = [[Car alloc] init];</span><br><span class="line">[honda startEngine];</span><br><span class="line">NSLog(@&quot;Running: %d&quot;, honda.running);</span><br><span class="line">honda.running = NO;						// Error: read-only property</span><br></pre></td></tr></table></figure>
+<p>直到此时, 属性做到了真正的便捷简写, 避免书写getter和setter方法的样板代码. 这不是其他剩余语义的例子, 它显著地改变了属性的行为. 它们仅适用于存储Objective-C对象属性(相对于C原始的数据类型).</p>
+<h2 id="The-nonatomic-Attribute"><a href="#The-nonatomic-Attribute" class="headerlink" title="The nonatomic Attribute"></a>The nonatomic Attribute</h2><p>原子性控制属性在线程环境下的行为. 如果你有多条线程时, setter和getter有可能会被同时调用. 这意味着getter/setter会被另外一个操作给打断, 很有可能产生乱码.</p>
+<p>原子性属性锁定了底层对象以阻止这种可能性发生, 保证get或set操作具有一个完整地值. 但是, 理解这个只是线程安全使用的一方面是重要的, 原子性不在需要意思是你的代码是线程安全的.</p>
+<p><code>@property</code>声明的属性默认的是原子性的, 这导致一些. 如果你没有在多线程环境, 那么使用<code>nonatomic</code>语义来重写这种行为.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@property (nonatomic) NSString *model;</span><br></pre></td></tr></table></figure>
+<p>原子性属性同样也有小而实用的警告. 原子性属性访问器必须同时具备合成或用户自定义性. </p>
+<h2 id="Memory-Management"><a href="#Memory-Management" class="headerlink" title="Memory Management"></a>Memory Management</h2><p>在任何一个面向对象编程(OOP)语言中, 对象都在计算机内存当中-特别是对于手机设备来说, 内存是相当稀缺的资源. 内存管理系统就是为了确保程序不会占有多余的空间, 它们必须以高效的方式来创建和销毁对象.</p>
+<p>大多语言通过垃圾回收(garbage collection)机制来完成该过程, 但是Objective-C使用了更有效地替代方案, 称之为<strong>object ownership</strong>. 当你和一个对象进行交互的时候, 你_拥有_了那个对象, 这意味着保证在你对象交互的期间它是一直存在的. 当你与其交互完毕, 你放弃持有该对象并且-假如该对象没有其他的持有者-操作系统销毁对象并释放底层内存.</p>
+<p><img src="https://n0xsta-bn1306.files.1drv.com/y3m-cIW_k0uchiiD43NzOWMLgI8-pi2lXeA7f83YroXfsQbv9R6uesWpbwxPDActZb4CMpPPo7GiQxeSuXhmmxV7ddyU0NZe-84ii48bmsqLIH6rH2uA8OaOmcSnCZZYUCmpcKUq39_HEYl7ezOd2nULnUPQo9hSh87EMc6C-aydHE?width=820&height=378&cropmode=none" width="600"> <div align="center">销毁没有拥有者的对象</div></p>
+<p>随着自动引用计数的到来, 编译器自动地管理了所有对象持有关系. 大部分来说, 这意味着你再也不必担心内存管理系统究竟是如何运行的, 但是你必须理解<code>@property</code>的<code>strong</code>, <code>weak</code>和<code>copy</code>语义, 因为他们告诉编译器对象所被持有的关系. </p>
+<h3 id="The-strong-Attribute"><a href="#The-strong-Attribute" class="headerlink" title="The strong Attribute"></a>The strong Attribute</h3><p><code>strong</code>语义创建了一种拥有关系, 对于不论哪个对象被分配给其属性. 这是一种对所有对象来说的隐式行为, 这是一种默认的安全行为, 由于它保证其值和属性的生命周期一样.</p>
+<p>让我们通过创建另外一个类<code>Person</code>看看是如何工作的. 该类接口仅声明了<code>name</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// Person.h</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface Person : NSObject</span><br><span class="line"></span><br><span class="line">@property (nonatomic) NSString *name;</span><br><span class="line"></span><br><span class="line">@end;</span><br></pre></td></tr></table></figure>
+<p>实现部分如下, 使用了由<code>@property</code>默认生成的访问器. 同时重写了NSObject的description方法, 返回字符串代替对象.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// Person.h</span><br><span class="line">#import &quot;Person.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation Person</span><br><span class="line"></span><br><span class="line">- (NSString *)description &#123;</span><br><span class="line">	return self.name;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>接下来, 给<code>Car</code>类添加一个<code>Person</code>属性. 如下,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// Car.h</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">#import &quot;Person.h&quot;</span><br><span class="line"></span><br><span class="line">@interface Car : NSObject</span><br><span class="line"></span><br><span class="line">@property (nonatomic) NSString *model;</span><br><span class="line">@property (nonatomic, strong) Person *driver;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p><code>main.m</code>函数中:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// main.m</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">#import &quot;Car.h&quot;</span><br><span class="line">#import &quot;Person.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line">        Person *john = [[Person alloc] init];</span><br><span class="line">        john.name = @&quot;John&quot;;</span><br><span class="line">        </span><br><span class="line">        Car *honda = [[Car alloc] init];</span><br><span class="line">        honda.model = @&quot;Honda Civic&quot;;</span><br><span class="line">        honda.driver = john;</span><br><span class="line">        </span><br><span class="line">        NSLog(@&quot;%@ is driving the %@&quot;, honda.driver, honda.model);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于<code>driver</code>是strong语义, 对象<code>honda</code>拥有<code>john</code>的所有权, 这样保证了在<code>honda</code>需要时它是可用的.</p>
+<h3 id="The-weak-Attribute"><a href="#The-weak-Attribute" class="headerlink" title="The weak Attribute"></a>The weak Attribute</h3><p>大多时候, <code>strong</code>语义是凭直觉来确认你想要的对象属性. 但是, 强引用也有问题, 比如如果我们需要一个从<code>driver</code>到<code>Car</code>对象的引用, 首先为<code>Person.h</code>添加一个<code>car</code>属性:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// Person.h</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@class Car;</span><br><span class="line"></span><br><span class="line">@interface Person : NSObject</span><br><span class="line"></span><br><span class="line">@property (nonatomic) NSString *name;</span><br><span class="line">@property (nonatomic, strong) Car *car;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p><code>@class Car</code>一行是<code>Car</code>类的向前声明(forward declaration). 它告诉编译器, “相信我, <code>Car</code>类是存在的, 因此没必要此刻就去找到它.” 我们必须用此来代替通常使用的<code>#import</code>因为在<code>Person.m</code>中也要引入<code>Car</code>, 不然就会产生循环引入.</p>
+<p>接下来, 在<code>main.m</code>中, <code>honda.driver</code>后添加如下语句:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">honda.driver = john;</span><br><span class="line">john.car = honda; // add this line</span><br></pre></td></tr></table></figure>
+<p>现在, <code>honda</code>对<code>john</code>具有持有关系, 而且<code>john</code>对<code>honda</code>也有同样关系. 这意味着两个对象之间永远拥有对方, 那么内存管理系统将在其不使用的情况下也无法进行销毁.<br><img src="https://btvwbg-bn1306.files.1drv.com/y3mNc0SZVMMWepl-pDGj869KYq3tV0aHciIJC295Tx5BcWDA_VP7iCpDo72n577PJgyvEkNW5OoJtvZf6ADg9z_GuY0X2nOqulXSb8NX_vQsB7NzgHRhQ_xnNPIENXyxwsV4f0KfWbvzRBePSF-z7iCTmVvDT3tCAHW-4L6N4IxRbw?width=574&height=316&cropmode=none" width="574"> <div align="center">Car类和Person类之间循环引用</div></p>
+<p>这种现象被称为循环引用(<strong>retain cycle</strong>), 这是内存泄露的一种形式. 所幸的是, 修复这种问题非常简单, 只需要将一个对象对另一个对象保持若引用(<strong>weak reference</strong>)即可. <code>Person.h</code>中, 改变<code>car</code>的声明如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@property (nonatomic, weak) Car *car;</span><br><span class="line">``` </span><br><span class="line">`weak`语义对`car`创建的以非拥有的关系. 这允许`john`对`honda`有引用而避免了循环引用. 但同时, 这也意味着有可能`honda`在`john`对其还有引用存在时被销毁. 如果发生这种情况, `weak`语义会很方便的将`car`置为`nil`而避免野指针. </span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;https://btxx4g-bn1306.files.1drv.com/y3mnorNGN4imnwsZ0U5RPE1EgBeg0IB6FfC8fKZ5C7NSsz0g97gvIb_cJmkKAFnrucWRhWa9rbFw-yoMkgeCalY6vjwgKqWw_5L4Q5RKyQO_EGcrnzIrebD0cCbj-jUFya0YC5I-ADmSa0Td2oQSs6OgG2R9krB6BVHXzmRrQZn734?width=578&amp;height=318&amp;cropmode=none&quot; width=&quot;578&quot; /&gt; &lt;div align=&quot;center&quot;&gt;Person对Car的弱引用&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">`weak`语义常用的用法是用于父-子数据结构. 习惯上, 父对象应该对子对象持有强引用, 而子对象则应该对父对象持有弱引用. 弱引用也是代理设计模式(delegate design pattern)固有的部分.</span><br><span class="line"></span><br><span class="line">解决的办法就是两个对象之间不要全是强引用. `weak`语义使得保持有周期性的关系(cyclical relationship)同时避免了循环引用成为了可能. </span><br><span class="line">### The copy Attribute</span><br><span class="line">`copy`语义是`strong`的替代品. 与获取存在对象的持有权不同, `copy`创建了一个属性的副本, 然后对副本持有. 仅有遵从[NSCopying protocol](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Protocols/NSCopying_Protocol/index.html#//apple_ref/occ/intf/NSCopying)的对象才能使用该语义.</span><br><span class="line"></span><br><span class="line">属性代表值(相对连接或关系)非常易于复制. 比如, 开发者通常复制`NSString`属性而非强引用:</span><br></pre></td></tr></table></figure>
+<p>// Car.h<br>@property (nonatomic, copy) NSString *model;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">此时, `Car`会存储一个我们分配给`model`的新的实例. 如果你使用了可变的值, 这会有额外的好处, 可以在当对象分配了可变值的时候被, 不论再次分配任何值都不会变.</span><br></pre></td></tr></table></figure></p>
+<p>// main.m</p>
+<h1 id="import"><a href="#import" class="headerlink" title="import "></a>import <foundation foundation.h=""></foundation></h1><h1 id="import-“Car-h”"><a href="#import-“Car-h”" class="headerlink" title="import “Car.h”"></a>import “Car.h”</h1><p>int main(int argc, const char <em> argv[]) {<br>    @autoreleasepool {<br>        Car </em>honda = [[Car alloc] init];<br>        NSMutableString *model = [NSMutableString stringWithString:@”Honda Civic”];<br>        honda.model = model;</p>
+<pre><code>    NSLog(@&quot;%@&quot;, honda.model);
+    [model setString:@&quot;Nissa Versa&quot;];
+    NSLog(@&quot;%@&quot;, honda.model);            // Still &quot;Honda Civic&quot;
+}
+return 0;
+</code></pre><p>}<br><code>``
+[</code>NSMutableString<code>](http://rypress.com/tutorials/objective-c/data-types/nsstring.html#nsmutablestring)是</code>NSString<code>的子类, 它能够就地被编辑. 如果</code>model<code>属性没有创建初始实例的副本, 我们会在第二个输出函数</code>NSLog()<code>中看到改变之后的字符串(</code>Nissan Versa`).</p>
+<h2 id="Other-Attributes"><a href="#Other-Attributes" class="headerlink" title="Other Attributes"></a>Other Attributes</h2><p>以上<code>@property</code>语义是新版本Objective-C应用(iOS 5+)所必须的, 但是有一些其他的语义你可能会在早起库或文件中发现.</p>
+<h3 id="The-retain-Attribute"><a href="#The-retain-Attribute" class="headerlink" title="The retain Attribute"></a>The retain Attribute</h3><p><code>retain</code>语义是<a href="http://rypress.com/tutorials/objective-c/memory-management.html#manual-retain-release" target="_blank" rel="noopener">手动内存管理(Manual Retain Release)</a>版本中的<code>strong</code>, 并具有相同的影响: 声明了分配值的所有权. 在自动引用计数中不会用到它.</p>
+<h3 id="The-unsafe-unretained-Attribute"><a href="#The-unsafe-unretained-Attribute" class="headerlink" title="The unsafe_unretained Attribute"></a>The unsafe_unretained Attribute</h3><p>具有<code>unsafe_unretained</code>语义的属性行为类似于<code>weak</code>语义的属性, 但是如果饮用对象被销毁它们不会自动置为<code>nil</code>. 你必须使用<code>unsafe_unretained</code>的原因是使你的类和代码兼容, 二代码不支持<code>weak</code>属性.</p>
+<h3 id="The-assign-Attribute"><a href="#The-assign-Attribute" class="headerlink" title="The assign Attribute"></a>The assign Attribute</h3><p>当分配给属性新值时, <code>assign</code>语义不会执行任何一种内存管理调用. 这是早期数据类型的默认行为, 在iOS 5 之前它是用于实现弱引用的. 比如<code>retain</code>, 不必在现代应用中明确使用它.</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>本节展现了<code>@property</code>全部可用的语义, 我们希望你对修改合成访问器方法行为感到相对舒适. 所有这些语义的目标是帮助你聚焦_什么样的_数据需要记录, 允许编译器自动地决定_如何_展示.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Attribute</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>getter=</code></td>
+<td style="text-align:left">为getter方法使用自定义的名字      </td>
+</tr>
+<tr>
+<td style="text-align:left"><code>setter=</code></td>
+<td style="text-align:left">为setter方法使用自定义的名字</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>readonly</code></td>
+<td style="text-align:left">不用合成setter方法</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>nonatomic</code></td>
+<td style="text-align:left">不保证在多线程环境下访问器的完整性. 这比默认的原子性</td>
+<td>行为有效</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>strong</code></td>
+<td style="text-align:left">在属性和被分配的值之间创建一个拥有关系. 这是对象属性默认的</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>weak</code></td>
+<td style="text-align:left">在属性和被分配的值之间创建一个非拥有关系. 使用该语义阻止循环引用</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>copy</code></td>
+<td style="text-align:left">创建一个被分配值的副本来代替引用   </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/17/Objective-C-Classes/" rel="next" title="Objective-C Classes">
+                <i class="fa fa-chevron-left"></i> Objective-C Classes
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/17/Objective-C-Methods/" rel="prev" title="Objective-C Methods">
+                Objective-C Methods <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Totorooo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Properties"><span class="nav-number">1.</span> <span class="nav-text">Properties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-property-Directive"><span class="nav-number">2.</span> <span class="nav-text">The @property Directive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-getter-and-setter-Attributes"><span class="nav-number">3.</span> <span class="nav-text">The getter= and setter= Attributes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-readonly-Attribute"><span class="nav-number">4.</span> <span class="nav-text">The readonly Attribute</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-nonatomic-Attribute"><span class="nav-number">5.</span> <span class="nav-text">The nonatomic Attribute</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory-Management"><span class="nav-number">6.</span> <span class="nav-text">Memory Management</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-strong-Attribute"><span class="nav-number">6.1.</span> <span class="nav-text">The strong Attribute</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-weak-Attribute"><span class="nav-number">6.2.</span> <span class="nav-text">The weak Attribute</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#import"><span class="nav-number"></span> <span class="nav-text">import </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#import-“Car-h”"><span class="nav-number"></span> <span class="nav-text">import “Car.h”</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-Attributes"><span class="nav-number">1.</span> <span class="nav-text">Other Attributes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-retain-Attribute"><span class="nav-number">1.1.</span> <span class="nav-text">The retain Attribute</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-unsafe-unretained-Attribute"><span class="nav-number">1.2.</span> <span class="nav-text">The unsafe_unretained Attribute</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-assign-Attribute"><span class="nav-number">1.3.</span> <span class="nav-text">The assign Attribute</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">2.</span> <span class="nav-text">Summary</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Totorooo</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

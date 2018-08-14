@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="objc,translation," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本文翻译自Ry’s Objective-C Tutorial—Protocols  Protocols协议是能够被_任何_一个类所实现的一组相关的属性和方法. 它们能让你在完全不相干的类当中复用单一的API声明, 所以它们比任何一个类的接口更加灵活. 这种特性使它在现有的类层次结构之上表现水平关系成为可能. 非相关类使">
+<meta name="keywords" content="objc,translation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective-C Protocols">
+<meta property="og:url" content="http://yoursite.com/2016/06/20/Objective-C-Protocols/index.html">
+<meta property="og:site_name" content="Hello | Totoro">
+<meta property="og:description" content="本文翻译自Ry’s Objective-C Tutorial—Protocols  Protocols协议是能够被_任何_一个类所实现的一组相关的属性和方法. 它们能让你在完全不相干的类当中复用单一的API声明, 所以它们比任何一个类的接口更加灵活. 这种特性使它在现有的类层次结构之上表现水平关系成为可能. 非相关类使用`StreetLegal`协议">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://btxcqa-bn1306.files.1drv.com/y3m63u13kIlZpCOvvb5U6GUuZVdyxeXirpM47QLT3Vexjt_CMCj3AUB9txXvu_-Z4ymDUrPUQBHGFPZjgvMwjnMV6emQxsOhDPT5SqHuYd6iO0OnZSz7gQNXlhX9ZhVh2B91DL7b063_reJXnp1BJfOaQhWKrj7Ebos1ImSCbHRIF0?width=956&height=472&cropmode=none">
+<meta property="og:image" content="https://btvdtq-bn1306.files.1drv.com/y3maHeUmmIJDBGQGVsOx7DUBm-g4fUmQmwCNY_kvraIPZi8Gjke2aZxFuiY1NNCkw2LLGo7dt0folw4qMoQ08u-i_4ngDjrBDmHKuow7dHg75XkQMEAVgDNltd8_orz1b75VGWYD-YKYGYv_iXPEcg9U4uulcMk_rDuOLtdlwUnNjo?width=1464&height=1034&cropmode=none">
+<meta property="og:updated_time" content="2016-06-20T07:09:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Objective-C Protocols">
+<meta name="twitter:description" content="本文翻译自Ry’s Objective-C Tutorial—Protocols  Protocols协议是能够被_任何_一个类所实现的一组相关的属性和方法. 它们能让你在完全不相干的类当中复用单一的API声明, 所以它们比任何一个类的接口更加灵活. 这种特性使它在现有的类层次结构之上表现水平关系成为可能. 非相关类使用`StreetLegal`协议">
+<meta name="twitter:image" content="https://btxcqa-bn1306.files.1drv.com/y3m63u13kIlZpCOvvb5U6GUuZVdyxeXirpM47QLT3Vexjt_CMCj3AUB9txXvu_-Z4ymDUrPUQBHGFPZjgvMwjnMV6emQxsOhDPT5SqHuYd6iO0OnZSz7gQNXlhX9ZhVh2B91DL7b063_reJXnp1BJfOaQhWKrj7Ebos1ImSCbHRIF0?width=956&height=472&cropmode=none">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/20/Objective-C-Protocols/"/>
+
+
+
+
+
+  <title>Objective-C Protocols | Hello | Totoro</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello | Totoro</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/20/Objective-C-Protocols/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Totorooo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello | Totoro">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Objective-C Protocols</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-20T15:09:57+08:00">
+                2016-06-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>本文翻译自<a href="http://rypress.com/tutorials/objective-c/protocols" target="_blank" rel="noopener">Ry’s Objective-C Tutorial—Protocols</a></strong></p>
+<hr>
+<h2 id="Protocols"><a href="#Protocols" class="headerlink" title="Protocols"></a>Protocols</h2><p>协议是能够被_任何_一个类所实现的一组相关的属性和方法. 它们能让你在完全不相干的类当中复用单一的API声明, 所以它们比任何一个类的接口更加灵活. 这种特性使它在现有的类层次结构之上表现水平关系成为可能.<br><img src="https://btxcqa-bn1306.files.1drv.com/y3m63u13kIlZpCOvvb5U6GUuZVdyxeXirpM47QLT3Vexjt_CMCj3AUB9txXvu_-Z4ymDUrPUQBHGFPZjgvMwjnMV6emQxsOhDPT5SqHuYd6iO0OnZSz7gQNXlhX9ZhVh2B91DL7b063_reJXnp1BJfOaQhWKrj7Ebos1ImSCbHRIF0?width=956&height=472&cropmode=none" width="600"> <div align="center">非相关类使用`StreetLegal`协议</div></p>
+<a id="more"></a>
+<h2 id="Creating-Protocols"><a href="#Creating-Protocols" class="headerlink" title="Creating Protocols"></a>Creating Protocols</h2><p>和类接口一样, 协议同样是在<code>.h</code>文件当中. 在工程中添加协议, 使用_<code>Cmd+N</code>_组合键, 选择iOS下的Objective-C文件, 下一步, 第一栏填写文件名, 第二栏选择文件类型为Protocol.<br><img src="https://btvdtq-bn1306.files.1drv.com/y3maHeUmmIJDBGQGVsOx7DUBm-g4fUmQmwCNY_kvraIPZi8Gjke2aZxFuiY1NNCkw2LLGo7dt0folw4qMoQ08u-i_4ngDjrBDmHKuow7dHg75XkQMEAVgDNltd8_orz1b75VGWYD-YKYGYv_iXPEcg9U4uulcMk_rDuOLtdlwUnNjo?width=1464&height=1034&cropmode=none" width="600"><div align="center">创建一个协议</div></p>
+<p>在本部分, 我们将以协议名为<code>StreetLegal</code>来进行说明. 输入文件名, 保存到根目录.</p>
+<p>我们的协议会获取street-legal机动车的必要行为. 把这些特性定义在一个协议中, 你就可以对任意对象使用它们, 而不是强制其继承自同一抽象的超类. 一个<code>StreetLegal</code>协议的简单版本如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// StreetLegal.h</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@protocol StreetLegal &lt;NSObject&gt;</span><br><span class="line"></span><br><span class="line">- (void)signalStop;</span><br><span class="line">- (void)signalLeftTurn;</span><br><span class="line">- (void)signalRightTurn;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>任何一个遵守该协议的对象都要_保证_其实现上面的所有方法. 协议名后面的<code>&lt;NSObject&gt;</code>将<a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Protocols/NSObject_Protocol/index.html" target="_blank" rel="noopener">NSObject protocol</a> (不要和<a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/index.html" target="_blank" rel="noopener">NSObject class</a>混淆) 纳入<code>StreetLegal</code>协议. 也就是说, 任何遵从<code>StreetLegal</code>协议的对象都也要遵从<code>NSObject</code>协议.</p>
+<h2 id="Adopting-Protocols"><a href="#Adopting-Protocols" class="headerlink" title="Adopting Protocols"></a>Adopting Protocols</h2><p>以上的API可以通过添加在类/超类名后面的尖括号里面来由一个类遵从. 创建一个新的类叫做<code>Bicycle</code>, 按照以下例子来更改它的头文件. 注意, 在使用协议之前, 你得引入它.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// Bicycle.h</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">#import &quot;StreetLegal.h&quot;</span><br><span class="line"></span><br><span class="line">@interface Bicycle : NSObject &lt;StreetLegal&gt;</span><br><span class="line"></span><br><span class="line">- (void)startPedaling;</span><br><span class="line">- (void)removeFrontWheel;</span><br><span class="line">- (void)lockToStructure:(id)theStructure;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>遵从协议就好像是把<code>StreetLegal.h</code>中的所有方法添加到<code>Bicycle.h</code>中一样. 即便是<code>Bicycle</code>继承自其他的超类, 该方法也具有同样效果. 如要遵从多个协议, 协议之间由逗号隔开(e.g., <streetlegal, someotherprotocol="">).</streetlegal,></p>
+<p><code>Bicycle</code>的实现并无不同, 只是必须确保所有<code>Bicycle.h</code>中_和_<code>StreetLegal.h</code>中所声明的方法都要实现:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// Bicycle.m</span><br><span class="line">#import &quot;Bicycle.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation Bicycle</span><br><span class="line"></span><br><span class="line">- (void)signalStop &#123;</span><br><span class="line">    NSLog(@&quot;Bending left arm downwards&quot;);</span><br><span class="line">&#125;</span><br><span class="line">- (void)signalLeftTurn &#123;</span><br><span class="line">    NSLog(@&quot;Extending left arm outwards&quot;);</span><br><span class="line">&#125;</span><br><span class="line">- (void)signalRightTurn &#123;</span><br><span class="line">    NSLog(@&quot;Bending left arm upwards&quot;);</span><br><span class="line">&#125;</span><br><span class="line">- (void)startPedaling &#123;</span><br><span class="line">    NSLog(@&quot;Here we go!&quot;);</span><br><span class="line">&#125;</span><br><span class="line">- (void)removeFrontWheel &#123;</span><br><span class="line">    NSLog(@&quot;Front wheel is off.&quot;</span><br><span class="line">          &quot;Should probably replace that before pedaling...&quot;);</span><br><span class="line">&#125;</span><br><span class="line">- (void)lockToStructure:(id)theStructure &#123;</span><br><span class="line">    NSLog(@&quot;Locked to structure. Don&apos;t forget the combination!&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>现在, 当要使用<code>Bicycle</code>类的时候, 你就可以获得由协议定义API的响应.   如同<code>signalStop</code>, <code>signalLeftTurn</code>, <code>signalRightTurn</code>声明在<code>Bicycle.h</code>中一样:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// main.m</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">#import &quot;Bicycle.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line">        Bicycle *bike = [[Bicycle alloc] init];</span><br><span class="line">        [bike startPedaling];</span><br><span class="line">        [bike signalLeftTurn];</span><br><span class="line">        [bike signalStop];</span><br><span class="line">        [bike lockToStructure:nil];</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Type-Checking-With-Protocols"><a href="#Type-Checking-With-Protocols" class="headerlink" title="Type Checking With Protocols"></a>Type Checking With Protocols</h2><p>如同类一样, 协议也可以用于变量类型检查. 为了保证一个对象遵从了一个协议, 声明变量时将协议名置于数据类型之后. 如下例所示. 下面代码片段同时假设你已经创建了一个<code>Car</code>类, 其遵从于<code>StreetLegal</code>协议:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// main.m</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">#import &quot;Bicycle.h&quot;</span><br><span class="line">#import &quot;Car.h&quot;</span><br><span class="line">#import &quot;StreetLegal.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line">        id &lt;StreetLegal&gt; mysteryVehicle = [[Car alloc] init];</span><br><span class="line">        [mysteryVehicle signalLeftTurn];</span><br><span class="line">        </span><br><span class="line">        mysteryVehicle = [[Bicycle alloc] init];</span><br><span class="line">        [mysteryVehicle signalLeftTurn];</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>Car</code>类和<code>Bicycle</code>类是否继承自相同的超类没关系—事实上, 它俩同时遵从了<code>Streetlegal</code>协议, 所以我们就可以存储任何一个由<code>id &lt;Streetlegal&gt;</code>所声明的变量. 这是一个协议如何获取不相关类之间常用功能的例子.</p>
+<p>也可以使用<code>NSObject</code>协议定义的<code>conformsToProtocol:</code>方法, 针对一个协议来检查对象. 它把一个协议对象看做为参数, 该参数可以通过@protocol()指令所获取. 它更像是<a href="">@selector()</a>指令一样, 但是传递的是协议名而非方法名:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if ([mysteryVehicle conformsToProtocol:@protocol(StreetLegal)]) &#123;</span><br><span class="line">    [mysteryVehicle signalStop];</span><br><span class="line">    [mysteryVehicle signalLeftTurn];</span><br><span class="line">    [mysteryVehicle signalRightTurn];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以这种方式使用协议好像是在说, “确保这个对象有这么一组功能”. 这是动态类型的一个非常强大的工具, 因为它让你使用了一个明确定义的API, 而不同担心你所处理的对象是什么.</p>
+<h2 id="Protocols-In-The-Real-World"><a href="#Protocols-In-The-Real-World" class="headerlink" title="Protocols In The Real World"></a>Protocols In The Real World</h2><p>在你iOS和OS X应用日常开发中都可以找到案例. 任何一个app的入口都是”application delegate” 对象处理一个程序生命周期中的主要事件. 不用让代理继承自任何一个指定的超类, 你只需遵从<a href="">UIKit Framework</a>协议即可: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@interface YourAppDelegate : UIResponder &lt;UIApplicationDelegate&gt;</span><br></pre></td></tr></table></figure>
+<p>只要对<a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplicationDelegate_Protocol/index.html" target="_blank" rel="noopener">UIApplicationDelegate</a>定义的方法有响应, 你就可以使用_任何_对象作为你应用的代理. 当管理应用时, 通过协议实现代理的设计模式比子类化的模式给开发者留有更多余地. </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/objc/" rel="tag"># objc</a>
+          
+            <a href="/tags/translation/" rel="tag"># translation</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/17/Objective-C-Methods/" rel="next" title="Objective-C Methods">
+                <i class="fa fa-chevron-left"></i> Objective-C Methods
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/03/Objective-C-Categories/" rel="prev" title="Objective-C Categories">
+                Objective-C Categories <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Totorooo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Protocols"><span class="nav-number">1.</span> <span class="nav-text">Protocols</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Creating-Protocols"><span class="nav-number">2.</span> <span class="nav-text">Creating Protocols</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adopting-Protocols"><span class="nav-number">3.</span> <span class="nav-text">Adopting Protocols</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Type-Checking-With-Protocols"><span class="nav-number">4.</span> <span class="nav-text">Type Checking With Protocols</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Protocols-In-The-Real-World"><span class="nav-number">5.</span> <span class="nav-text">Protocols In The Real World</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Totorooo</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
